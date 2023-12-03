@@ -34,9 +34,9 @@ segments:
     subsegments:
     - [0x1000, hasm, entry] # bootloader
     - [0x1050, asm, set_zero_tlb]
-    - [0x10D0, asm] # DMA memory area
+    - [0x10D0, asm] # DMA memory area?
     - [0x13F0, asm]
-    - [0x14B0, asm]
+    - [0x14B0, asm] # sched.c according to asserts
     - [0x2350, asm] # main
     - [0x2630, asm]
     
@@ -74,18 +74,19 @@ segments:
     - [0x4070, asm,  libultra/os/setthreadpri]
     - [0x4150, bin,  noppad_4150] # nop padding
     - [0x41B0, asm,  libultra/libc/sprintf]
-    
-    - [0x4230, asm]
-    - [0x42B0, asm]
-    - [0x45C0, asm]
-    - [0x45E0, asm]
-    - [0x4600, asm]
-    - [0x4630, asm]
-    - [0x4710, asm]
-    - [0x4800, asm]
-    - [0x4810, asm]
-    - [0x4880, asm]
-    - [0x4B80, asm]
+    - [0x4230, asm,  libultra/os/virtualtophysical]
+    - [0x42B0, asm,  libultra/os/jammesg]
+    - [0x4400, asm,  libultra/os/stopthread]
+    - [0x44C0, asm,  libultra/os/destroythread]
+    - [0x45C0, asm,  libultra/os/getthreadpri]
+    - [0x45E0, asm,  libultra/os/getthreadid]
+    - [0x4600, asm,  libultra/os/settime]
+    - [0x4630, asm,  libultra/os/settimer]
+    - [0x4710, asm,  libultra/os/stoptimer]
+    - [0x4800, hasm, libultra/os/getcount]
+    - [0x4810, asm] # unknown file
+    - [0x4880, asm] # unknown file
+    - [0x4B80, asm] # unknown file
     
     - [0x51A0, asm]
     - [0x52E0, asm]
