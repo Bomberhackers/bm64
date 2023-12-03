@@ -42,29 +42,39 @@ segments:
     
     # start of libultra. first file might be our "overridden synsetvol" they also used in Hero.
     - [0x2650, asm]
-    - [0x2740, asm]
-    - [0x2800, asm]
-    - [0x2990, asm]
-    - [0x29C0, asm]
-    - [0x2B00, asm]
-    - [0x2C10, asm]
-    - [0x2C60, asm]
-    - [0x2CE0, asm]
-    - [0x2D90, asm]
-    - [0x2E10, asm]
-    - [0x3170, asm]
-    - [0x31E0, asm]
-    - [0x32C0, asm]
-    - [0x3330, asm]
-    - [0x3480, asm]
-    - [0x3700, asm]
-    - [0x3850, asm]
-    - [0x39D0, asm]
-    - [0x3CC0, asm]
-    - [0x3D70, asm]
-    - [0x3DE0, asm]
-    - [0x4070, asm]
-    - [0x41B0, asm]
+    - [0x2740, hasm, libultra/os/maptlb]
+    - [0x2800, asm,  libultra/io/pimgr]
+    - [0x2990, asm]  # unknown file
+    - [0x29C0, asm,  libultra/os/recvmesg]
+    - [0x2B00, asm,  libultra/io/pidma]
+    - [0x2C10, asm,  libultra/os/yieldthread]
+    - [0x2C60, hasm, libultra/os/writebackdcache]
+    - [0x2CE0, hasm, libultra/os/invaldcache]
+    - [0x2D90, hasm, libultra/os/invalicache]
+    - [0x2E10, asm,  libultra/io/vimgr]
+    - [0x3170, asm,  libultra/io/visetmode]
+    - [0x31E0, asm,  libultra/io/viblack]
+    - [0x3250, asm,  libultra/os/seteventmesg]
+    - [0x32C0, asm,  libultra/io/visetevent]
+    - [0x3330, asm,  libultra/os/createthread]
+    - [0x3480, asm,  libultra/os/startthread]
+    - [0x35D0, asm,  libultra/os/setintmask]
+    - [0x3670, asm,  libultra/os/gettime]
+    - [0x3700, asm,  libultra/os/sendmesg]
+    - [0x3850, asm,  libultra/io/sptaskyielded]
+    - [0x38D0, asm,  libultra/io/vigetcurrframebuf]
+    - [0x3910, asm] # unknown file
+    - [0x3950, asm,  libultra/io/viswapbuf]
+    - [0x39A0, asm,  libultra/os/writebackdcacheall]
+    - [0x39D0, asm,  libultra/io/sptask]
+    - [0x3CC0, asm,  libultra/io/dpsetnextbuf]
+    - [0x3D70, asm,  libultra/io/sptaskyield]
+    - [0x3D90, asm] # unknown file
+    - [0x3DE0, asm,  libultra/os/initialize]
+    - [0x4070, asm,  libultra/os/setthreadpri]
+    - [0x4150, bin,  noppad_4150] # nop padding
+    - [0x41B0, asm,  libultra/libc/sprintf]
+    
     - [0x4230, asm]
     - [0x42B0, asm]
     - [0x45C0, asm]
@@ -76,6 +86,7 @@ segments:
     - [0x4810, asm]
     - [0x4880, asm]
     - [0x4B80, asm]
+    
     - [0x51A0, asm]
     - [0x52E0, asm]
     - [0x5900, asm]
@@ -87,6 +98,7 @@ segments:
     - [0x5B80, asm]
     - [0x5D40, asm]
     - [0x5DD0, asm]
+    
     - [0x5DE0, asm]
     - [0x5DF0, asm]
     - [0x6000, asm]
@@ -98,6 +110,7 @@ segments:
     - [0x6140, asm]
     - [0x6660, asm]
     - [0x68C0, asm]
+    
     - [0x6A40, asm]
     - [0x6AF0, asm]
     - [0x6B60, asm]
@@ -109,6 +122,7 @@ segments:
     - [0x6F70, asm]
     - [0x71C0, asm]
     - [0x78B0, asm]
+    
     - [0x79A0, asm]
     - [0x7BD0, asm]
     - [0x7D10, asm]
@@ -120,6 +134,7 @@ segments:
     - [0x8010, asm]
     - [0x80B0, asm]
     - [0x8130, asm]
+    
     - [0x8140, asm]
     - [0x95A0, asm]
     - [0xAF30, asm]
@@ -131,6 +146,7 @@ segments:
     - [0xB0D0, asm]
     - [0xB120, asm]
     - [0xB160, asm]
+    
     - [0xB1A0, asm]
     - [0xB200, asm]
     - [0xB290, asm]
@@ -142,6 +158,7 @@ segments:
     - [0xB410, asm]
     - [0xB460, asm]
     - [0xB480, asm]
+    
     - [0xC710, asm]
     - [0xC740, asm]
     - [0xC780, asm]
@@ -153,6 +170,7 @@ segments:
     - [0xC940, asm]
     - [0xC9A0, asm]
     - [0xCA30, asm]
+    
     - [0xCA90, asm]
     - [0xCAB0, asm]
     - [0xCB10, asm]
@@ -164,6 +182,7 @@ segments:
     - [0xD390, asm]
     - [0xD3C0, asm]
     - [0xD460, asm]
+    
     - [0xD4D0, asm]
     - [0xD4E0, asm]
     - [0xD550, asm]
@@ -174,6 +193,7 @@ segments:
     - [0xD710, asm]
     - [0xD7A0, asm]
     - [0xEE90, asm]
+    
     - [0xF050, asm]
     - [0xF660, asm]
     - [0xFB60, asm]
@@ -184,6 +204,7 @@ segments:
     - [0x11040, asm]
     - [0x112B0, asm]
     - [0x11510, asm]
+    
     - [0x11600, asm]
     - [0x11700, asm]
     - [0x11800, asm]
@@ -194,6 +215,7 @@ segments:
     - [0x12D90, asm]
     - [0x130F0, asm]
     - [0x13100, asm]
+    
     - [0x13410, asm]
     - [0x13420, asm]
     - [0x13460, asm]
@@ -204,6 +226,7 @@ segments:
     - [0x13620, asm]
     - [0x13680, asm]
     - [0x139E0, asm]
+    
     - [0x146A0, asm]
     - [0x14740, asm]
     - [0x14800, asm]
@@ -214,6 +237,7 @@ segments:
     - [0x16680, asm]
     - [0x16980, asm]
     - [0x175E0, asm]
+    
     - [0x176F0, asm]
     - [0x18400, asm]
     - [0x18510, asm]
@@ -224,6 +248,7 @@ segments:
     - [0x19C40, asm]
     - [0x19C70, asm]
     - [0x19F10, asm]
+    
     - [0x1A9D0, asm]
     - [0x1A9F0, asm]
     - [0x1AB80, data]
