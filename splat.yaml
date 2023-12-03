@@ -1,0 +1,309 @@
+name: Bomberman 64 (USA)
+basename: bm64
+sha1: 8a7648d8105ac4fc1ad942291b2ef89aeca921c9
+options:
+  compiler: IDO
+  symbol_addrs_path: tools/symbol_addrs.txt
+  target_path: baserom.z64
+  basename: bm64
+  base_path: .
+  ld_script_path: bm64.ld
+  platform: n64
+  ld_legacy_generation: true
+  detect_redundant_function_end: true
+segments:
+  - name: header
+    type: header
+    start: 0x00
+    vram: 0
+    subsegments:
+    - [0x0000, header, header]
+  - name: boot
+    type: code
+    start: 0x0040
+    vram: 0xA4000040
+    exclusive_ram_id: boot
+    subsegments:
+    - [0x0040, asm, boot]
+    - [0x0B70, bin, bootcode_font]
+  - name: boot_code
+    type: code
+    bss_size: 0x0 # unknown
+    start: 0x1000
+    vram: 0x80000400
+    subsegments:
+    - [0x1000, hasm, entry] # bootloader
+    - [0x1050, asm, set_zero_tlb]
+    - [0x10D0, asm] # DMA memory area
+    - [0x13F0, asm]
+    - [0x14B0, asm]
+    - [0x2350, asm] # main
+    - [0x2630, asm]
+    
+    # start of libultra. first file might be our "overridden synsetvol" they also used in Hero.
+    - [0x2650, asm]
+    - [0x2740, asm]
+    - [0x2800, asm]
+    - [0x2990, asm]
+    - [0x29C0, asm]
+    - [0x2B00, asm]
+    - [0x2C10, asm]
+    - [0x2C60, asm]
+    - [0x2CE0, asm]
+    - [0x2D90, asm]
+    - [0x2E10, asm]
+    - [0x3170, asm]
+    - [0x31E0, asm]
+    - [0x32C0, asm]
+    - [0x3330, asm]
+    - [0x3480, asm]
+    - [0x3700, asm]
+    - [0x3850, asm]
+    - [0x39D0, asm]
+    - [0x3CC0, asm]
+    - [0x3D70, asm]
+    - [0x3DE0, asm]
+    - [0x4070, asm]
+    - [0x41B0, asm]
+    - [0x4230, asm]
+    - [0x42B0, asm]
+    - [0x45C0, asm]
+    - [0x45E0, asm]
+    - [0x4600, asm]
+    - [0x4630, asm]
+    - [0x4710, asm]
+    - [0x4800, asm]
+    - [0x4810, asm]
+    - [0x4880, asm]
+    - [0x4B80, asm]
+    - [0x51A0, asm]
+    - [0x52E0, asm]
+    - [0x5900, asm]
+    - [0x5970, asm]
+    - [0x59C0, asm]
+    - [0x59D0, asm]
+    - [0x59F0, asm]
+    - [0x5B20, asm]
+    - [0x5B80, asm]
+    - [0x5D40, asm]
+    - [0x5DD0, asm]
+    - [0x5DE0, asm]
+    - [0x5DF0, asm]
+    - [0x6000, asm]
+    - [0x6010, asm]
+    - [0x6020, asm]
+    - [0x6070, asm]
+    - [0x6080, asm]
+    - [0x6090, asm]
+    - [0x6140, asm]
+    - [0x6660, asm]
+    - [0x68C0, asm]
+    - [0x6A40, asm]
+    - [0x6AF0, asm]
+    - [0x6B60, asm]
+    - [0x6D70, asm]
+    - [0x6D80, asm]
+    - [0x6EC0, asm]
+    - [0x6F00, asm]
+    - [0x6F60, asm]
+    - [0x6F70, asm]
+    - [0x71C0, asm]
+    - [0x78B0, asm]
+    - [0x79A0, asm]
+    - [0x7BD0, asm]
+    - [0x7D10, asm]
+    - [0x7D90, asm]
+    - [0x7E30, asm]
+    - [0x7EC0, asm]
+    - [0x7F50, asm]
+    - [0x7FF0, asm]
+    - [0x8010, asm]
+    - [0x80B0, asm]
+    - [0x8130, asm]
+    - [0x8140, asm]
+    - [0x95A0, asm]
+    - [0xAF30, asm]
+    - [0xAF60, asm]
+    - [0xAFA0, asm]
+    - [0xAFB0, asm]
+    - [0xB020, asm]
+    - [0xB060, asm]
+    - [0xB0D0, asm]
+    - [0xB120, asm]
+    - [0xB160, asm]
+    - [0xB1A0, asm]
+    - [0xB200, asm]
+    - [0xB290, asm]
+    - [0xB2F0, asm]
+    - [0xB310, asm]
+    - [0xB370, asm]
+    - [0xB390, asm]
+    - [0xB3F0, asm]
+    - [0xB410, asm]
+    - [0xB460, asm]
+    - [0xB480, asm]
+    - [0xC710, asm]
+    - [0xC740, asm]
+    - [0xC780, asm]
+    - [0xC790, asm]
+    - [0xC800, asm]
+    - [0xC840, asm]
+    - [0xC8B0, asm]
+    - [0xC900, asm]
+    - [0xC940, asm]
+    - [0xC9A0, asm]
+    - [0xCA30, asm]
+    - [0xCA90, asm]
+    - [0xCAB0, asm]
+    - [0xCB10, asm]
+    - [0xCB30, asm]
+    - [0xCB90, asm]
+    - [0xCBB0, asm]
+    - [0xCC00, asm]
+    - [0xCC20, asm]
+    - [0xD390, asm]
+    - [0xD3C0, asm]
+    - [0xD460, asm]
+    - [0xD4D0, asm]
+    - [0xD4E0, asm]
+    - [0xD550, asm]
+    - [0xD5A0, asm]
+    - [0xD5F0, asm]
+    - [0xD650, asm]
+    - [0xD6B0, asm]
+    - [0xD710, asm]
+    - [0xD7A0, asm]
+    - [0xEE90, asm]
+    - [0xF050, asm]
+    - [0xF660, asm]
+    - [0xFB60, asm]
+    - [0xFF10, asm]
+    - [0x10380, asm]
+    - [0x104D0, asm]
+    - [0x10620, asm]
+    - [0x11040, asm]
+    - [0x112B0, asm]
+    - [0x11510, asm]
+    - [0x11600, asm]
+    - [0x11700, asm]
+    - [0x11800, asm]
+    - [0x11A30, asm]
+    - [0x12810, asm]
+    - [0x12840, asm]
+    - [0x12D80, asm]
+    - [0x12D90, asm]
+    - [0x130F0, asm]
+    - [0x13100, asm]
+    - [0x13410, asm]
+    - [0x13420, asm]
+    - [0x13460, asm]
+    - [0x134F0, asm]
+    - [0x13520, asm]
+    - [0x13550, asm]
+    - [0x13570, asm]
+    - [0x13620, asm]
+    - [0x13680, asm]
+    - [0x139E0, asm]
+    - [0x146A0, asm]
+    - [0x14740, asm]
+    - [0x14800, asm]
+    - [0x14810, asm]
+    - [0x14980, asm]
+    - [0x15210, asm]
+    - [0x159E0, asm]
+    - [0x16680, asm]
+    - [0x16980, asm]
+    - [0x175E0, asm]
+    - [0x176F0, asm]
+    - [0x18400, asm]
+    - [0x18510, asm]
+    - [0x19270, asm]
+    - [0x192D0, asm]
+    - [0x19320, asm]
+    - [0x193C0, asm]
+    - [0x19C40, asm]
+    - [0x19C70, asm]
+    - [0x19F10, asm]
+    - [0x1A9D0, asm]
+    - [0x1A9F0, asm]
+    - [0x1AB80, data]
+    - [0x1CCF0, bin] # some weird zero'd out area except 1 or 2 things
+
+  - name: main_code
+    type: code
+    bss_size: 0x0 # unknown
+    start: 0x40000
+    vram: 0x80225800
+    subsegments:
+    - [0x40000, asm]
+    - [0x40300, asm]
+    - [0x404C0, asm]
+    - [0x40FB0, asm]
+    - [0x412F0, asm]
+    - [0x41FD0, asm]
+    - [0x426E0, asm]
+    - [0x47A80, asm]
+    - [0x4DE50, asm]
+    - [0x4ED50, asm]
+    - [0x52270, asm]
+    - [0x530C0, asm]
+    - [0x53D70, asm]
+    - [0x54BE0, asm]
+    - [0x54E40, asm]
+    - [0x5E090, asm]
+    - [0x5E3F0, asm]
+    - [0x6BBE0, asm]
+    - [0x78CA0, asm]
+    - [0x7B2D0, asm]
+    - [0x7C4D0, asm]
+    - [0x7D840, asm]
+    - [0x80420, asm]
+    - [0x80580, asm]
+    - [0x85A10, asm]
+    - [0x86680, asm]
+    - [0x87190, asm]
+    - [0x87730, asm]
+    - [0x87D80, asm]
+    - [0x93850, asm]
+    - [0x96540, asm]
+    - [0x995C0, asm]
+    - [0x99F40, asm]
+    - [0x9A5F0, asm]
+    - [0x9BFD0, asm]
+    - [0x9CAB0, asm]
+    - [0xA2840, asm]
+    - [0xA4860, asm]
+    - [0xA4CE0, asm]
+    - [0xAA580, asm]
+    - [0xACA00, asm]
+    - [0xAD3D0, asm]
+    - [0xAFBF0, asm]
+    - [0xB11F0, asm]
+    - [0xB2410, asm]
+    - [0xB2500, asm]
+    - [0xB2530, data]
+    
+  - name: main_code_2
+    type: code
+    bss_size: 0x0 # unknown
+    start: 0xB3B70
+    vram: 0x80299370
+    subsegments:
+    - [0xB3B70, asm]
+    - [0xB63F0, asm]
+    - [0xB6680, asm]
+    - [0xB7710, asm]
+    - [0xB7720, asm]
+    - [0xB7A50, data]
+    
+
+  - name: main_code_3_unk
+    type: code
+    bss_size: 0x0 # unknown
+    start: 0xB8400
+    vram: 0x8029DC00
+    subsegments:
+    - [0xB8400, asm] # more code?
+    - [0xB9D70, bin]
+
+  - [0xC00000]
