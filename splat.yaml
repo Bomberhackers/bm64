@@ -295,15 +295,6 @@ segments:
     - [0xB7710, asm]
     - [0xB7720, asm]
     - [0xB7A50, data]
-    
-
-  - name: main_code_3_unk
-    type: code
-    bss_size: 0x0 # unknown
-    start: 0xB8400
-    vram: 0x8029DC00
-    subsegments:
-    - [0xB8400, asm] # more code?
-    - [0xB9D70, bin]
+    - [0xB8400, bin] # rest of ROM
 
   - [0xC00000]
