@@ -249,8 +249,22 @@ segments:
     - [0x1A9D0, asm]
     - [0x1A9F0, asm]
     - [0x1AB80, data]
-    - [0x1CBC0, data, set_zero_tlb]
-    - [0x1CC60, .rodata, set_zero_tlb]
+    
+  - name: zerojump
+    type: code
+    bss_size: 0x0 # unknown
+    start: 0x1CBC0
+    vram: 0x8001BFC0
+    subsegments:
+    - [0x1CBC0, data]
+    
+  # not sure what this is yet
+  - name: zerojump_after
+    type: code
+    bss_size: 0x0 # unknown
+    start: 0x1CCF0
+    vram: 0x8001C0f0
+    subsegments:
     - [0x1CCF0, bin] # some weird zero'd out area except 1 or 2 things
 
   - name: main_code
