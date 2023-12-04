@@ -87,30 +87,33 @@ segments:
     - [0x4810, asm] # unknown file
     - [0x4880, asm] # unknown file
     - [0x4B80, asm] # unknown file
-    
-    - [0x51A0, asm]
-    - [0x52E0, asm]
-    - [0x5900, asm]
-    - [0x5970, asm]
-    - [0x59C0, asm]
-    - [0x59D0, asm]
-    - [0x59F0, asm]
-    - [0x5B20, asm]
-    - [0x5B80, asm]
-    - [0x5D40, asm]
-    - [0x5DD0, asm]
-    
-    - [0x5DE0, asm]
-    - [0x5DF0, asm]
-    - [0x6000, asm]
-    - [0x6010, asm]
-    - [0x6020, asm]
-    - [0x6070, asm]
-    - [0x6080, asm]
-    - [0x6090, asm]
-    - [0x6140, asm]
-    - [0x6660, asm]
-    - [0x68C0, asm]
+    - [0x51A0, asm] # unknown file
+    - [0x52E0, asm] # unknown file
+    - [0x5900, hasm, libultra/os/getintmask]
+    - [0x5960, asm,  libultra/os/getactivequeue]
+    - [0x5970, asm,  libultra/io/vigetmode]
+    - [0x59C0, asm,  libultra/io/vigetline]
+    - [0x59D0, asm,  libultra/io/vigetfield]
+    - [0x59F0, asm,  libultra/io/visetxscale]
+    - [0x5B20, asm,  libultra/io/visetyscale]
+    - [0x5B80, asm,  libultra/io/visetspecial]
+    - [0x5D40, asm,  libultra/io/vifade]
+    - [0x5DD0, asm,  libultra/io/aigetstat]
+    - [0x5DE0, asm,  libultra/io/aigetlen]
+    - [0x5DF0, asm,  libultra/io/aisetfreq]
+    - [0x5F50, asm,  libultra/io/aisetnextbuf]
+    - [0x6000, asm,  libultra/io/dpgetstat]
+    - [0x6010, asm,  libultra/io/dpsetstat]
+    - [0x6020, asm,  libultra/io/dpctr]
+    - [0x6070, asm,  libultra/io/pigetstat]
+    - [0x6080, asm] # unknown file
+    - [0x6090, asm,  libultra/io/pirawwrite]
+    - [0x60E0, asm,  libultra/io/pirawread]
+    - [0x6140, asm,  libultra/io/pirawdma]
+    - [0x6220, asm,  libultra/io/piwrite]
+    - [0x6260, asm] # unknown file
+    - [0x6660, asm,  libultra/io/contreaddata]
+    - [0x68C0, asm,  libultra/io/contreset]
     
     - [0x6A40, asm]
     - [0x6AF0, asm]
