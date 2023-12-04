@@ -254,9 +254,10 @@ segments:
     type: code
     bss_size: 0x0 # unknown
     start: 0x1CBC0
-    vram: 0x8001BFC0
+    vram: 0x80042000
     subsegments:
-    - [0x1CBC0, data]
+    - [0x1CBC0, hasm]
+    - [0x1CC60, rodata]
     
   # not sure what this is yet
   - name: zerojump_after

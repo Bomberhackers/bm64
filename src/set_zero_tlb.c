@@ -3,7 +3,7 @@
 extern u32 D_80042000[];
 
 void set_zero_vaddr_tlb(void) {
-    load_from_rom_to_addr((u32) (&D_80042000), (u32)&zerojump_ROM_END - (u32)&zerojump_ROM_START, (u32)&zerojump_ROM_START);
+    load_from_rom_to_addr((u32)&D_80042000, (u32)&zerojump_ROM_END - (u32)&zerojump_ROM_START, (u32)&zerojump_ROM_START);
     // weird if statements needed to consume registers to match.
     if (boot_code_TEXT_END == 0 || boot_code_TEXT_END == 0) {
 
