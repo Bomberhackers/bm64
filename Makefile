@@ -30,7 +30,7 @@ LD_MAP := $(BUILD_DIR)/$(TARGET).map
 ASM_DIRS := asm asm/data asm/libultra asm/libultra/os asm/libultra/io asm/libultra/gu asm/libultra/libc asm/libultra/al asm/libultra/audio asm/data/libultra asm/data/libultra/gu asm/data/libultra/os
 DATA_DIRS := bin assets
 # not implemented
-#SRC_DIRS := $(shell find src -type d)
+SRC_DIRS := $(shell find src -type d)
 
 ########## Make tools ##########
 
@@ -43,8 +43,8 @@ endif
 
 N64CRC = tools/n64crc
 
-#C_FILES := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
-S_FILES := $(foreach dir,$(ASM_DIRS),$(wildcard $(dir)/*.s))
+C_FILES := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
+S_FILES := $(foreach dir,$(SRC_DIRS) $(ASM_DIRS),$(wildcard $(dir)/*.s))
 DATA_FILES := $(foreach dir,$(DATA_DIRS),$(wildcard $(dir)/*.bin))
 PNG_FILES     := $(foreach dir,$(DATA_DIRS),$(wildcard $(dir)/*.png))
 
@@ -137,7 +137,7 @@ LDFLAGS = -T undefined_syms_auto.txt -T undefined_funcs_auto.txt -T $(BUILD_DIR)
 
 ######################## Targets #############################
 
-$(foreach dir,$(ASM_DIRS) $(DATA_DIRS) $(COMPRESSED_DIRS) $(MAP_DIRS) $(BGM_DIRS),$(shell mkdir -p build/$(dir)))
+$(foreach dir,$(SRC_DIRS) $(ASM_DIRS) $(DATA_DIRS) $(COMPRESSED_DIRS) $(MAP_DIRS) $(BGM_DIRS),$(shell mkdir -p build/$(dir)))
 
 # run ASM-processor on non-libultra source files
 $(DECOMP_BM64): CC := $(ASMPROC) $(ASMPROC_FLAGS) $(CC) -- $(AS) $(ASFLAGS) --

@@ -33,7 +33,7 @@ segments:
     vram: 0x80000400
     subsegments:
     - [0x1000, hasm, entry] # bootloader
-    - [0x1050, asm, set_zero_tlb]
+    - [0x1050, c, set_zero_tlb]
     - [0x10D0, asm] # DMA memory area?
     - [0x13F0, asm]
     - [0x14B0, asm] # sched.c according to asserts
@@ -114,7 +114,6 @@ segments:
     - [0x6260, asm] # unknown file
     - [0x6660, asm,  libultra/io/contreaddata]
     - [0x68C0, asm,  libultra/io/contreset]
-    
     - [0x6A40, asm]
     - [0x6AF0, asm]
     - [0x6B60, asm]
@@ -126,7 +125,6 @@ segments:
     - [0x6F70, asm]
     - [0x71C0, asm]
     - [0x78B0, asm]
-    
     - [0x79A0, asm]
     - [0x7BD0, asm]
     - [0x7D10, asm]
@@ -150,7 +148,6 @@ segments:
     - [0xB0D0, asm]
     - [0xB120, asm]
     - [0xB160, asm]
-    
     - [0xB1A0, asm]
     - [0xB200, asm]
     - [0xB290, asm]
@@ -174,7 +171,6 @@ segments:
     - [0xC940, asm]
     - [0xC9A0, asm]
     - [0xCA30, asm]
-    
     - [0xCA90, asm]
     - [0xCAB0, asm]
     - [0xCB10, asm]
@@ -197,7 +193,6 @@ segments:
     - [0xD710, asm]
     - [0xD7A0, asm]
     - [0xEE90, asm]
-    
     - [0xF050, asm]
     - [0xF660, asm]
     - [0xFB60, asm]
@@ -219,7 +214,6 @@ segments:
     - [0x12D90, asm]
     - [0x130F0, asm]
     - [0x13100, asm]
-    
     - [0x13410, asm]
     - [0x13420, asm]
     - [0x13460, asm]
@@ -241,7 +235,6 @@ segments:
     - [0x16680, asm]
     - [0x16980, asm]
     - [0x175E0, asm]
-    
     - [0x176F0, asm]
     - [0x18400, asm]
     - [0x18510, asm]
@@ -256,6 +249,8 @@ segments:
     - [0x1A9D0, asm]
     - [0x1A9F0, asm]
     - [0x1AB80, data]
+    - [0x1CBC0, data, set_zero_tlb]
+    - [0x1CC60, .rodata, set_zero_tlb]
     - [0x1CCF0, bin] # some weird zero'd out area except 1 or 2 things
 
   - name: main_code
