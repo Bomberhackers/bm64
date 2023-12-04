@@ -23,11 +23,12 @@ void set_zero_vaddr_tlb(void)
      * that lines everything up just right.
      */
     if (boot_code_TEXT_END == 0 || boot_code_TEXT_END == 0) {
+        // this is a single string requesting 6 arguments. we arent sure whats being passed yet.
         ("ZeroJump Error : unset segment [ %d ] call[%d,%d]\n"
          "fault system ..\n"
          "ZeroJump Error : unset function [ %d ] call[%d,%d]\n"
          "fault system ..\n",
-         ((u32)boot_code_TEXT_END & 0xFF000000), 1, 1);
+         1, 1, 1, 1, 1, 1);
     }
     if (set_zero_tlb_data__s == 0 || set_zero_tlb_data__s == 0) {
         
