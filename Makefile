@@ -139,8 +139,14 @@ LDFLAGS = -T undefined_syms_auto.txt -T undefined_funcs_auto.txt -T $(BUILD_DIR)
 
 $(foreach dir,$(SRC_DIRS) $(ASM_DIRS) $(DATA_DIRS) $(COMPRESSED_DIRS) $(MAP_DIRS) $(BGM_DIRS),$(shell mkdir -p build/$(dir)))
 
-# run ASM-processor on non-libultra source files
-$(DECOMP_BM64): CC := $(ASMPROC) $(ASMPROC_FLAGS) $(CC) -- $(AS) $(ASFLAGS) --
+# this uses -O3 for some reason
+build/src/10D0.c.o: OPTFLAGS := -O3
+
+# Get a list of files which only have GLOBAL_ASM in them... via this piece of work.
+DECOMP_BM64_FILTERED := $(addprefix build/,$(addsuffix .o,$(foreach file,$(patsubst build/src/%,src/%,$(basename $(DECOMP_BM64))),$(if $(shell grep GLOBAL_ASM <${file}),${file}))))
+
+# run ASM-processor on non-libultra source files which have GLOBAL_ASM in them.
+$(DECOMP_BM64_FILTERED): CC := $(ASMPROC) $(ASMPROC_FLAGS) $(CC) -- $(AS) $(ASFLAGS) --
 
 ######################## Build #############################
 

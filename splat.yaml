@@ -34,7 +34,7 @@ segments:
     subsegments:
     - [0x1000, hasm, entry] # bootloader
     - [0x1050, c, set_zero_tlb]
-    - [0x10D0, asm] # DMA memory area?
+    - [0x10D0, c] # DMA memory area?
     - [0x13F0, asm]
     - [0x14B0, asm] # sched.c according to asserts
     - [0x2350, asm] # main
@@ -264,7 +264,7 @@ segments:
     type: code
     bss_size: 0x0 # unknown
     start: 0x1CCF0
-    vram: 0x8001C0f0
+    vram: 0x8001C0F0
     subsegments:
     - [0x1CCF0, bin] # some weird zero'd out area except 1 or 2 things
 
