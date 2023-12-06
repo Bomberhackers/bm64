@@ -141,6 +141,7 @@ $(foreach dir,$(SRC_DIRS) $(ASM_DIRS) $(DATA_DIRS) $(COMPRESSED_DIRS) $(MAP_DIRS
 
 # this uses -O3 for some reason
 build/src/10D0.c.o: OPTFLAGS := -O3
+build/src/13F0.c.o: OPTFLAGS := -O3
 
 # Get a list of files which only have GLOBAL_ASM in them... via this piece of work.
 DECOMP_BM64_FILTERED := $(addprefix build/,$(addsuffix .o,$(foreach file,$(patsubst build/src/%,src/%,$(basename $(DECOMP_BM64))),$(if $(shell grep GLOBAL_ASM <${file}),${file}))))

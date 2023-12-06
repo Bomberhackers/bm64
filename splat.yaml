@@ -35,7 +35,7 @@ segments:
     - [0x1000, hasm, entry] # bootloader
     - [0x1050, c, set_zero_tlb]
     - [0x10D0, c] # DMA memory area?
-    - [0x13F0, asm]
+    - [0x13F0, c]
     - [0x14B0, asm] # sched.c according to asserts
     - [0x2350, asm] # main
     - [0x2630, asm]
