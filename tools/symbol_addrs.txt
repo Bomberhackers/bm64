@@ -308,3 +308,7 @@ D_8001C060 = 0x8001C060;
 set_zero_vaddr_tlb = 0x80000450;
 load_from_rom_to_addr = 0x80000698;
 D_8001BFC0 = 0x8001BFC0;
+Libc_Strlen = 0x80225B90; //defined:true
+Libc_memcpy = 0x80225C44; //defined:true
+Libc_memset = 0x80225C7C; //defined:true
+Libc_memmove = 0x80225BB8; //defined:true

@@ -891,9 +891,9 @@ def parse_source(f, opts, out_dependencies, print_source=None):
             min_instr_count = 6
             skip_instr_count = 5
         else:
-            min_instr_count = 4
-            skip_instr_count = 4
-    elif opts.opt in ['O0']:
+            min_instr_count = 2
+            skip_instr_count = 1
+    elif opts.opt == 'O0':
         if opts.framepointer:
             min_instr_count = 8
             skip_instr_count = 8
@@ -1471,8 +1471,8 @@ def run_wrapped(argv, outfile, functions):
         if opt != 'O2':
             raise Failure("-g3 is only supported together with -O2")
         opt = 'g3'
-    if args.mips1 and (opt not in ('g', 'O1', 'O2') or args.framepointer):
-        raise Failure("-mips1 is only supported together with -g or -O1 or -O2")
+    if args.mips1 and (opt not in ('O1', 'O2') or args.framepointer):
+        raise Failure("-mips1 is only supported together with -O1 or -O2")
     if pascal and opt not in ('O1', 'O2', 'g3'):
         raise Failure("Pascal is only supported together with -O1, -O2 or -O2 -g3")
     opts = Opts(opt, args.framepointer, args.mips1, args.kpic, pascal, args.input_enc, args.output_enc)
