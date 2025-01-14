@@ -274,8 +274,9 @@ segments:
     start: 0x40000
     vram: 0x80225800
     subsegments:
-    - [0x40000, asm]
-    - [0x40300, asm]
+    - [0x40000, c] # Why is this -g?
+    - [0x40040, c]
+    - [0x40300, c]
     - [0x404C0, asm]
     - [0x40FB0, asm]
     - [0x412F0, asm]
