@@ -46,7 +46,7 @@ s32 Libc_Strlen(u8 *str)
     return len;
 }
 
-void *Libc_memmove(void *dest, void *src, size_t len)
+void *Libc_Memmove(void *dest, void *src, size_t len)
 {
     u8 *destp = dest;
     u8 *srcp = src;
@@ -72,7 +72,7 @@ void *Libc_memmove(void *dest, void *src, size_t len)
     return dest;
 }
 
-void *Libc_memcpy(u8 *dest, u8 *source, s32 c)
+void *Libc_Memcpy(u8 *dest, u8 *source, s32 c)
 {
     u8 *d;
     u8 *s;
@@ -88,7 +88,7 @@ void *Libc_memcpy(u8 *dest, u8 *source, s32 c)
     return dest;
 }
 
-u8 *Libc_memset(u8 *arg0, u8 *arg1, s32 arg2)
+u8 *Libc_Memset(u8 *arg0, u8 *arg1, s32 arg2)
 {
     u8 *var_v0 = arg0;
 

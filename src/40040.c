@@ -1,6 +1,6 @@
 #include <ultra64.h>
 
-u8* Libc_memset(u8* arg0, u8* arg1, s32 arg2);
+u8* Libc_Memset(u8* arg0, u8* arg1, s32 arg2);
 void func_80225CA8();                         /* extern */
 void func_80226860();                         /* extern */
 void func_80226D80();                         /* extern */
@@ -66,8 +66,8 @@ void func_80225840(s32 arg0)
 
     var_s1 = 8;
     func_80297D20();
-    Libc_memset(&D_802A5300, 0, D_802B36D0 - D_802A5300);
-    Libc_memset(&D_80063000, 0, D_800BEA60 - D_80063000);
+    Libc_Memset(&D_802A5300, 0, D_802B36D0 - D_802A5300);
+    Libc_Memset(&D_80063000, 0, D_800BEA60 - D_80063000);
     func_80225CA8();
     func_80297D30(4, &D_8029F570);
     func_80297D30(5, &D_8029F590);
