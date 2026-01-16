@@ -9,3 +9,4 @@ pygfxd
 tqdm
 intervaltree
 n64img
+crunch64

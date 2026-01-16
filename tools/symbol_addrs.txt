@@ -1,3 +1,4 @@
+entry = 0x80000400;
 main = 0x800019A0;
 osMapTLB = 0x80001B40;
 osCreatePiManager = 0x80001C00;
