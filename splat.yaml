@@ -11,6 +11,10 @@ options:
   platform: n64
   ld_legacy_generation: true
   detect_redundant_function_end: true
+  ld_sections_allowlist:
+    - .shstrtab
+    - .mdebug
+    - .mdebug.abi32
 segments:
   - name: header
     type: header
@@ -37,7 +41,7 @@ segments:
     - [0x10D0, c] # DMA memory area?
     - [0x13F0, c]
     - [0x14B0, asm] # sched.c according to asserts
-    - [0x2350, asm] # main
+    - [0x2350, c] # main
     - [0x2630, asm]
     
     # start of libultra. first file might be our "overridden synsetvol" they also used in Hero.
@@ -69,7 +73,7 @@ segments:
     - [0x39D0, asm,  libultra/io/sptask]
     - [0x3CC0, asm,  libultra/io/dpsetnextbuf]
     - [0x3D70, asm,  libultra/io/sptaskyield]
-    - [0x3D90, asm] # unknown file
+    - [0x3D90, asm,  libultra/os/unmaptlball]
     - [0x3DE0, asm,  libultra/os/initialize]
     - [0x4070, asm,  libultra/os/setthreadpri]
     - [0x4150, bin,  noppad_4150] # nop padding
@@ -321,7 +325,7 @@ segments:
     - [0xB11F0, asm]
     - [0xB2410, asm]
     - [0xB2500, asm]
-    - [0xB2530, data]
+    - [0xB2530, asm]
     
   - name: main_code_2
     type: code
