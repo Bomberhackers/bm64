@@ -1043,3 +1043,4 @@ func_80299360 = 0x80299360;
 __sinf = 0x8029CF20;
 __cosf = 0x8029D0E0;
 main_code_TEXT_START = 0x80225800;
+gOverlaySizes = 0x80024820; // type:u8 rom:0x30000

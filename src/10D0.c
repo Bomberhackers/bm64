@@ -19,17 +19,17 @@ void func_80000768(void) {
     osRecvMesg(&D_8001C418, NULL, 0);
 }
 
-void load_from_rom_to_addr(void* arg0, s32 arg1, u32 arg2) {
+void load_from_rom_to_addr(void* vAddr, s32 size, u32 devAddr) {
     if (D_8001C3F8 != 0) {
         do {
             osYieldThread();
         } while (D_8001C3F8 != 0);
     }
     D_8001C3F8 = 1;
-    osWritebackDCache(arg0, arg1);
-    osInvalDCache(arg0, arg1);
-    osInvalICache(arg0, arg1);
-    osPiStartDma(&D_8001C400, 0, 0, arg2, arg0, (u32) arg1, &D_8001C418);
+    osWritebackDCache(vAddr, size);
+    osInvalDCache(vAddr, size);
+    osInvalICache(vAddr, size);
+    osPiStartDma(&D_8001C400, 0, 0, devAddr, vAddr, (u32) size, &D_8001C418);
     osRecvMesg(&D_8001C418, NULL, 1);
     D_8001C3F8 = 0;
 }

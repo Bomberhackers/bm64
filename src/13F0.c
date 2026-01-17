@@ -1,30 +1,34 @@
 #include <ultra64.h>
 
-extern void load_from_rom_to_addr(void* arg0, s32 arg1, u32 arg2);
+extern void load_from_rom_to_addr(void* vAddr, s32 size, u32 devAddr);
 
 extern s32 D_80019F90;
-extern u8 D_80024820[];
+extern u8 gOverlaySizes[];
 
 void func_800007F0(s32 arg0, void* arg1);
 
 void func_80000870(void) {
     func_80001A30(3, &D_80019F90);
-    load_from_rom_to_addr(&D_80024820, 0x100, 0x30000);
+    load_from_rom_to_addr(&gOverlaySizes, 0x100, 0x30000);
 }
 
-void func_8000083C(s32 arg0, void *arg1, s32 arg2) {
+void func_8000083C(s32 id, void *vAddr, s32 arg) {
     void (*volatile localarg)(int);
     // its also possible to match without fake code by omitting arg1 passed to func_800007F0. which would be UB
-    func_800007F0(arg0, arg1);
-    (localarg = arg1)(arg2);
-    if(!arg1) {} // fake check to bump regalloc. see above note
+    func_800007F0(id, vAddr);
+    (localarg = vAddr)(arg);
+    if(!vAddr) {} // fake check to bump regalloc. see above note
 }
 
-void func_800007F0(s32 arg0, void* arg1) {
-    s32 temp_t6 = (D_80024820[arg0] << 0xB);
+void func_800007F0(s32 id, void* vAddr) {
+    s32 size = (gOverlaySizes[id] << 0xB);
 
-    if (temp_t6 == 0) {
-        temp_t6 = 0x80000;
+    // if no size specified, use the max size.
+    if (size == 0) {
+        size = 0x80000;
     }
-    load_from_rom_to_addr(arg1, temp_t6, arg0 << 0x11);
+
+    // for an ID of 2, the call will look like:
+    // load_from_rom_to_addr(0x80225800, 0x1000, 0x40000);
+    load_from_rom_to_addr(vAddr, size, id << 0x11);
 }

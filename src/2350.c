@@ -17,13 +17,7 @@ extern u8 D_8001A314[];
 
 extern u8 D_80020668[];
 
-struct SomeStruct {
-    char padding0[0x2];
-    u8 unk2;
-    u8 unk3;
-};
-
-extern struct SomeStruct D_80024820;
+extern u8 gOverlaySizes[];
 
 extern u8 D_8001C4B8;
 
@@ -50,12 +44,12 @@ void func_80001750(void *unused) {
     func_80001A30(0x13, &D_8001A14C);
     func_80001A30(0x16, &D_8001A314);
     func_80000870();
-    offset = D_80024820.unk2 << 0xB;
+    offset = gOverlaySizes[2] << 0xB;
     if (offset == 0) {
         offset = 0x80000;
     }
     addr = 0x80225800;
-    load_from_rom_to_addr(offset + addr, D_80024820.unk3 << 0xB, offset + 0x40000);
+    load_from_rom_to_addr(offset + addr, gOverlaySizes[3] << 0xB, offset + 0x40000);
 
     // thread loop
     while(1) {

@@ -265,12 +265,28 @@ segments:
     
   # not sure what this is yet
   - name: zerojump_after
-    type: code
+    type: data
     bss_size: 0x0 # unknown
     start: 0x1CCF0
-    vram: 0x8001C0F0
+    vram: 0x80042130 # placeholder
     subsegments:
     - [0x1CCF0, bin] # some weird zero'd out area except 1 or 2 things
+
+  - name: overlay_sizes
+    type: data
+    bss_size: 0x0 # unknown
+    start: 0x30000
+    vram: 0x80024820
+    subsegments:
+    - [0x30000, bin] # table of overlay stuff
+
+  - name: zerojump_after_2
+    type: data
+    bss_size: 0x0 # unknown
+    start: 0x30100
+    vram: 0x8002F500
+    subsegments:
+    - [0x30100, bin]
 
   - name: main_code
     type: code
