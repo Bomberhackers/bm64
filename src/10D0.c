@@ -34,19 +34,19 @@ void load_from_rom_to_addr(void* vAddr, s32 size, u32 devAddr) {
     D_8001C3F8 = 0;
 }
 
-void func_8000064C(void* arg0, u32 arg1, u32 arg2) {
-    osPiStartDma(&D_8001C400, 0, 0, arg2, arg0, arg1, &D_8001C418);
+void func_8000064C(void* arg0, u32 arg1, u32 devAddr) {
+    osPiStartDma(&D_8001C400, 0, 0, devAddr, arg0, arg1, &D_8001C418);
 }
 
-void func_8000059C(s32 arg0, u32 arg1, void* arg2) {
+void func_8000059C(s32 devAddr, u32 arg1, void* arg2) {
     if (D_8001C3F8 != 0) {
         do {
             osYieldThread();
         } while (D_8001C3F8 != 0);
     }
     D_8001C3F8 = 1;
-    osWritebackDCache(arg2, arg0);
-    osPiStartDma(&D_8001C400, 0, 1, (u32) arg0, arg2, arg1, &D_8001C418);
+    osWritebackDCache(arg2, devAddr);
+    osPiStartDma(&D_8001C400, 0, 1, devAddr, arg2, arg1, &D_8001C418);
     osRecvMesg(&D_8001C418, NULL, 1);
     D_8001C3F8 = 0;
 }
@@ -55,10 +55,10 @@ void func_80000570(void) {
     osRecvMesg(&D_8001C418, NULL, 1);
 }
 
-void func_80000524(u32 arg0, u32 arg1, void* arg2) {
-    osPiStartDma(&D_8001C400, 0, 1, arg0, arg2, arg1, &D_8001C418);
+void func_80000524(u32 devAddr, u32 arg1, void* arg2) {
+    osPiStartDma(&D_8001C400, 0, 1, devAddr, arg2, arg1, &D_8001C418);
 }
 
-void func_800004D0(void* arg0, u32 arg1, u32 arg2, s32 arg3) {
-    osPiStartDma(&D_8001C400, 0, arg3, arg2, arg0, arg1, &D_8001C418);
+void func_800004D0(void* arg0, u32 arg1, u32 devAddr, s32 arg3) {
+    osPiStartDma(&D_8001C400, 0, arg3, devAddr, arg0, arg1, &D_8001C418);
 }

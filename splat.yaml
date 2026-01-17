@@ -354,7 +354,6 @@ segments:
     - [0xB6680, asm]
     - [0xB7710, asm]
     - [0xB7720, asm]
-    - [0xB7A50, data]
-    - [0xB8400, bin] # rest of ROM
 
+  - [0xB7A50, bin]
   - [0xC00000]
