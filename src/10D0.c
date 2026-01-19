@@ -12,7 +12,7 @@ extern s32 D_8001C430;
 void func_80000794(void) {
     D_8001C3F8 = 0;
     osCreatePiManager(0x96, &D_8001C3E0, &D_8001C3C0, 8);
-    func_80001D90(&D_8001C418, &D_8001C430, 1);
+    osCreateMesgQueue(&D_8001C418, &D_8001C430, 1);
 }
 
 void func_80000768(void) {

@@ -81,9 +81,10 @@ void func_800018F8(s32 arg0, s32 arg1, ...) {
 
 }
 
-void func_80001914(void *unused) {
+// init thread
+void func_80001914(void *arg) {
     func_80000794();
-    osCreateThread(&D_80020668, 3, func_80001750, unused, &D_80024818, 0xA);
+    osCreateThread(&D_80020668, 3, func_80001750, arg, &D_80024818, 0xA);
     osStartThread(&D_80020668);
     osSetThreadPri(0, 0);
 

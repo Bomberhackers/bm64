@@ -45,10 +45,10 @@ segments:
     - [0x2630, asm]
     
     # start of libultra. first file might be our "overridden synsetvol" they also used in Hero.
-    - [0x2650, asm]
+    - [0x2650, asm,  libultra/audio/synstartvoiceparam]
     - [0x2740, hasm, libultra/os/maptlb]
     - [0x2800, asm,  libultra/io/pimgr]
-    - [0x2990, asm]  # unknown file
+    - [0x2990, asm,  libultra/os/createmesgqueue]
     - [0x29C0, asm,  libultra/os/recvmesg]
     - [0x2B00, asm,  libultra/io/pidma]
     - [0x2C10, asm,  libultra/os/yieldthread]
@@ -67,7 +67,7 @@ segments:
     - [0x3700, asm,  libultra/os/sendmesg]
     - [0x3850, asm,  libultra/io/sptaskyielded]
     - [0x38D0, asm,  libultra/io/vigetcurrframebuf]
-    - [0x3910, asm] # unknown file
+    - [0x3910, asm,  libultra/io/vigetnextframebuf]
     - [0x3950, asm,  libultra/io/viswapbuf]
     - [0x39A0, asm,  libultra/os/writebackdcacheall]
     - [0x39D0, asm,  libultra/io/sptask]
@@ -118,51 +118,63 @@ segments:
     - [0x6260, asm] # unknown file
     - [0x6660, asm,  libultra/io/contreaddata]
     - [0x68C0, asm,  libultra/io/contreset]
-    - [0x6A40, asm]
-    - [0x6AF0, asm]
-    - [0x6B60, asm]
+    - [0x6A40, asm,  libultra/io/contquery]
+    - [0x6AF0, asm,  libultra/io/contsetch]
+    - [0x6B60, asm,  libultra/libc/llcvt]
     - [0x6D70, asm]
-    - [0x6D80, asm]
-    - [0x6EC0, asm]
-    - [0x6F00, asm]
-    - [0x6F60, asm]
-    - [0x6F70, asm]
-    - [0x71C0, asm]
-    - [0x78B0, asm]
-    - [0x79A0, asm]
-    - [0x7BD0, asm]
-    - [0x7D10, asm]
-    - [0x7D90, asm]
-    - [0x7E30, asm]
-    - [0x7EC0, asm]
-    - [0x7F50, asm]
-    - [0x7FF0, asm]
-    - [0x8010, asm]
-    - [0x80B0, asm]
-    - [0x8130, asm]
-    
-    - [0x8140, asm]
-    - [0x95A0, asm]
-    - [0xAF30, asm]
-    - [0xAF60, asm]
-    - [0xAFA0, asm]
-    - [0xAFB0, asm]
-    - [0xB020, asm]
-    - [0xB060, asm]
-    - [0xB0D0, asm]
-    - [0xB120, asm]
-    - [0xB160, asm]
-    - [0xB1A0, asm]
-    - [0xB200, asm]
-    - [0xB290, asm]
-    - [0xB2F0, asm]
-    - [0xB310, asm]
-    - [0xB370, asm]
-    - [0xB390, asm]
-    - [0xB3F0, asm]
-    - [0xB410, asm]
-    - [0xB460, asm]
+    - [0x6D80, asm,  libultra/audio/sl]
+    - [0x6E40, asm,  libultra/audio/copy]
+    - [0x6EC0, asm,  libultra/audio/heapinit]
+    - [0x6F00, asm,  libultra/audio/heapalloc]
+    - [0x6F60, asm,  libultra/audio/heapcheck]
+    - [0x6F70, asm,  libultra/audio/bnkf]
+    - [0x71C0, asm,  libultra/audio/synthesizer]
+    - [0x78A0, asm,  libultra/audio/syndelete]
+    - [0x78B0, asm,  libultra/audio/synaddplayer]
+    - [0x7900, asm,  libultra/audio/synremoveplayer]
+    - [0x79A0, asm,  libultra/audio/synallocvoice]
+    - [0x7BD0, asm,  libultra/audio/synfreevoice]
+    - [0x7C80, asm,  libultra/audio/synstartvoice]
+    - [0x7D10, asm,  libultra/audio/synstopvoice]
+    - [0x7D90, asm,  libultra/audio/synsetvol]
+    - [0x7E30, asm,  libultra/audio/synsetpitch]
+    - [0x7EC0, asm,  libultra/audio/synsetpan]
+    - [0x7F50, asm,  libultra/audio/synsetfxmix]
+    - [0x7FF0, asm,  libultra/audio/synsetpriority]
+    - [0x8000, asm,  libultra/audio/syngetpriority]
+    - [0x8010, asm,  libultra/audio/synallocfx]
+    - [0x80B0, asm,  libultra/audio/syngetfxref]
+    - [0x8130, asm,  libultra/audio/synfreefx]
+    - [0x8140, asm,  libultra/audio/synsetfxparam]
+    - [0x8180, asm,  libultra/audio/event]
+    - [0x84C0, asm,  libultra/audio/seq]
+    - [0x8AE0, asm,  libultra/audio/cseq]
+    - [0x95A0, asm,  libultra/audio/cents2ratio]
+    - [0x95F0, asm,  libultra/audio/seqplayer]
+    - [0xAF30, asm,  libultra/audio/seqpdelete]
+    - [0xAF60, asm,  libultra/audio/seqpsetseq]
+    - [0xAFA0, asm,  libultra/audio/seqpgetseq]
+    - [0xAFB0, asm,  libultra/audio/seqpplay]
+    - [0xAFE0, asm,  libultra/audio/seqpstop]
+    - [0xB010, asm,  libultra/audio/seqpgetstate]
+    - [0xB020, asm,  libultra/audio/seqpsetbank]
+    - [0xB060, asm,  libultra/audio/seqpsettempo]
+    - [0xB0D0, asm,  libultra/audio/seqpgettempo]
+    - [0xB110, asm,  libultra/audio/seqpgetvol]
+    - [0xB120, asm,  libultra/audio/seqpsetvol]
+    - [0xB160, asm,  libultra/audio/seqploop]
+    - [0xB1A0, asm,  libultra/audio/seqpsetprogram]
+    - [0xB200, asm,  libultra/audio/seqpgetprogram]
+    - [0xB290, asm,  libultra/audio/seqpsetfxmix]
+    - [0xB2F0, asm,  libultra/audio/seqpgetfxmix]
+    - [0xB310, asm,  libultra/audio/seqpsetchlvol]
+    - [0xB370, asm,  libultra/audio/seqpgetchlvol]
+    - [0xB390, asm,  libultra/audio/seqpsetpan]
+    - [0xB3F0, asm,  libultra/audio/seqpgetpan]
+    - [0xB410, asm,  libultra/audio/seqpsetpriority]
+    - [0xB460, asm,  libultra/audio/seqpgetpriority]
     - [0xB480, asm]
+    - [0xB4E0, asm]
     
     - [0xC710, asm]
     - [0xC740, asm]
@@ -196,6 +208,7 @@ segments:
     - [0xD6B0, asm]
     - [0xD710, asm]
     - [0xD7A0, asm]
+    - [0xD7C0, asm]
     - [0xEE90, asm]
     - [0xF050, asm]
     - [0xF660, asm]
@@ -214,6 +227,7 @@ segments:
     - [0x11A30, asm]
     - [0x12810, asm]
     - [0x12840, asm]
+    - [0x12C40, asm]
     - [0x12D80, asm]
     - [0x12D90, asm]
     - [0x130F0, asm]
@@ -233,6 +247,7 @@ segments:
     - [0x14740, asm]
     - [0x14800, asm]
     - [0x14810, asm]
+    - [0x148D0, asm,  libultra/io/sirawdma]
     - [0x14980, asm]
     - [0x15210, asm]
     - [0x159E0, asm]
@@ -260,7 +275,7 @@ segments:
     start: 0x1CBC0
     vram: 0x80042000
     subsegments:
-    - [0x1CBC0, hasm]
+    - [0x1CBC0, data]
     - [0x1CC60, rodata]
     
   # not sure what this is yet
@@ -355,5 +370,28 @@ segments:
     - [0xB7710, asm]
     - [0xB7720, asm]
 
-  - [0xB7A50, bin]
+  - name: pre_rsp_area
+    type: code
+    bss_size: 0x0 # unknown
+    start: 0xB7A50
+    vram: 0x8029D250
+    subsegments:
+    - [0xB7A50, bin]
+
+  - name: rsp_area
+    type: code
+    bss_size: 0x0 # unknown
+    start: 0xB8F50
+    vram: 0x8029E750
+    subsegments:
+    - [0xB8F50, bin]
+
+  - name: rsp_area_data
+    type: code
+    bss_size: 0x0 # unknown
+    start: 0xBF840
+    vram: 0x802A5040
+    subsegments:
+    - [0xBF840, bin]
+
   - [0xC00000]
