@@ -275,7 +275,7 @@ segments:
     start: 0x1CBC0
     vram: 0x80042000
     subsegments:
-    - [0x1CBC0, data]
+    - [0x1CBC0, asm]
     - [0x1CC60, rodata]
     
   # not sure what this is yet
