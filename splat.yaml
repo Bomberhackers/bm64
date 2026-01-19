@@ -88,11 +88,12 @@ segments:
     - [0x4630, asm,  libultra/os/settimer]
     - [0x4710, asm,  libultra/os/stoptimer]
     - [0x4800, hasm, libultra/os/getcount]
-    - [0x4810, asm] # unknown file
-    - [0x4880, asm] # unknown file
-    - [0x4B80, asm] # unknown file
-    - [0x51A0, asm] # unknown file
-    - [0x52E0, asm] # unknown file
+    - [0x4810, asm,  libultra/io/conteepprobe]
+    - [0x4880, asm,  libultra/io/conteepread]
+    - [0x4B80, asm,  libultra/io/conteepwrite]
+    - [0x5060, asm,  libultra/io/conteeplongread]
+    - [0x51A0, asm,  libultra/io/conteeplongwrite]
+    - [0x52E0, asm]
     - [0x5900, hasm, libultra/os/getintmask]
     - [0x5960, asm,  libultra/os/getactivequeue]
     - [0x5970, asm,  libultra/io/vigetmode]
@@ -214,6 +215,7 @@ segments:
     - [0xF660, asm]
     - [0xFB60, asm]
     - [0xFF10, asm]
+    - [0x10010, asm]
     - [0x10380, asm]
     - [0x104D0, asm]
     - [0x10620, asm]
@@ -249,6 +251,8 @@ segments:
     - [0x14810, asm]
     - [0x148D0, asm,  libultra/io/sirawdma]
     - [0x14980, asm]
+    - [0x14B00, asm,  libultra/io/contramwrite]
+    - [0x14E80, asm,  libultra/io/contramread]
     - [0x15210, asm]
     - [0x159E0, asm]
     - [0x16680, asm]
