@@ -34,8 +34,8 @@ void load_from_rom_to_addr(void* vAddr, s32 size, u32 devAddr) {
     D_8001C3F8 = 0;
 }
 
-void func_8000064C(void* arg0, u32 arg1, u32 devAddr) {
-    osPiStartDma(&D_8001C400, 0, 0, devAddr, arg0, arg1, &D_8001C418);
+void func_8000064C(void* vAddr, u32 size, u32 devAddr) {
+    osPiStartDma(&D_8001C400, 0, 0, devAddr, vAddr, size, &D_8001C418);
 }
 
 void func_8000059C(s32 devAddr, u32 arg1, void* arg2) {

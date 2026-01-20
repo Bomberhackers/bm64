@@ -3,13 +3,13 @@
 extern void load_from_rom_to_addr(void* vAddr, s32 size, u32 devAddr);
 
 extern s32 D_80019F90;
-extern u8 gOverlaySizes[];
+extern u8 gSectionSizes[];
 
 void func_800007F0(s32 arg0, void* arg1);
 
 void func_80000870(void) {
     func_80001A30(3, &D_80019F90);
-    load_from_rom_to_addr(&gOverlaySizes, 0x100, 0x30000);
+    load_from_rom_to_addr(&gSectionSizes, 0x100, 0x30000);
 }
 
 void func_8000083C(s32 id, void *vAddr, s32 arg) {
@@ -21,7 +21,7 @@ void func_8000083C(s32 id, void *vAddr, s32 arg) {
 }
 
 void func_800007F0(s32 id, void* vAddr) {
-    s32 size = (gOverlaySizes[id] << 0xB);
+    s32 size = (gSectionSizes[id] << 0xB);
 
     // if no size specified, use the max size.
     if (size == 0) {

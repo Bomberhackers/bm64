@@ -291,21 +291,22 @@ segments:
     subsegments:
     - [0x1CCF0, bin] # some weird zero'd out area except 1 or 2 things
 
-  - name: overlay_sizes
+  - name: section_sizes
     type: data
     bss_size: 0x0 # unknown
     start: 0x30000
     vram: 0x80024820
     subsegments:
-    - [0x30000, bin] # table of overlay stuff
+    - [0x30000, bin] # table of section sizes
 
-  - name: zerojump_after_2
+  - name: overlay_sizes
     type: data
     bss_size: 0x0 # unknown
-    start: 0x30100
-    vram: 0x8002F500
+    start: 0x30800
+    vram: 0x8019B0D0
     subsegments:
-    - [0x30100, bin]
+    - [0x30800, data]
+    - [0x31800, data]
 
   - name: main_code
     type: code
@@ -398,4 +399,19 @@ segments:
     subsegments:
     - [0xBF840, bin]
 
+  - [0x120000, bin] # overlay table 1
+  - [0x140000, bin] # overlay table 2
+  - [0x160000, bin] # overlay table 3
+  - [0x180000, bin] # overlay table 4
+  - [0x1A0000, bin] # overlay table 5
+  - [0x1C0000, bin] # overlay table 6
+  - [0x1E0000, bin] # overlay table 7
+  - [0x200000, bin] # overlay table 8
+  - [0x240000, bin] # overlay table 9
+  - [0x260000, bin] # overlay table 10
+  - [0x280000, bin] # overlay table 11
+  - [0x2A0000, bin] # overlay table 12
+  - [0x2C0000, bin] # overlay table 13
+  - [0x2E0000, bin] # overlay table 14
+  - [0x300000, bin] # rest of ROM
   - [0xC00000]
