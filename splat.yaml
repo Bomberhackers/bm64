@@ -284,10 +284,10 @@ segments:
     
   # not sure what this is yet
   - name: zerojump_after
-    type: data
+    type: bin
     bss_size: 0x0 # unknown
     start: 0x1CCF0
-    vram: 0x80042130 # placeholder
+    vram: 0x80800000 # placeholder
     subsegments:
     - [0x1CCF0, bin] # some weird zero'd out area except 1 or 2 things
 
@@ -399,19 +399,72 @@ segments:
     subsegments:
     - [0xBF840, bin]
 
-  - [0x120000, bin] # overlay table 1
-  - [0x140000, bin] # overlay table 2
-  - [0x160000, bin] # overlay table 3
-  - [0x180000, bin] # overlay table 4
-  - [0x1A0000, bin] # overlay table 5
-  - [0x1C0000, bin] # overlay table 6
-  - [0x1E0000, bin] # overlay table 7
-  - [0x200000, bin] # overlay table 8
-  - [0x240000, bin] # overlay table 9
-  - [0x260000, bin] # overlay table 10
-  - [0x280000, bin] # overlay table 11
-  - [0x2A0000, bin] # overlay table 12
-  - [0x2C0000, bin] # overlay table 13
-  - [0x2E0000, bin] # overlay table 14
-  - [0x300000, bin] # rest of ROM
+  - name: overlay_tables_data
+    type: bin
+    bss_size: 0x0 # unknown
+    start: 0x120000
+    vram: 0x80F00000 # TODO
+    subsegments:
+    - [0x120000, bin] # overlay table 1
+    - [0x140000, bin] # overlay table 2
+    - [0x160000, bin] # overlay table 3
+    - [0x180000, bin] # overlay table 4
+    - [0x1A0000, bin] # overlay table 5
+    - [0x1C0000, bin] # overlay table 6
+    - [0x1E0000, bin] # overlay table 7
+    - [0x200000, bin] # overlay table 8
+    - [0x240000, bin] # overlay table 9
+    - [0x260000, bin] # overlay table 10
+    - [0x280000, bin] # overlay table 11
+    - [0x2A0000, bin] # overlay table 12
+    - [0x2C0000, bin] # overlay table 13
+    - [0x2E0000, bin] # overlay table 14
+    - [0x300000, bin] # rest of regular ROM, pre decompressed area
+
+  - name: overlay_1_header
+    exclusive_ram_id: overlay
+    type: data
+    bss_size: 0x0 # unknown
+    start: 0x800000
+    vram: 0x80008000
+    subsegments:
+    - [0x800000, data]
+
+  - name: overlay_1_subovl_1
+    exclusive_ram_id: overlay
+    type: code
+    dir: overlays/ovl_1
+    bss_size: 0x0 # unknown
+    start: 0x800010
+    vram: 0x80043000
+    follows_vram: main_code
+    symbol_name_format: ovl1_$VRAM
+    subsegments:
+    - [0x800010, asm]
+
+  - name: overlay_1_subovl_2
+    exclusive_ram_id: overlay
+    type: code
+    dir: overlays/ovl_2
+    bss_size: 0x0 # unknown
+    start: 0x8019F0
+    vram: 0x80043000
+    follows_vram: main_code
+    symbol_name_format: ovl2_$VRAM
+    subsegments:
+    - [0x8019F0, asm]
+
+  - name: overlay_1_subovl_3
+    exclusive_ram_id: overlay
+    type: code
+    dir: overlays/ovl_3
+    bss_size: 0x0 # unknown
+    start: 0x8034C0
+    vram: 0x80043000
+    follows_vram: main_code
+    symbol_name_format: ovl3_$VRAM
+    subsegments:
+    - [0x8034C0, asm]
+
+  - [0x806950, bin]
   - [0xC00000]
