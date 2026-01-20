@@ -28,10 +28,123 @@ ROM := $(TARGET).z64
 ELF := $(BUILD_DIR)/$(TARGET).elf
 LD_SCRIPT := $(TARGET).ld
 LD_MAP := $(BUILD_DIR)/$(TARGET).map
-ASM_DIRS := asm asm/data asm/libultra asm/libultra/os asm/libultra/io asm/libultra/gu asm/libultra/libc asm/libultra/al asm/libultra/audio asm/data/libultra asm/data/libultra/gu asm/data/libultra/os
+ASM_DIRS := asm asm/data asm/libultra asm/libultra/os asm/libultra/io asm/libultra/gu asm/libultra/libc asm/libultra/al asm/libultra/audio asm/data/libultra asm/data/libultra/gu asm/data/libultra/os asm/overlays
 DATA_DIRS := bin assets
 # not implemented
 SRC_DIRS := $(shell find src -type d)
+
+OVL_DIRS := ovl_1 \
+                ovl_2 \
+                ovl_3 \
+                ovl_4 \
+                ovl_5 \
+                ovl_6 \
+                ovl_7 \
+                ovl_8 \
+                ovl_9 \
+                ovl_10 \
+                ovl_11 \
+                ovl_12 \
+                ovl_13 \
+                ovl_14 \
+                ovl_15 \
+                ovl_16 \
+                ovl_17 \
+                ovl_18 \
+                ovl_19 \
+                ovl_20 \
+                ovl_21 \
+                ovl_22 \
+                ovl_23 \
+                ovl_24 \
+                ovl_25 \
+                ovl_26 \
+                ovl_27 \
+                ovl_28 \
+                ovl_29 \
+                ovl_30 \
+                ovl_31 \
+                ovl_32 \
+                ovl_33 \
+                ovl_34 \
+                ovl_35 \
+                ovl_36 \
+                ovl_37 \
+                ovl_38 \
+                ovl_39 \
+                ovl_40 \
+                ovl_41 \
+                ovl_42 \
+                ovl_43 \
+                ovl_44 \
+                ovl_45 \
+                ovl_46 \
+                ovl_47 \
+                ovl_48 \
+                ovl_49 \
+                ovl_50 \
+                ovl_51 \
+                ovl_52 \
+                ovl_53 \
+                ovl_54 \
+                ovl_55 \
+                ovl_56 \
+                ovl_57 \
+                ovl_58 \
+                ovl_59 \
+                ovl_60 \
+                ovl_61 \
+                ovl_62 \
+                ovl_63 \
+                ovl_64 \
+                ovl_65 \
+                ovl_66 \
+                ovl_67 \
+                ovl_68 \
+                ovl_69 \
+                ovl_70 \
+                ovl_71 \
+                ovl_72 \
+                ovl_73 \
+                ovl_74 \
+                ovl_75 \
+                ovl_76 \
+                ovl_77 \
+                ovl_78 \
+                ovl_79 \
+                ovl_80 \
+                ovl_81 \
+                ovl_82 \
+                ovl_83 \
+                ovl_84 \
+                ovl_85 \
+                ovl_86 \
+                ovl_87 \
+                ovl_88 \
+                ovl_89 \
+                ovl_90 \
+                ovl_91 \
+                ovl_92 \
+                ovl_93 \
+                ovl_94 \
+                ovl_95 \
+                ovl_96 \
+                ovl_97 \
+                ovl_98 \
+                ovl_99 \
+                ovl_100 \
+                ovl_101 \
+                ovl_102 \
+                ovl_103 \
+                ovl_104 \
+                ovl_105 \
+                ovl_106 \
+                ovl_107 \
+                ovl_108 \
+                ovl_109
+
+OVL_DIRS := $(addprefix asm/overlays/,$(OVL_DIRS))
+ASM_DIRS += $(OVL_DIRS)
 
 ########## Make tools ##########
 

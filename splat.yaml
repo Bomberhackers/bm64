@@ -9,7 +9,7 @@ options:
   base_path: .
   ld_script_path: bm64.ld
   platform: n64
-  ld_legacy_generation: true
+  ld_legacy_generation: false
   detect_redundant_function_end: true
   ld_sections_allowlist:
     - .shstrtab
@@ -20,13 +20,13 @@ segments:
     type: header
     start: 0x00
     vram: 0
+    exclusive_ram_id: code
     subsegments:
     - [0x0000, header, header]
   - name: boot
     type: code
     start: 0x0040
     vram: 0xA4000040
-    exclusive_ram_id: boot
     subsegments:
     - [0x0040, asm, boot]
     - [0x0B70, bin, bootcode_font]
@@ -35,6 +35,7 @@ segments:
     bss_size: 0x0 # unknown
     start: 0x1000
     vram: 0x80000400
+    exclusive_ram_id: code
     subsegments:
     - [0x1000, hasm, entry] # bootloader
     - [0x1050, c, set_zero_tlb]
@@ -272,8 +273,9 @@ segments:
     - [0x1A9D0, asm]
     - [0x1A9F0, asm]
     - [0x1AB80, data]
-    
+
   - name: zerojump
+    exclusive_ram_id: code
     type: code
     bss_size: 0x0 # unknown
     start: 0x1CBC0
@@ -284,6 +286,7 @@ segments:
     
   # not sure what this is yet
   - name: zerojump_after
+    exclusive_ram_id: code
     type: bin
     bss_size: 0x0 # unknown
     start: 0x1CCF0
@@ -292,14 +295,16 @@ segments:
     - [0x1CCF0, bin] # some weird zero'd out area except 1 or 2 things
 
   - name: section_sizes
+    exclusive_ram_id: code
     type: data
     bss_size: 0x0 # unknown
     start: 0x30000
     vram: 0x80024820
     subsegments:
-    - [0x30000, bin] # table of section sizes
+    - [0x30000, data] # table of section sizes
 
   - name: overlay_sizes
+    exclusive_ram_id: code
     type: data
     bss_size: 0x0 # unknown
     start: 0x30800
@@ -309,6 +314,7 @@ segments:
     - [0x31800, data]
 
   - name: main_code
+    exclusive_ram_id: code
     type: code
     bss_size: 0x0 # unknown
     start: 0x40000
@@ -364,6 +370,7 @@ segments:
     - [0xB2530, asm]
     
   - name: main_code_2
+    exclusive_ram_id: code
     type: code
     bss_size: 0x0 # unknown
     start: 0xB3B70
@@ -376,6 +383,7 @@ segments:
     - [0xB7720, asm]
 
   - name: pre_rsp_area
+    exclusive_ram_id: code
     type: code
     bss_size: 0x0 # unknown
     start: 0xB7A50
@@ -384,6 +392,7 @@ segments:
     - [0xB7A50, bin]
 
   - name: rsp_area
+    exclusive_ram_id: code
     type: code
     bss_size: 0x0 # unknown
     start: 0xB8F50
@@ -392,6 +401,7 @@ segments:
     - [0xB8F50, bin]
 
   - name: rsp_area_data
+    exclusive_ram_id: code
     type: code
     bss_size: 0x0 # unknown
     start: 0xBF840
@@ -400,6 +410,7 @@ segments:
     - [0xBF840, bin]
 
   - name: overlay_tables_data
+    exclusive_ram_id: code
     type: bin
     bss_size: 0x0 # unknown
     start: 0x120000
@@ -432,6 +443,7 @@ segments:
 
   - name: overlay_1_subovl_1
     exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
     type: code
     dir: overlays/ovl_1
     bss_size: 0x0 # unknown
