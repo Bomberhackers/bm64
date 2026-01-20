@@ -469,6 +469,9 @@ segments:
     symbol_name_format: ovl1_2_$VRAM
     subsegments:
     - [0x8019F0, asm]
+    - [0x801DD0, asm, zerojmp]
+    - [0x803410, data]
+    - [0x803470, rodata]
 
   - name: overlay_1_subovl_3
     exclusive_ram_id: overlay
@@ -481,6 +484,9 @@ segments:
     symbol_name_format: ovl1_3_$VRAM
     subsegments:
     - [0x8034C0, asm]
+    - [0x8037F0, asm, zerojmp]
+    - [0x804E30, data]
+    - [0x804EC0, rodata]
 
   - name: overlay_1_subovl_4
     exclusive_ram_id: overlay

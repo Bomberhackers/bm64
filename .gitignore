@@ -27,3 +27,8 @@ expected/
 
 # misc
 .DS_Store
+
+*.out
+*.txt
+*.c
+*.i
