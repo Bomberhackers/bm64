@@ -3,11 +3,12 @@ CXX := g++
 CFLAGS := -I . -Wall -Wextra -Wno-unused-parameter -pedantic -std=c99 -O2 -s
 CXXFLAGS := -I . -Wall -Wextra -std=c++17
 LDFLAGS := -lm
-PROGRAMS := n64crc
+PROGRAMS := n64crc bm64decompress
 
 default: all
 
 n64crc_SOURCES := n64crc.c
+bm64decompress_SOURCES := bm64decompress.cpp
 
 all: $(PROGRAMS)
 
