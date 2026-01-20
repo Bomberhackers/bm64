@@ -433,13 +433,15 @@ segments:
     - [0x300000, bin] # rest of regular ROM, pre decompressed area
 
   - name: overlay_1_header
-    exclusive_ram_id: overlay
-    type: data
+    exclusive_ram_id: overlay_header
+    ld_use_symbolic_vram_addresses: false
+    type: bin
     bss_size: 0x0 # unknown
     start: 0x800000
     vram: 0x80008000
+    symbol_name_format_no_rom: ovl1_header_$VRAM
     subsegments:
-    - [0x800000, data]
+    - [0x800000, bin]
 
   - name: overlay_1_subovl_1
     exclusive_ram_id: overlay
@@ -477,5 +479,1225 @@ segments:
     subsegments:
     - [0x8034C0, asm]
 
-  - [0x806950, bin]
-  - [0xC00000]
+  - name: overlay_1_subovl_4
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_1_subovl_4
+    bss_size: 0x0 # unknown
+    start: 0x804F10
+    vram: 0x80043000
+    symbol_name_format: ovl1_4_$VRAM
+    subsegments:
+    - [0x804F10, asm]
+
+  - name: overlay_2_header
+    exclusive_ram_id: overlay
+    type: bin
+    start: 0x806950
+    vram: 0x80008000
+    symbol_name_format: ovl2_header_$VRAM
+    subsegments:
+    - [0x806950, bin]
+
+  - name: overlay_2_subovl_1
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_2_subovl_1
+    bss_size: 0x0 # unknown
+    start: 0x806970
+    vram: 0x80043000
+    symbol_name_format: ovl2_1_$VRAM
+    subsegments:
+    - [0x806970, asm]
+
+  - name: overlay_2_subovl_2
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_2_subovl_2
+    bss_size: 0x0 # unknown
+    start: 0x80C650
+    vram: 0x80043000
+    symbol_name_format: ovl2_2_$VRAM
+    subsegments:
+    - [0x80C650, asm]
+
+  - name: overlay_2_subovl_3
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_2_subovl_3
+    bss_size: 0x0 # unknown
+    start: 0x811B50
+    vram: 0x80043000
+    symbol_name_format: ovl2_3_$VRAM
+    subsegments:
+    - [0x811B50, asm]
+
+  - name: overlay_2_subovl_4
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_2_subovl_4
+    bss_size: 0x0 # unknown
+    start: 0x817350
+    vram: 0x80043000
+    symbol_name_format: ovl2_4_$VRAM
+    subsegments:
+    - [0x817350, asm]
+
+  - name: overlay_2_subovl_5
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_2_subovl_5
+    bss_size: 0x0 # unknown
+    start: 0x81AA10
+    vram: 0x80043000
+    symbol_name_format: ovl2_5_$VRAM
+    subsegments:
+    - [0x81AA10, asm]
+
+  - name: overlay_2_subovl_6
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_2_subovl_6
+    bss_size: 0x0 # unknown
+    start: 0x8212E0
+    vram: 0x80043000
+    symbol_name_format: ovl2_6_$VRAM
+    subsegments:
+    - [0x8212E0, asm]
+
+  - name: overlay_3_header
+    exclusive_ram_id: overlay
+    type: bin
+    start: 0x8257D0
+    vram: 0x80008000
+    symbol_name_format: ovl3_header_$VRAM
+    subsegments:
+    - [0x8257D0, bin]
+
+  - name: overlay_3_subovl_1
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_3_subovl_1
+    bss_size: 0x0 # unknown
+    start: 0x8257F0
+    vram: 0x80043000
+    symbol_name_format: ovl3_1_$VRAM
+    subsegments:
+    - [0x8257F0, asm]
+
+  - name: overlay_3_subovl_2
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_3_subovl_2
+    bss_size: 0x0 # unknown
+    start: 0x828770
+    vram: 0x80043000
+    symbol_name_format: ovl3_2_$VRAM
+    subsegments:
+    - [0x828770, asm]
+
+  - name: overlay_3_subovl_3
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_3_subovl_3
+    bss_size: 0x0 # unknown
+    start: 0x82FAF0
+    vram: 0x80043000
+    symbol_name_format: ovl3_3_$VRAM
+    subsegments:
+    - [0x82FAF0, asm]
+
+  - name: overlay_3_subovl_4
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_3_subovl_4
+    bss_size: 0x0 # unknown
+    start: 0x835DD0
+    vram: 0x80043000
+    symbol_name_format: ovl3_4_$VRAM
+    subsegments:
+    - [0x835DD0, asm]
+
+  - name: overlay_3_subovl_5
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_3_subovl_5
+    bss_size: 0x0 # unknown
+    start: 0x83D060
+    vram: 0x80043000
+    symbol_name_format: ovl3_5_$VRAM
+    subsegments:
+    - [0x83D060, asm]
+
+  - name: overlay_3_subovl_6
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_3_subovl_6
+    bss_size: 0x0 # unknown
+    start: 0x840820
+    vram: 0x80043000
+    symbol_name_format: ovl3_6_$VRAM
+    subsegments:
+    - [0x840820, asm]
+
+  - name: overlay_3_subovl_7
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_3_subovl_7
+    bss_size: 0x0 # unknown
+    start: 0x847DB0
+    vram: 0x80043000
+    symbol_name_format: ovl3_7_$VRAM
+    subsegments:
+    - [0x847DB0, asm]
+
+  - name: overlay_4_header
+    exclusive_ram_id: overlay
+    type: bin
+    start: 0x84BBA0
+    vram: 0x80008000
+    symbol_name_format: ovl4_header_$VRAM
+    subsegments:
+    - [0x84BBA0, bin]
+
+  - name: overlay_4_subovl_1
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_4_subovl_1
+    bss_size: 0x0 # unknown
+    start: 0x84BBC0
+    vram: 0x80043000
+    symbol_name_format: ovl4_1_$VRAM
+    subsegments:
+    - [0x84BBC0, asm]
+
+  - name: overlay_4_subovl_2
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_4_subovl_2
+    bss_size: 0x0 # unknown
+    start: 0x853540
+    vram: 0x80043000
+    symbol_name_format: ovl4_2_$VRAM
+    subsegments:
+    - [0x853540, asm]
+
+  - name: overlay_4_subovl_3
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_4_subovl_3
+    bss_size: 0x0 # unknown
+    start: 0x85A610
+    vram: 0x80043000
+    symbol_name_format: ovl4_3_$VRAM
+    subsegments:
+    - [0x85A610, asm]
+
+  - name: overlay_4_subovl_4
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_4_subovl_4
+    bss_size: 0x0 # unknown
+    start: 0x85CC80
+    vram: 0x80043000
+    symbol_name_format: ovl4_4_$VRAM
+    subsegments:
+    - [0x85CC80, asm]
+
+  - name: overlay_4_subovl_5
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_4_subovl_5
+    bss_size: 0x0 # unknown
+    start: 0x85FA50
+    vram: 0x80043000
+    symbol_name_format: ovl4_5_$VRAM
+    subsegments:
+    - [0x85FA50, asm]
+
+  - name: overlay_4_subovl_6
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_4_subovl_6
+    bss_size: 0x0 # unknown
+    start: 0x8624B0
+    vram: 0x80043000
+    symbol_name_format: ovl4_6_$VRAM
+    subsegments:
+    - [0x8624B0, asm]
+
+  - name: overlay_4_subovl_7
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_4_subovl_7
+    bss_size: 0x0 # unknown
+    start: 0x868820
+    vram: 0x80043000
+    symbol_name_format: ovl4_7_$VRAM
+    subsegments:
+    - [0x868820, asm]
+
+  - name: overlay_4_subovl_8
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_4_subovl_8
+    bss_size: 0x0 # unknown
+    start: 0x86D170
+    vram: 0x80043000
+    symbol_name_format: ovl4_8_$VRAM
+    subsegments:
+    - [0x86D170, asm]
+
+  - name: overlay_4_subovl_9
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_4_subovl_9
+    bss_size: 0x0 # unknown
+    start: 0x86F710
+    vram: 0x80043000
+    symbol_name_format: ovl4_9_$VRAM
+    subsegments:
+    - [0x86F710, asm]
+
+  - name: overlay_4_subovl_10
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_4_subovl_10
+    bss_size: 0x0 # unknown
+    start: 0x8741F0
+    vram: 0x80043000
+    symbol_name_format: ovl4_10_$VRAM
+    subsegments:
+    - [0x8741F0, asm]
+
+  - name: overlay_5_header
+    exclusive_ram_id: overlay
+    type: bin
+    start: 0x877860
+    vram: 0x80008000
+    symbol_name_format: ovl5_header_$VRAM
+    subsegments:
+    - [0x877860, bin]
+
+  - name: overlay_5_subovl_1
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_5_subovl_1
+    bss_size: 0x0 # unknown
+    start: 0x877880
+    vram: 0x80043000
+    symbol_name_format: ovl5_1_$VRAM
+    subsegments:
+    - [0x877880, asm]
+
+  - name: overlay_5_subovl_2
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_5_subovl_2
+    bss_size: 0x0 # unknown
+    start: 0x87C350
+    vram: 0x80043000
+    symbol_name_format: ovl5_2_$VRAM
+    subsegments:
+    - [0x87C350, asm]
+
+  - name: overlay_5_subovl_3
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_5_subovl_3
+    bss_size: 0x0 # unknown
+    start: 0x880D50
+    vram: 0x80043000
+    symbol_name_format: ovl5_3_$VRAM
+    subsegments:
+    - [0x880D50, asm]
+
+  - name: overlay_5_subovl_4
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_5_subovl_4
+    bss_size: 0x0 # unknown
+    start: 0x885E90
+    vram: 0x80043000
+    symbol_name_format: ovl5_4_$VRAM
+    subsegments:
+    - [0x885E90, asm]
+
+  - name: overlay_5_subovl_5
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_5_subovl_5
+    bss_size: 0x0 # unknown
+    start: 0x889EB0
+    vram: 0x80043000
+    symbol_name_format: ovl5_5_$VRAM
+    subsegments:
+    - [0x889EB0, asm]
+
+  - name: overlay_5_subovl_6
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_5_subovl_6
+    bss_size: 0x0 # unknown
+    start: 0x88CFE0
+    vram: 0x80043000
+    symbol_name_format: ovl5_6_$VRAM
+    subsegments:
+    - [0x88CFE0, asm]
+
+  - name: overlay_5_subovl_7
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_5_subovl_7
+    bss_size: 0x0 # unknown
+    start: 0x891590
+    vram: 0x80043000
+    symbol_name_format: ovl5_7_$VRAM
+    subsegments:
+    - [0x891590, asm]
+
+  - name: overlay_6_header
+    exclusive_ram_id: overlay
+    type: bin
+    start: 0x894C70
+    vram: 0x80008000
+    symbol_name_format: ovl6_header_$VRAM
+    subsegments:
+    - [0x894C70, bin]
+
+  - name: overlay_6_subovl_1
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_6_subovl_1
+    bss_size: 0x0 # unknown
+    start: 0x894CA0
+    vram: 0x80043000
+    symbol_name_format: ovl6_1_$VRAM
+    subsegments:
+    - [0x894CA0, asm]
+
+  - name: overlay_6_subovl_2
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_6_subovl_2
+    bss_size: 0x0 # unknown
+    start: 0x898980
+    vram: 0x80043000
+    symbol_name_format: ovl6_2_$VRAM
+    subsegments:
+    - [0x898980, asm]
+
+  - name: overlay_6_subovl_3
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_6_subovl_3
+    bss_size: 0x0 # unknown
+    start: 0x89C0E0
+    vram: 0x80043000
+    symbol_name_format: ovl6_3_$VRAM
+    subsegments:
+    - [0x89C0E0, asm]
+
+  - name: overlay_6_subovl_4
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_6_subovl_4
+    bss_size: 0x0 # unknown
+    start: 0x89FCF0
+    vram: 0x80043000
+    symbol_name_format: ovl6_4_$VRAM
+    subsegments:
+    - [0x89FCF0, asm]
+
+  - name: overlay_6_subovl_5
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_6_subovl_5
+    bss_size: 0x0 # unknown
+    start: 0x8A3BF0
+    vram: 0x80043000
+    symbol_name_format: ovl6_5_$VRAM
+    subsegments:
+    - [0x8A3BF0, asm]
+
+  - name: overlay_6_subovl_6
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_6_subovl_6
+    bss_size: 0x0 # unknown
+    start: 0x8A6E00
+    vram: 0x80043000
+    symbol_name_format: ovl6_6_$VRAM
+    subsegments:
+    - [0x8A6E00, asm]
+
+  - name: overlay_6_subovl_7
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_6_subovl_7
+    bss_size: 0x0 # unknown
+    start: 0x8A9160
+    vram: 0x80043000
+    symbol_name_format: ovl6_7_$VRAM
+    subsegments:
+    - [0x8A9160, asm]
+
+  - name: overlay_6_subovl_8
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_6_subovl_8
+    bss_size: 0x0 # unknown
+    start: 0x8AB4C0
+    vram: 0x80043000
+    symbol_name_format: ovl6_8_$VRAM
+    subsegments:
+    - [0x8AB4C0, asm]
+
+  - name: overlay_6_subovl_9
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_6_subovl_9
+    bss_size: 0x0 # unknown
+    start: 0x8AD820
+    vram: 0x80043000
+    symbol_name_format: ovl6_9_$VRAM
+    subsegments:
+    - [0x8AD820, asm]
+
+  - name: overlay_6_subovl_10
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_6_subovl_10
+    bss_size: 0x0 # unknown
+    start: 0x8B07B0
+    vram: 0x80043000
+    symbol_name_format: ovl6_10_$VRAM
+    subsegments:
+    - [0x8B07B0, asm]
+
+  - name: overlay_6_subovl_11
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_6_subovl_11
+    bss_size: 0x0 # unknown
+    start: 0x8B2D10
+    vram: 0x80043000
+    symbol_name_format: ovl6_11_$VRAM
+    subsegments:
+    - [0x8B2D10, asm]
+
+  - name: overlay_6_subovl_12
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_6_subovl_12
+    bss_size: 0x0 # unknown
+    start: 0x8B61D0
+    vram: 0x80043000
+    symbol_name_format: ovl6_12_$VRAM
+    subsegments:
+    - [0x8B61D0, asm]
+
+  - name: overlay_6_subovl_13
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_6_subovl_13
+    bss_size: 0x0 # unknown
+    start: 0x8B9480
+    vram: 0x80043000
+    symbol_name_format: ovl6_13_$VRAM
+    subsegments:
+    - [0x8B9480, asm]
+
+  - name: overlay_6_subovl_14
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_6_subovl_14
+    bss_size: 0x0 # unknown
+    start: 0x8BD1D0
+    vram: 0x80043000
+    symbol_name_format: ovl6_14_$VRAM
+    subsegments:
+    - [0x8BD1D0, asm]
+
+  - name: overlay_6_subovl_15
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_6_subovl_15
+    bss_size: 0x0 # unknown
+    start: 0x8BF530
+    vram: 0x80043000
+    symbol_name_format: ovl6_15_$VRAM
+    subsegments:
+    - [0x8BF530, asm]
+
+  - name: overlay_7_header
+    exclusive_ram_id: overlay
+    type: bin
+    start: 0x8C2E30
+    vram: 0x80008000
+    symbol_name_format: ovl7_header_$VRAM
+    subsegments:
+    - [0x8C2E30, bin]
+
+  - name: overlay_7_subovl_1
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_7_subovl_1
+    bss_size: 0x0 # unknown
+    start: 0x8C2E50
+    vram: 0x80043000
+    symbol_name_format: ovl7_1_$VRAM
+    subsegments:
+    - [0x8C2E50, asm]
+
+  - name: overlay_7_subovl_2
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_7_subovl_2
+    bss_size: 0x0 # unknown
+    start: 0x8C8570
+    vram: 0x80043000
+    symbol_name_format: ovl7_2_$VRAM
+    subsegments:
+    - [0x8C8570, asm]
+
+  - name: overlay_7_subovl_3
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_7_subovl_3
+    bss_size: 0x0 # unknown
+    start: 0x8CE270
+    vram: 0x80043000
+    symbol_name_format: ovl7_3_$VRAM
+    subsegments:
+    - [0x8CE270, asm]
+
+  - name: overlay_7_subovl_4
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_7_subovl_4
+    bss_size: 0x0 # unknown
+    start: 0x8D2300
+    vram: 0x80043000
+    symbol_name_format: ovl7_4_$VRAM
+    subsegments:
+    - [0x8D2300, asm]
+
+  - name: overlay_7_subovl_5
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_7_subovl_5
+    bss_size: 0x0 # unknown
+    start: 0x8D7D70
+    vram: 0x80043000
+    symbol_name_format: ovl7_5_$VRAM
+    subsegments:
+    - [0x8D7D70, asm]
+
+  - name: overlay_7_subovl_6
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_7_subovl_6
+    bss_size: 0x0 # unknown
+    start: 0x8DB250
+    vram: 0x80043000
+    symbol_name_format: ovl7_6_$VRAM
+    subsegments:
+    - [0x8DB250, asm]
+
+  - name: overlay_7_subovl_7
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_7_subovl_7
+    bss_size: 0x0 # unknown
+    start: 0x8DCB90
+    vram: 0x80043000
+    symbol_name_format: ovl7_7_$VRAM
+    subsegments:
+    - [0x8DCB90, asm]
+
+  - name: overlay_7_subovl_8
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_7_subovl_8
+    bss_size: 0x0 # unknown
+    start: 0x8DF9C0
+    vram: 0x80043000
+    symbol_name_format: ovl7_8_$VRAM
+    subsegments:
+    - [0x8DF9C0, asm]
+
+  - name: overlay_7_subovl_9
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_7_subovl_9
+    bss_size: 0x0 # unknown
+    start: 0x8E2760
+    vram: 0x80043000
+    symbol_name_format: ovl7_9_$VRAM
+    subsegments:
+    - [0x8E2760, asm]
+
+  - name: overlay_7_subovl_10
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_7_subovl_10
+    bss_size: 0x0 # unknown
+    start: 0x8E5960
+    vram: 0x80043000
+    symbol_name_format: ovl7_10_$VRAM
+    subsegments:
+    - [0x8E5960, asm]
+
+  - name: overlay_8_header
+    exclusive_ram_id: overlay
+    type: bin
+    start: 0x8E9440
+    vram: 0x80008000
+    symbol_name_format: ovl8_header_$VRAM
+    subsegments:
+    - [0x8E9440, bin]
+
+  - name: overlay_8_subovl_1
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_8_subovl_1
+    bss_size: 0x0 # unknown
+    start: 0x8E9470
+    vram: 0x80043000
+    symbol_name_format: ovl8_1_$VRAM
+    subsegments:
+    - [0x8E9470, asm]
+
+  - name: overlay_8_subovl_2
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_8_subovl_2
+    bss_size: 0x0 # unknown
+    start: 0x8ED760
+    vram: 0x80043000
+    symbol_name_format: ovl8_2_$VRAM
+    subsegments:
+    - [0x8ED760, asm]
+
+  - name: overlay_8_subovl_3
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_8_subovl_3
+    bss_size: 0x0 # unknown
+    start: 0x8F0490
+    vram: 0x80043000
+    symbol_name_format: ovl8_3_$VRAM
+    subsegments:
+    - [0x8F0490, asm]
+
+  - name: overlay_8_subovl_4
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_8_subovl_4
+    bss_size: 0x0 # unknown
+    start: 0x8F4440
+    vram: 0x80043000
+    symbol_name_format: ovl8_4_$VRAM
+    subsegments:
+    - [0x8F4440, asm]
+
+  - name: overlay_8_subovl_5
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_8_subovl_5
+    bss_size: 0x0 # unknown
+    start: 0x8F7150
+    vram: 0x80043000
+    symbol_name_format: ovl8_5_$VRAM
+    subsegments:
+    - [0x8F7150, asm]
+
+  - name: overlay_8_subovl_6
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_8_subovl_6
+    bss_size: 0x0 # unknown
+    start: 0x8FB030
+    vram: 0x80043000
+    symbol_name_format: ovl8_6_$VRAM
+    subsegments:
+    - [0x8FB030, asm]
+
+  - name: overlay_8_subovl_7
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_8_subovl_7
+    bss_size: 0x0 # unknown
+    start: 0x902B90
+    vram: 0x80043000
+    symbol_name_format: ovl8_7_$VRAM
+    subsegments:
+    - [0x902B90, asm]
+
+  - name: overlay_8_subovl_8
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_8_subovl_8
+    bss_size: 0x0 # unknown
+    start: 0x909710
+    vram: 0x80043000
+    symbol_name_format: ovl8_8_$VRAM
+    subsegments:
+    - [0x909710, asm]
+
+  - name: overlay_8_subovl_9
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_8_subovl_9
+    bss_size: 0x0 # unknown
+    start: 0x90FDD0
+    vram: 0x80043000
+    symbol_name_format: ovl8_9_$VRAM
+    subsegments:
+    - [0x90FDD0, asm]
+
+  - name: overlay_8_subovl_10
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_8_subovl_10
+    bss_size: 0x0 # unknown
+    start: 0x916780
+    vram: 0x80043000
+    symbol_name_format: ovl8_10_$VRAM
+    subsegments:
+    - [0x916780, asm]
+
+  - name: overlay_8_subovl_11
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_8_subovl_11
+    bss_size: 0x0 # unknown
+    start: 0x91A820
+    vram: 0x80043000
+    symbol_name_format: ovl8_11_$VRAM
+    subsegments:
+    - [0x91A820, asm]
+
+  - name: overlay_8_subovl_12
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_8_subovl_12
+    bss_size: 0x0 # unknown
+    start: 0x91DEC0
+    vram: 0x80043000
+    symbol_name_format: ovl8_12_$VRAM
+    subsegments:
+    - [0x91DEC0, asm]
+
+  - name: overlay_8_subovl_13
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_8_subovl_13
+    bss_size: 0x0 # unknown
+    start: 0x923AF0
+    vram: 0x80043000
+    symbol_name_format: ovl8_13_$VRAM
+    subsegments:
+    - [0x923AF0, asm]
+
+  - name: overlay_9_header
+    exclusive_ram_id: overlay
+    type: bin
+    start: 0x92B640
+    vram: 0x80008000
+    symbol_name_format: ovl9_header_$VRAM
+    subsegments:
+    - [0x92B640, bin]
+
+  - name: overlay_9_subovl_1
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_9_subovl_1
+    bss_size: 0x0 # unknown
+    start: 0x92B660
+    vram: 0x80043000
+    symbol_name_format: ovl9_1_$VRAM
+    subsegments:
+    - [0x92B660, asm]
+
+  - name: overlay_9_subovl_2
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_9_subovl_2
+    bss_size: 0x0 # unknown
+    start: 0x92EB20
+    vram: 0x80043000
+    symbol_name_format: ovl9_2_$VRAM
+    subsegments:
+    - [0x92EB20, asm]
+
+  - name: overlay_9_subovl_3
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_9_subovl_3
+    bss_size: 0x0 # unknown
+    start: 0x930C90
+    vram: 0x80043000
+    symbol_name_format: ovl9_3_$VRAM
+    subsegments:
+    - [0x930C90, asm]
+
+  - name: overlay_9_subovl_4
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_9_subovl_4
+    bss_size: 0x0 # unknown
+    start: 0x933B30
+    vram: 0x80043000
+    symbol_name_format: ovl9_4_$VRAM
+    subsegments:
+    - [0x933B30, asm]
+
+  - name: overlay_9_subovl_5
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_9_subovl_5
+    bss_size: 0x0 # unknown
+    start: 0x935BA0
+    vram: 0x80043000
+    symbol_name_format: ovl9_5_$VRAM
+    subsegments:
+    - [0x935BA0, asm]
+
+  - name: overlay_9_subovl_6
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_9_subovl_6
+    bss_size: 0x0 # unknown
+    start: 0x93D790
+    vram: 0x80043000
+    symbol_name_format: ovl9_6_$VRAM
+    subsegments:
+    - [0x93D790, asm]
+
+  - name: overlay_10_header
+    exclusive_ram_id: overlay
+    type: bin
+    start: 0x940710
+    vram: 0x80008000
+    symbol_name_format: ovl10_header_$VRAM
+    subsegments:
+    - [0x940710, bin]
+
+  - name: overlay_10_subovl_1
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_10_subovl_1
+    bss_size: 0x0 # unknown
+    start: 0x940720
+    vram: 0x80043000
+    symbol_name_format: ovl10_1_$VRAM
+    subsegments:
+    - [0x940720, asm]
+
+  - name: overlay_10_subovl_2
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_10_subovl_2
+    bss_size: 0x0 # unknown
+    start: 0x949920
+    vram: 0x80043000
+    symbol_name_format: ovl10_2_$VRAM
+    subsegments:
+    - [0x949920, asm]
+
+  - name: overlay_11_header
+    exclusive_ram_id: overlay
+    type: bin
+    start: 0x9545B0
+    vram: 0x80008000
+    symbol_name_format: ovl11_header_$VRAM
+    subsegments:
+    - [0x9545B0, bin]
+
+  - name: overlay_11_subovl_1
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_11_subovl_1
+    bss_size: 0x0 # unknown
+    start: 0x9545C0
+    vram: 0x80043000
+    symbol_name_format: ovl11_1_$VRAM
+    subsegments:
+    - [0x9545C0, asm]
+
+  - name: overlay_11_subovl_2
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_11_subovl_2
+    bss_size: 0x0 # unknown
+    start: 0x95EA60
+    vram: 0x80043000
+    symbol_name_format: ovl11_2_$VRAM
+    subsegments:
+    - [0x95EA60, asm]
+
+  - name: overlay_12_header
+    exclusive_ram_id: overlay
+    type: bin
+    start: 0x96BCD0
+    vram: 0x80008000
+    symbol_name_format: ovl12_header_$VRAM
+    subsegments:
+    - [0x96BCD0, bin]
+
+  - name: overlay_12_subovl_1
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_12_subovl_1
+    bss_size: 0x0 # unknown
+    start: 0x96BCE0
+    vram: 0x80043000
+    symbol_name_format: ovl12_1_$VRAM
+    subsegments:
+    - [0x96BCE0, asm]
+
+  - name: overlay_12_subovl_2
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_12_subovl_2
+    bss_size: 0x0 # unknown
+    start: 0x976C10
+    vram: 0x80043000
+    symbol_name_format: ovl12_2_$VRAM
+    subsegments:
+    - [0x976C10, asm]
+
+  - name: overlay_13_header
+    exclusive_ram_id: overlay
+    type: bin
+    start: 0x984F30
+    vram: 0x80008000
+    symbol_name_format: ovl13_header_$VRAM
+    subsegments:
+    - [0x984F30, bin]
+
+  - name: overlay_13_subovl_1
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_13_subovl_1
+    bss_size: 0x0 # unknown
+    start: 0x984F40
+    vram: 0x80043000
+    symbol_name_format: ovl13_1_$VRAM
+    subsegments:
+    - [0x984F40, asm]
+
+  - name: overlay_14_header
+    exclusive_ram_id: overlay
+    type: bin
+    start: 0x9871E0
+    vram: 0x80008000
+    symbol_name_format: ovl14_header_$VRAM
+    subsegments:
+    - [0x9871E0, bin]
+
+  - name: overlay_14_subovl_1
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_14_subovl_1
+    bss_size: 0x0 # unknown
+    start: 0x987200
+    vram: 0x80043000
+    symbol_name_format: ovl14_1_$VRAM
+    subsegments:
+    - [0x987200, asm]
+
+  - name: overlay_14_subovl_2
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_14_subovl_2
+    bss_size: 0x0 # unknown
+    start: 0x989A00
+    vram: 0x80043000
+    symbol_name_format: ovl14_2_$VRAM
+    subsegments:
+    - [0x989A00, asm]
+
+  - name: overlay_14_subovl_3
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_14_subovl_3
+    bss_size: 0x0 # unknown
+    start: 0x98B7C0
+    vram: 0x80043000
+    symbol_name_format: ovl14_3_$VRAM
+    subsegments:
+    - [0x98B7C0, asm]
+
+  - name: overlay_14_subovl_4
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_14_subovl_4
+    bss_size: 0x0 # unknown
+    start: 0x98D600
+    vram: 0x80043000
+    symbol_name_format: ovl14_4_$VRAM
+    subsegments:
+    - [0x98D600, asm]
+
+  - name: overlay_14_subovl_5
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_14_subovl_5
+    bss_size: 0x0 # unknown
+    start: 0x98F430
+    vram: 0x80043000
+    symbol_name_format: ovl14_5_$VRAM
+    subsegments:
+    - [0x98F430, asm]
+
+  - name: overlay_14_subovl_6
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_14_subovl_6
+    bss_size: 0x0 # unknown
+    start: 0x991280
+    vram: 0x80043000
+    symbol_name_format: ovl14_6_$VRAM
+    subsegments:
+    - [0x991280, asm]
+
+  - name: overlay_14_subovl_7
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_14_subovl_7
+    bss_size: 0x0 # unknown
+    start: 0x993AC0
+    vram: 0x80043000
+    symbol_name_format: ovl14_7_$VRAM
+    subsegments:
+    - [0x993AC0, asm]
+
+  - name: overlay_14_subovl_8
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_14_subovl_8
+    bss_size: 0x0 # unknown
+    start: 0x996240
+    vram: 0x80043000
+    symbol_name_format: ovl14_8_$VRAM
+    subsegments:
+    - [0x996240, asm]
+
+  - name: overlay_14_subovl_9
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_14_subovl_9
+    bss_size: 0x0 # unknown
+    start: 0x998EA0
+    vram: 0x80043000
+    symbol_name_format: ovl14_9_$VRAM
+    subsegments:
+    - [0x998EA0, asm]
+
+  - name: overlay_14_subovl_10
+    exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
+    type: code
+    dir: overlays/ovl_14_subovl_10
+    bss_size: 0x0 # unknown
+    start: 0x99C230
+    vram: 0x80043000
+    symbol_name_format: ovl14_10_$VRAM
+    subsegments:
+    - [0x99C230, asm]
+
+  - [0x99F920]
