@@ -3,6 +3,7 @@
 #################################################################
 
 BASEROM = baserom.z64
+BASEROM_DECOMPRESSED = baserom.decomp.z64
 TARGET = bm64
 NON_MATCHING ?= 0
 RUN_CC_CHECK ?= 1
@@ -42,6 +43,7 @@ endif
 ###################### Other Tools ######################
 
 N64CRC = tools/n64crc
+BM64DECOMPRESS = tools/bm64decompress
 
 C_FILES := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c))
 S_FILES := $(foreach dir,$(SRC_DIRS) $(ASM_DIRS),$(wildcard $(dir)/*.s))
@@ -173,10 +175,15 @@ clean:
 submodules:
 	git submodule update --init --recursive
 
+# dumb hack because Makefile hates me
+decompress:
+	make -C tools
+	$(BM64DECOMPRESS) $(BASEROM) $(BASEROM_DECOMPRESSED)
+
 split:
 	rm -rf $(DATA_DIRS) $(ASM_DIRS) && ./tools/n64splat/split.py $(SPLAT_YAML)
 
-setup: distclean submodules split
+setup: distclean submodules decompress split
 
 #==============================================================================#
 # Texture Generation                                                           #

@@ -257,8 +257,8 @@ int main(int argc, char *argv[]) {
     }
     read = fwrite(rom_data, 1, sz, rom_out_f);
     // next, append each decompressed overlay entry to the end of the ROM to create the decompressed ROM.
+    printf("Decompressing ROM for %d overlay entries... ", OVERLAY_COUNT);
     for(int i = 0; i < OVERLAY_COUNT; i++) {
-        printf("Processing overlay %d...\n", i+1);
         process_overlay_entry(rom_out_f, i);
     }
     printf("File written!\n");

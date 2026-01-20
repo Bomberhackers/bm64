@@ -1,10 +1,10 @@
 name: Bomberman 64 (USA)
 basename: bm64
-sha1: 8a7648d8105ac4fc1ad942291b2ef89aeca921c9
+sha1: 8f9e1706b5ef0d51c3cbce4a024796f56420784a
 options:
   compiler: IDO
   symbol_addrs_path: tools/symbol_addrs.txt
-  target_path: baserom.z64
+  target_path: baserom.decomp.z64
   basename: bm64
   base_path: .
   ld_script_path: bm64.ld
