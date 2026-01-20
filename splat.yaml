@@ -937,6 +937,10 @@ segments:
     symbol_name_format: ovl6_1_$VRAM
     subsegments:
     - [0x894CA0, asm]
+    - [0x897010, asm, zerojmp]
+    - [0x898650, data]
+    - [0x8987A0, rodata]
+
 
   - name: overlay_6_subovl_2
     exclusive_ram_id: overlay
@@ -949,6 +953,9 @@ segments:
     symbol_name_format: ovl6_2_$VRAM
     subsegments:
     - [0x898980, asm]
+    - [0x89A6E0, asm, zerojmp]
+    - [0x89BD20, data]
+    - [0x89C080, rodata]
 
   - name: overlay_6_subovl_3
     exclusive_ram_id: overlay
@@ -961,6 +968,9 @@ segments:
     symbol_name_format: ovl6_3_$VRAM
     subsegments:
     - [0x89C0E0, asm]
+    - [0x89E1B0, asm, zerojmp]
+    - [0x89F7F0, data]
+    - [0x89F9F0, rodata]
 
   - name: overlay_6_subovl_4
     exclusive_ram_id: overlay
@@ -973,6 +983,9 @@ segments:
     symbol_name_format: ovl6_4_$VRAM
     subsegments:
     - [0x89FCF0, asm]
+    - [0x8A20F0, asm, zerojmp]
+    - [0x8A3730, data]
+    - [0x8A3A60, rodata]
 
   - name: overlay_6_subovl_5
     exclusive_ram_id: overlay
@@ -985,6 +998,9 @@ segments:
     symbol_name_format: ovl6_5_$VRAM
     subsegments:
     - [0x8A3BF0, asm]
+    - [0x8A5500, asm, zerojmp]
+    - [0x8A6B40, data]
+    - [0x8A6D90, rodata]
 
   - name: overlay_6_subovl_6
     exclusive_ram_id: overlay
@@ -997,6 +1013,9 @@ segments:
     symbol_name_format: ovl6_6_$VRAM
     subsegments:
     - [0x8A6E00, asm]
+    - [0x8A7A90, asm, zerojmp]
+    - [0x8A90D0, data]
+    - [0x8A9110, rodata]
 
   - name: overlay_6_subovl_7
     exclusive_ram_id: overlay
@@ -1009,6 +1028,9 @@ segments:
     symbol_name_format: ovl6_7_$VRAM
     subsegments:
     - [0x8A9160, asm]
+    - [0x8A9DF0, asm, zerojmp]
+    - [0x8AB430, data]
+    - [0x8AB470, rodata]
 
   - name: overlay_6_subovl_8
     exclusive_ram_id: overlay
@@ -1021,6 +1043,9 @@ segments:
     symbol_name_format: ovl6_8_$VRAM
     subsegments:
     - [0x8AB4C0, asm]
+    - [0x8AC150, asm, zerojmp]
+    - [0x8AD790, data]
+    - [0x8AD7D0, rodata]
 
   - name: overlay_6_subovl_9
     exclusive_ram_id: overlay
@@ -1033,6 +1058,9 @@ segments:
     symbol_name_format: ovl6_9_$VRAM
     subsegments:
     - [0x8AD820, asm]
+    - [0x8AEF60, asm, zerojmp]
+    - [0x8B05A0, data]
+    - [0x8B0720, rodata]
 
   - name: overlay_6_subovl_10
     exclusive_ram_id: overlay
@@ -1045,6 +1073,9 @@ segments:
     symbol_name_format: ovl6_10_$VRAM
     subsegments:
     - [0x8B07B0, asm]
+    - [0x8B1600, asm, zerojmp]
+    - [0x8B2C40, data]
+    - [0x8B2CB0, rodata]
 
   - name: overlay_6_subovl_11
     exclusive_ram_id: overlay
@@ -1057,6 +1088,10 @@ segments:
     symbol_name_format: ovl6_11_$VRAM
     subsegments:
     - [0x8B2D10, asm]
+    - [0x8B48F0, asm, zerojmp]
+    - [0x8B5F30, data]
+    - [0x8B6160, rodata]
+
 
   - name: overlay_6_subovl_12
     exclusive_ram_id: overlay
@@ -1069,6 +1104,9 @@ segments:
     symbol_name_format: ovl6_12_$VRAM
     subsegments:
     - [0x8B61D0, asm]
+    - [0x8B7AD0, asm, zerojmp]
+    - [0x8B9110, data]
+    - [0x8B9290, rodata]
 
   - name: overlay_6_subovl_13
     exclusive_ram_id: overlay
@@ -1081,6 +1119,9 @@ segments:
     symbol_name_format: ovl6_13_$VRAM
     subsegments:
     - [0x8B9480, asm]
+    - [0x8BB5E0, asm, zerojmp]
+    - [0x8BCC20, data]
+    - [0x8BD150, rodata]
 
   - name: overlay_6_subovl_14
     exclusive_ram_id: overlay
@@ -1093,6 +1134,9 @@ segments:
     symbol_name_format: ovl6_14_$VRAM
     subsegments:
     - [0x8BD1D0, asm]
+    - [0x8BDE60, asm, zerojmp]
+    - [0x8BF4A0, data]
+    - [0x8BF4E0, rodata]
 
   - name: overlay_6_subovl_15
     exclusive_ram_id: overlay
@@ -1105,6 +1149,8 @@ segments:
     symbol_name_format: ovl6_15_$VRAM
     subsegments:
     - [0x8BF530, asm]
+    - [0x8C16F0, asm, zerojmp]
+    - [0x8C2D30, rodata]
 
   - name: overlay_7_header
     exclusive_ram_id: overlay
