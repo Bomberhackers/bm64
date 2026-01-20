@@ -817,6 +817,9 @@ segments:
     symbol_name_format: ovl5_1_$VRAM
     subsegments:
     - [0x877880, asm]
+    - [0x87A7A0, asm, zerojmp]
+    - [0x87BDE0, data]
+    - [0x87C1C0, rodata]
 
   - name: overlay_5_subovl_2
     exclusive_ram_id: overlay
@@ -829,6 +832,9 @@ segments:
     symbol_name_format: ovl5_2_$VRAM
     subsegments:
     - [0x87C350, asm]
+    - [0x87F300, asm, zerojmp]
+    - [0x880940, data]
+    - [0x880BC0, rodata]
 
   - name: overlay_5_subovl_3
     exclusive_ram_id: overlay
@@ -841,6 +847,9 @@ segments:
     symbol_name_format: ovl5_3_$VRAM
     subsegments:
     - [0x880D50, asm]
+    - [0x8843F0, asm, zerojmp]
+    - [0x885A30, data]
+    - [0x885DB0, rodata]
 
   - name: overlay_5_subovl_4
     exclusive_ram_id: overlay
@@ -853,6 +862,9 @@ segments:
     symbol_name_format: ovl5_4_$VRAM
     subsegments:
     - [0x885E90, asm]
+    - [0x888450, asm, zerojmp]
+    - [0x889A90, data]
+    - [0x889C40, rodata]
 
   - name: overlay_5_subovl_5
     exclusive_ram_id: overlay
