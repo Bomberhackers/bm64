@@ -445,33 +445,35 @@ segments:
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
-    dir: overlays/ovl_1
+    dir: overlays/ovl_1_subovl_1
     bss_size: 0x0 # unknown
     start: 0x800010
     vram: 0x80043000
-    symbol_name_format: ovl1_$VRAM
+    symbol_name_format: ovl1_1_$VRAM
     subsegments:
     - [0x800010, asm]
 
   - name: overlay_1_subovl_2
     exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
     type: code
-    dir: overlays/ovl_2
+    dir: overlays/ovl_1_subovl_2
     bss_size: 0x0 # unknown
     start: 0x8019F0
     vram: 0x80043000
-    symbol_name_format: ovl2_$VRAM
+    symbol_name_format: ovl1_2_$VRAM
     subsegments:
     - [0x8019F0, asm]
 
   - name: overlay_1_subovl_3
     exclusive_ram_id: overlay
+    ld_use_symbolic_vram_addresses: false
     type: code
-    dir: overlays/ovl_3
+    dir: overlays/ovl_1_subovl_3
     bss_size: 0x0 # unknown
     start: 0x8034C0
     vram: 0x80043000
-    symbol_name_format: ovl3_$VRAM
+    symbol_name_format: ovl1_3_$VRAM
     subsegments:
     - [0x8034C0, asm]
 
