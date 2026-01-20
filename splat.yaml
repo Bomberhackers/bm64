@@ -77,7 +77,7 @@ segments:
     - [0x3D90, asm,  libultra/os/unmaptlball]
     - [0x3DE0, asm,  libultra/os/initialize]
     - [0x4070, asm,  libultra/os/setthreadpri]
-    - [0x4150, bin,  noppad_4150] # nop padding
+    - [0x4150, pad,  noppad_4150] # nop padding
     - [0x41B0, asm,  libultra/libc/sprintf]
     - [0x4230, asm,  libultra/os/virtualtophysical]
     - [0x42B0, asm,  libultra/os/jammesg]
@@ -287,12 +287,12 @@ segments:
   # not sure what this is yet
   - name: zerojump_after
     exclusive_ram_id: code
-    type: bin
+    type: data
     bss_size: 0x0 # unknown
     start: 0x1CCF0
     vram: 0x80800000 # placeholder
     subsegments:
-    - [0x1CCF0, bin] # some weird zero'd out area except 1 or 2 things
+    - [0x1CCF0, data] # some weird zero'd out area except 1 or 2 things
 
   - name: section_sizes
     exclusive_ram_id: code
@@ -389,7 +389,7 @@ segments:
     start: 0xB7A50
     vram: 0x8029D250
     subsegments:
-    - [0xB7A50, bin]
+    - [0xB7A50, data]
 
   - name: rsp_area
     exclusive_ram_id: code
@@ -398,7 +398,7 @@ segments:
     start: 0xB8F50
     vram: 0x8029E750
     subsegments:
-    - [0xB8F50, bin]
+    - [0xB8F50, data]
 
   - name: rsp_area_data
     exclusive_ram_id: code
@@ -407,11 +407,11 @@ segments:
     start: 0xBF840
     vram: 0x802A5040
     subsegments:
-    - [0xBF840, bin]
+    - [0xBF840, data]
 
   - name: overlay_tables_data
     exclusive_ram_id: code
-    type: bin
+    type: code
     bss_size: 0x0 # unknown
     start: 0x120000
     vram: 0x80F00000 # TODO
@@ -449,7 +449,6 @@ segments:
     bss_size: 0x0 # unknown
     start: 0x800010
     vram: 0x80043000
-    follows_vram: main_code
     symbol_name_format: ovl1_$VRAM
     subsegments:
     - [0x800010, asm]
@@ -461,7 +460,6 @@ segments:
     bss_size: 0x0 # unknown
     start: 0x8019F0
     vram: 0x80043000
-    follows_vram: main_code
     symbol_name_format: ovl2_$VRAM
     subsegments:
     - [0x8019F0, asm]
@@ -473,7 +471,6 @@ segments:
     bss_size: 0x0 # unknown
     start: 0x8034C0
     vram: 0x80043000
-    follows_vram: main_code
     symbol_name_format: ovl3_$VRAM
     subsegments:
     - [0x8034C0, asm]
