@@ -129,8 +129,10 @@ OVL_DIRS :=     ovl_1_subovl_1 \
                 ovl_14_subovl_9 \
                 ovl_14_subovl_10
 
-OVL_DIRS := $(addprefix asm/overlays/,$(OVL_DIRS))
-ASM_DIRS += $(OVL_DIRS)
+OVL_ASM_DIRS := $(addprefix asm/overlays/,$(OVL_DIRS))
+OVL_DATA_DIRS := $(addprefix asm/data/overlays/,$(OVL_DIRS))
+ASM_DIRS += $(OVL_ASM_DIRS)
+ASM_DIRS += $(OVL_DATA_DIRS)
 
 ########## Make tools ##########
 
