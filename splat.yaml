@@ -367,15 +367,7 @@ segments:
     - [0xB11F0, asm]
     - [0xB2410, asm]
     - [0xB2500, asm]
-    - [0xB2530, asm]
-    
-  - name: main_code_2
-    exclusive_ram_id: code
-    type: code
-    bss_size: 0x0 # unknown
-    start: 0xB3B70
-    vram: 0x80299370
-    subsegments:
+    - [0xB2530, asm] # zerojmp
     - [0xB3B70, asm]
     - [0xB63F0, asm]
     - [0xB6680, asm]
@@ -1547,6 +1539,9 @@ segments:
     symbol_name_format: ovl10_1_$VRAM
     subsegments:
     - [0x940720, asm]
+    - [0x948010, asm, zerojmp]
+    - [0x949650, data]
+    - [0x949670, rodata]
 
   - name: overlay_10_subovl_2
     exclusive_ram_id: overlay
@@ -1559,6 +1554,9 @@ segments:
     symbol_name_format: ovl10_2_$VRAM
     subsegments:
     - [0x949920, asm]
+    - [0x9527D0, asm, zerojmp]
+    - [0x953E10, data]
+    - [0x954270, rodata]
 
   - name: overlay_11_header
     exclusive_ram_id: overlay
@@ -1580,6 +1578,8 @@ segments:
     symbol_name_format: ovl11_1_$VRAM
     subsegments:
     - [0x9545C0, asm]
+    - [0x95D110, asm, zerojmp]
+    - [0x95E750, rodata]
 
   - name: overlay_11_subovl_2
     exclusive_ram_id: overlay
@@ -1592,6 +1592,8 @@ segments:
     symbol_name_format: ovl11_2_$VRAM
     subsegments:
     - [0x95EA60, asm]
+    - [0x96A320, asm, zerojmp]
+    - [0x96B960, rodata]
 
   - name: overlay_12_header
     exclusive_ram_id: overlay
@@ -1613,6 +1615,8 @@ segments:
     symbol_name_format: ovl12_1_$VRAM
     subsegments:
     - [0x96BCE0, asm]
+    - [0x975370, asm, zerojmp]
+    - [0x9769B0, rodata]
 
   - name: overlay_12_subovl_2
     exclusive_ram_id: overlay
@@ -1625,6 +1629,8 @@ segments:
     symbol_name_format: ovl12_2_$VRAM
     subsegments:
     - [0x976C10, asm]
+    - [0x983480, asm, zerojmp]
+    - [0x984AC0, rodata]
 
   - name: overlay_13_header
     exclusive_ram_id: overlay
@@ -1646,6 +1652,8 @@ segments:
     symbol_name_format: ovl13_1_$VRAM
     subsegments:
     - [0x984F40, asm]
+    - [0x985C70, asm, zerojmp]
+    - [0x987110, rodata]
 
   - name: overlay_14_header
     exclusive_ram_id: overlay
