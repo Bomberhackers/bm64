@@ -303,7 +303,7 @@ segments:
     subsegments:
     - [0x30000, data] # table of section sizes
 
-  - name: overlay_sizes
+  - name: ovl_sizes
     exclusive_ram_id: code
     type: data
     bss_size: 0x0 # unknown
@@ -367,7 +367,7 @@ segments:
     - [0xB11F0, asm]
     - [0xB2410, asm]
     - [0xB2500, asm]
-    - [0xB2530, asm] # zerojmp
+    - [0xB2530, asm, zerojmp]
     - [0xB3B70, asm]
     - [0xB63F0, asm]
     - [0xB6680, asm]
@@ -401,7 +401,7 @@ segments:
     subsegments:
     - [0xBF840, data]
 
-  - name: overlay_tables_data
+  - name: ovl_tables_data
     exclusive_ram_id: code
     type: code
     bss_size: 0x0 # unknown
@@ -424,7 +424,7 @@ segments:
     - [0x2E0000, bin] # overlay table 14
     - [0x300000, bin] # rest of regular ROM, pre decompressed area
 
-  - name: overlay_1_header
+  - name: ovl_1_header
     exclusive_ram_id: overlay_header
     ld_use_symbolic_vram_addresses: false
     type: bin
@@ -435,7 +435,7 @@ segments:
     subsegments:
     - [0x800000, bin]
 
-  - name: overlay_1_subovl_1
+  - name: ovl_1_subovl_1
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -450,7 +450,7 @@ segments:
     - [0x801970, data]
     - [0x8019A0, rodata]
 
-  - name: overlay_1_subovl_2
+  - name: ovl_1_subovl_2
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -465,7 +465,7 @@ segments:
     - [0x803410, data]
     - [0x803470, rodata]
 
-  - name: overlay_1_subovl_3
+  - name: ovl_1_subovl_3
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -480,7 +480,7 @@ segments:
     - [0x804E30, data]
     - [0x804EC0, rodata]
 
-  - name: overlay_1_subovl_4
+  - name: ovl_1_subovl_4
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -495,7 +495,7 @@ segments:
     - [0x806870, data]
     - [0x8068A0, rodata]
 
-  - name: overlay_2_header
+  - name: ovl_2_header
     exclusive_ram_id: overlay
     type: bin
     start: 0x806950
@@ -504,7 +504,7 @@ segments:
     subsegments:
     - [0x806950, bin]
 
-  - name: overlay_2_subovl_1
+  - name: ovl_2_subovl_1
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -519,7 +519,7 @@ segments:
     - [0x80C0A0, data]
     - [0x80C470, rodata]
 
-  - name: overlay_2_subovl_2
+  - name: ovl_2_subovl_2
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -534,7 +534,7 @@ segments:
     - [0x811940, data]
     - [0x811A50, rodata]
 
-  - name: overlay_2_subovl_3
+  - name: ovl_2_subovl_3
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -549,7 +549,7 @@ segments:
     - [0x817240, data]
     - [0x817250, rodata]
 
-  - name: overlay_2_subovl_4
+  - name: ovl_2_subovl_4
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -563,7 +563,7 @@ segments:
     - [0x819310, asm, zerojmp]
     - [0x81A950, rodata]
 
-  - name: overlay_2_subovl_5
+  - name: ovl_2_subovl_5
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -578,7 +578,7 @@ segments:
     - [0x820F80, data]
     - [0x821130, rodata]
 
-  - name: overlay_2_subovl_6
+  - name: ovl_2_subovl_6
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -593,7 +593,7 @@ segments:
     - [0x824FE0, data]
     - [0x8256E0, rodata]
 
-  - name: overlay_3_header
+  - name: ovl_3_header
     exclusive_ram_id: overlay
     type: bin
     start: 0x8257D0
@@ -602,7 +602,7 @@ segments:
     subsegments:
     - [0x8257D0, bin]
 
-  - name: overlay_3_subovl_1
+  - name: ovl_3_subovl_1
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -617,7 +617,7 @@ segments:
     - [0x8285F0, data]
     - [0x828700, rodata]
 
-  - name: overlay_3_subovl_2
+  - name: ovl_3_subovl_2
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -632,7 +632,7 @@ segments:
     - [0x82F090, data]
     - [0x82F980, rodata]
 
-  - name: overlay_3_subovl_3
+  - name: ovl_3_subovl_3
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -647,7 +647,7 @@ segments:
     - [0x8355A0, data]
     - [0x835D10, rodata]
 
-  - name: overlay_3_subovl_4
+  - name: ovl_3_subovl_4
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -662,7 +662,7 @@ segments:
     - [0x83B7C0, data]
     - [0x83CFC0, rodata]
 
-  - name: overlay_3_subovl_5
+  - name: ovl_3_subovl_5
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -677,7 +677,7 @@ segments:
     - [0x840600, data]
     - [0x840740, rodata]
 
-  - name: overlay_3_subovl_6
+  - name: ovl_3_subovl_6
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -692,7 +692,7 @@ segments:
     - [0x846C70, data]
     - [0x847CB0, rodata]
 
-  - name: overlay_3_subovl_7
+  - name: ovl_3_subovl_7
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -707,7 +707,7 @@ segments:
     - [0x84B900, data]
     - [0x84BAE0, rodata]
 
-  - name: overlay_4_header
+  - name: ovl_4_header
     exclusive_ram_id: overlay
     type: bin
     start: 0x84BBA0
@@ -716,7 +716,7 @@ segments:
     subsegments:
     - [0x84BBA0, bin]
 
-  - name: overlay_4_subovl_1
+  - name: ovl_4_subovl_1
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -731,7 +731,7 @@ segments:
     - [0x852C70, data]
     - [0x853190, rodata]
 
-  - name: overlay_4_subovl_2
+  - name: ovl_4_subovl_2
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -746,7 +746,7 @@ segments:
     - [0x859F00, data]
     - [0x85A540, rodata]
 
-  - name: overlay_4_subovl_3
+  - name: ovl_4_subovl_3
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -761,7 +761,7 @@ segments:
     - [0x85CBD0, data]
     - [0x85CC10, rodata]
 
-  - name: overlay_4_subovl_4
+  - name: ovl_4_subovl_4
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -776,7 +776,7 @@ segments:
     - [0x85F890, data]
     - [0x85F9F0, rodata]
 
-  - name: overlay_4_subovl_5
+  - name: ovl_4_subovl_5
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -791,7 +791,7 @@ segments:
     - [0x8623A0, data]
     - [0x862450, rodata]
 
-  - name: overlay_4_subovl_6
+  - name: ovl_4_subovl_6
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -807,7 +807,7 @@ segments:
     - [0x868770, rodata]
 
 
-  - name: overlay_4_subovl_7
+  - name: ovl_4_subovl_7
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -822,7 +822,7 @@ segments:
     - [0x86CD50, data]
     - [0x86CFD0, rodata]
 
-  - name: overlay_4_subovl_8
+  - name: ovl_4_subovl_8
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -837,7 +837,7 @@ segments:
     - [0x86F630, data]
     - [0x86F6B0, rodata]
 
-  - name: overlay_4_subovl_9
+  - name: ovl_4_subovl_9
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -852,7 +852,7 @@ segments:
     - [0x873EE0, data]
     - [0x874150, rodata]
 
-  - name: overlay_4_subovl_10
+  - name: ovl_4_subovl_10
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -867,7 +867,7 @@ segments:
     - [0x877750, data]
     - [0x877790, rodata]
 
-  - name: overlay_5_header
+  - name: ovl_5_header
     exclusive_ram_id: overlay
     type: bin
     start: 0x877860
@@ -876,7 +876,7 @@ segments:
     subsegments:
     - [0x877860, bin]
 
-  - name: overlay_5_subovl_1
+  - name: ovl_5_subovl_1
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -891,7 +891,7 @@ segments:
     - [0x87BDE0, data]
     - [0x87C1C0, rodata]
 
-  - name: overlay_5_subovl_2
+  - name: ovl_5_subovl_2
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -906,7 +906,7 @@ segments:
     - [0x880940, data]
     - [0x880BC0, rodata]
 
-  - name: overlay_5_subovl_3
+  - name: ovl_5_subovl_3
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -921,7 +921,7 @@ segments:
     - [0x885A30, data]
     - [0x885DB0, rodata]
 
-  - name: overlay_5_subovl_4
+  - name: ovl_5_subovl_4
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -936,7 +936,7 @@ segments:
     - [0x889A90, data]
     - [0x889C40, rodata]
 
-  - name: overlay_5_subovl_5
+  - name: ovl_5_subovl_5
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -951,7 +951,7 @@ segments:
     - [0x88CDA0, data]
     - [0x88CF80, rodata]
 
-  - name: overlay_5_subovl_6
+  - name: ovl_5_subovl_6
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -966,7 +966,7 @@ segments:
     - [0x891060, data]
     - [0x8914A0, rodata]
 
-  - name: overlay_5_subovl_7
+  - name: ovl_5_subovl_7
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -981,7 +981,7 @@ segments:
     - [0x894B30, data]
     - [0x894B70, rodata]
 
-  - name: overlay_6_header
+  - name: ovl_6_header
     exclusive_ram_id: overlay
     type: bin
     start: 0x894C70
@@ -990,7 +990,7 @@ segments:
     subsegments:
     - [0x894C70, bin]
 
-  - name: overlay_6_subovl_1
+  - name: ovl_6_subovl_1
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1006,7 +1006,7 @@ segments:
     - [0x8987A0, rodata]
 
 
-  - name: overlay_6_subovl_2
+  - name: ovl_6_subovl_2
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1021,7 +1021,7 @@ segments:
     - [0x89BD20, data]
     - [0x89C080, rodata]
 
-  - name: overlay_6_subovl_3
+  - name: ovl_6_subovl_3
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1036,7 +1036,7 @@ segments:
     - [0x89F7F0, data]
     - [0x89F9F0, rodata]
 
-  - name: overlay_6_subovl_4
+  - name: ovl_6_subovl_4
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1051,7 +1051,7 @@ segments:
     - [0x8A3730, data]
     - [0x8A3A60, rodata]
 
-  - name: overlay_6_subovl_5
+  - name: ovl_6_subovl_5
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1066,7 +1066,7 @@ segments:
     - [0x8A6B40, data]
     - [0x8A6D90, rodata]
 
-  - name: overlay_6_subovl_6
+  - name: ovl_6_subovl_6
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1081,7 +1081,7 @@ segments:
     - [0x8A90D0, data]
     - [0x8A9110, rodata]
 
-  - name: overlay_6_subovl_7
+  - name: ovl_6_subovl_7
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1096,7 +1096,7 @@ segments:
     - [0x8AB430, data]
     - [0x8AB470, rodata]
 
-  - name: overlay_6_subovl_8
+  - name: ovl_6_subovl_8
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1111,7 +1111,7 @@ segments:
     - [0x8AD790, data]
     - [0x8AD7D0, rodata]
 
-  - name: overlay_6_subovl_9
+  - name: ovl_6_subovl_9
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1126,7 +1126,7 @@ segments:
     - [0x8B05A0, data]
     - [0x8B0720, rodata]
 
-  - name: overlay_6_subovl_10
+  - name: ovl_6_subovl_10
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1141,7 +1141,7 @@ segments:
     - [0x8B2C40, data]
     - [0x8B2CB0, rodata]
 
-  - name: overlay_6_subovl_11
+  - name: ovl_6_subovl_11
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1157,7 +1157,7 @@ segments:
     - [0x8B6160, rodata]
 
 
-  - name: overlay_6_subovl_12
+  - name: ovl_6_subovl_12
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1172,7 +1172,7 @@ segments:
     - [0x8B9110, data]
     - [0x8B9290, rodata]
 
-  - name: overlay_6_subovl_13
+  - name: ovl_6_subovl_13
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1187,7 +1187,7 @@ segments:
     - [0x8BCC20, data]
     - [0x8BD150, rodata]
 
-  - name: overlay_6_subovl_14
+  - name: ovl_6_subovl_14
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1202,7 +1202,7 @@ segments:
     - [0x8BF4A0, data]
     - [0x8BF4E0, rodata]
 
-  - name: overlay_6_subovl_15
+  - name: ovl_6_subovl_15
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1216,7 +1216,7 @@ segments:
     - [0x8C16F0, asm, zerojmp]
     - [0x8C2D30, rodata]
 
-  - name: overlay_7_header
+  - name: ovl_7_header
     exclusive_ram_id: overlay
     type: bin
     start: 0x8C2E30
@@ -1225,7 +1225,7 @@ segments:
     subsegments:
     - [0x8C2E30, bin]
 
-  - name: overlay_7_subovl_1
+  - name: ovl_7_subovl_1
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1240,7 +1240,7 @@ segments:
     - [0x8C7F80, data]
     - [0x8C83D0, rodata]
 
-  - name: overlay_7_subovl_2
+  - name: ovl_7_subovl_2
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1255,7 +1255,7 @@ segments:
     - [0x8CDB50, data]
     - [0x8CE080, rodata]
 
-  - name: overlay_7_subovl_3
+  - name: ovl_7_subovl_3
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1270,7 +1270,7 @@ segments:
     - [0x8D2060, data]
     - [0x8D2270, rodata]
 
-  - name: overlay_7_subovl_4
+  - name: ovl_7_subovl_4
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1285,7 +1285,7 @@ segments:
     - [0x8D7770, data]
     - [0x8D7C50, rodata]
 
-  - name: overlay_7_subovl_5
+  - name: ovl_7_subovl_5
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1300,7 +1300,7 @@ segments:
     - [0x8DAEC0, data]
     - [0x8DB170, rodata]
 
-  - name: overlay_7_subovl_6
+  - name: ovl_7_subovl_6
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1315,7 +1315,7 @@ segments:
     - [0x8DCAE0, data]
     - [0x8DCB30, rodata]
 
-  - name: overlay_7_subovl_7
+  - name: ovl_7_subovl_7
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1330,7 +1330,7 @@ segments:
     - [0x8DF6A0, data]
     - [0x8DF920, rodata]
 
-  - name: overlay_7_subovl_8
+  - name: ovl_7_subovl_8
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1345,7 +1345,7 @@ segments:
     - [0x8E24E0, data]
     - [0x8E26D0, rodata]
 
-  - name: overlay_7_subovl_9
+  - name: ovl_7_subovl_9
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1360,7 +1360,7 @@ segments:
     - [0x8E56B0, data]
     - [0x8E58D0, rodata]
 
-  - name: overlay_7_subovl_10
+  - name: ovl_7_subovl_10
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1375,7 +1375,7 @@ segments:
     - [0x8E9010, data]
     - [0x8E9220, rodata]
 
-  - name: overlay_8_header
+  - name: ovl_8_header
     exclusive_ram_id: overlay
     type: bin
     start: 0x8E9440
@@ -1384,7 +1384,7 @@ segments:
     subsegments:
     - [0x8E9440, bin]
 
-  - name: overlay_8_subovl_1
+  - name: ovl_8_subovl_1
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1399,7 +1399,7 @@ segments:
     - [0x8ED480, data]
     - [0x8ED620, rodata]
 
-  - name: overlay_8_subovl_2
+  - name: ovl_8_subovl_2
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1414,7 +1414,7 @@ segments:
     - [0x8F0340, data]
     - [0x8F0400, rodata]
 
-  - name: overlay_8_subovl_3
+  - name: ovl_8_subovl_3
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1429,7 +1429,7 @@ segments:
     - [0x8F4250, data]
     - [0x8F4370, rodata]
 
-  - name: overlay_8_subovl_4
+  - name: ovl_8_subovl_4
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1444,7 +1444,7 @@ segments:
     - [0x8F7000, data]
     - [0x8F70C0, rodata]
 
-  - name: overlay_8_subovl_5
+  - name: ovl_8_subovl_5
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1459,7 +1459,7 @@ segments:
     - [0x8FAE50, data]
     - [0x8FAF70, rodata]
 
-  - name: overlay_8_subovl_6
+  - name: ovl_8_subovl_6
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1474,7 +1474,7 @@ segments:
     - [0x9028C0, data]
     - [0x902A30, rodata]
 
-  - name: overlay_8_subovl_7
+  - name: ovl_8_subovl_7
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1489,7 +1489,7 @@ segments:
     - [0x9094B0, data]
     - [0x909640, rodata]
 
-  - name: overlay_8_subovl_8
+  - name: ovl_8_subovl_8
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1504,7 +1504,7 @@ segments:
     - [0x90F8F0, data]
     - [0x90FC10, rodata]
 
-  - name: overlay_8_subovl_9
+  - name: ovl_8_subovl_9
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1519,7 +1519,7 @@ segments:
     - [0x9161D0, data]
     - [0x9166B0, rodata]
 
-  - name: overlay_8_subovl_10
+  - name: ovl_8_subovl_10
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1534,7 +1534,7 @@ segments:
     - [0x91A6F0, data]
     - [0x91A770, rodata]
 
-  - name: overlay_8_subovl_11
+  - name: ovl_8_subovl_11
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1549,7 +1549,7 @@ segments:
     - [0x91DCC0, data]
     - [0x91DE10, rodata]
 
-  - name: overlay_8_subovl_12
+  - name: ovl_8_subovl_12
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1564,7 +1564,7 @@ segments:
     - [0x923740, data]
     - [0x9239D0, rodata]
 
-  - name: overlay_8_subovl_13
+  - name: ovl_8_subovl_13
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1578,7 +1578,7 @@ segments:
     - [0x929D80, asm, zerojmp]
     - [0x92B3C0, rodata]
 
-  - name: overlay_9_header
+  - name: ovl_9_header
     exclusive_ram_id: overlay
     type: bin
     start: 0x92B640
@@ -1587,7 +1587,7 @@ segments:
     subsegments:
     - [0x92B640, bin]
 
-  - name: overlay_9_subovl_1
+  - name: ovl_9_subovl_1
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1602,7 +1602,7 @@ segments:
     - [0x92E890, data]
     - [0x92E9B0, rodata]
 
-  - name: overlay_9_subovl_2
+  - name: ovl_9_subovl_2
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1617,7 +1617,7 @@ segments:
     - [0x930BD0, data]
     - [0x930C40, rodata]
 
-  - name: overlay_9_subovl_3
+  - name: ovl_9_subovl_3
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1632,7 +1632,7 @@ segments:
     - [0x933870, data]
     - [0x933AE0, rodata]
 
-  - name: overlay_9_subovl_4
+  - name: ovl_9_subovl_4
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1647,7 +1647,7 @@ segments:
     - [0x935AF0, data]
     - [0x935B50, rodata]
 
-  - name: overlay_9_subovl_5
+  - name: ovl_9_subovl_5
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1662,7 +1662,7 @@ segments:
     - [0x93D540, data]
     - [0x93D550, rodata]
 
-  - name: overlay_9_subovl_6
+  - name: ovl_9_subovl_6
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1677,7 +1677,7 @@ segments:
     - [0x940620, data]
     - [0x940650, rodata]
 
-  - name: overlay_10_header
+  - name: ovl_10_header
     exclusive_ram_id: overlay
     type: bin
     start: 0x940710
@@ -1686,7 +1686,7 @@ segments:
     subsegments:
     - [0x940710, bin]
 
-  - name: overlay_10_subovl_1
+  - name: ovl_10_subovl_1
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1701,7 +1701,7 @@ segments:
     - [0x949650, data]
     - [0x949670, rodata]
 
-  - name: overlay_10_subovl_2
+  - name: ovl_10_subovl_2
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1716,7 +1716,7 @@ segments:
     - [0x953E10, data]
     - [0x954270, rodata]
 
-  - name: overlay_11_header
+  - name: ovl_11_header
     exclusive_ram_id: overlay
     type: bin
     start: 0x9545B0
@@ -1725,7 +1725,7 @@ segments:
     subsegments:
     - [0x9545B0, bin]
 
-  - name: overlay_11_subovl_1
+  - name: ovl_11_subovl_1
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1739,7 +1739,7 @@ segments:
     - [0x95D110, asm, zerojmp]
     - [0x95E750, rodata]
 
-  - name: overlay_11_subovl_2
+  - name: ovl_11_subovl_2
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1753,7 +1753,7 @@ segments:
     - [0x96A320, asm, zerojmp]
     - [0x96B960, rodata]
 
-  - name: overlay_12_header
+  - name: ovl_12_header
     exclusive_ram_id: overlay
     type: bin
     start: 0x96BCD0
@@ -1762,7 +1762,7 @@ segments:
     subsegments:
     - [0x96BCD0, bin]
 
-  - name: overlay_12_subovl_1
+  - name: ovl_12_subovl_1
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1776,7 +1776,7 @@ segments:
     - [0x975370, asm, zerojmp]
     - [0x9769B0, rodata]
 
-  - name: overlay_12_subovl_2
+  - name: ovl_12_subovl_2
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1790,7 +1790,7 @@ segments:
     - [0x983480, asm, zerojmp]
     - [0x984AC0, rodata]
 
-  - name: overlay_13_header
+  - name: ovl_13_header
     exclusive_ram_id: overlay
     type: bin
     start: 0x984F30
@@ -1799,7 +1799,7 @@ segments:
     subsegments:
     - [0x984F30, bin]
 
-  - name: overlay_13_subovl_1
+  - name: ovl_13_subovl_1
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1813,7 +1813,7 @@ segments:
     - [0x985C70, asm, zerojmp]
     - [0x987110, rodata]
 
-  - name: overlay_14_header
+  - name: ovl_14_header
     exclusive_ram_id: overlay
     type: bin
     start: 0x9871E0
@@ -1822,7 +1822,7 @@ segments:
     subsegments:
     - [0x9871E0, bin]
 
-  - name: overlay_14_subovl_1
+  - name: ovl_14_subovl_1
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1837,7 +1837,7 @@ segments:
     - [0x989830, data]
     - [0x9899B0, rodata]
 
-  - name: overlay_14_subovl_2
+  - name: ovl_14_subovl_2
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1852,7 +1852,7 @@ segments:
     - [0x98B730, data]
     - [0x98B770, rodata]
 
-  - name: overlay_14_subovl_3
+  - name: ovl_14_subovl_3
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1867,7 +1867,7 @@ segments:
     - [0x98D570, data]
     - [0x98D5B0, rodata]
 
-  - name: overlay_14_subovl_4
+  - name: ovl_14_subovl_4
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1882,7 +1882,7 @@ segments:
     - [0x98F360, data]
     - [0x98F3E0, rodata]
 
-  - name: overlay_14_subovl_5
+  - name: ovl_14_subovl_5
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1897,7 +1897,7 @@ segments:
     - [0x9911B0, data]
     - [0x991230, rodata]
 
-  - name: overlay_14_subovl_6
+  - name: ovl_14_subovl_6
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1912,7 +1912,7 @@ segments:
     - [0x9938F0, data]
     - [0x993A70, rodata]
 
-  - name: overlay_14_subovl_7
+  - name: ovl_14_subovl_7
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1927,7 +1927,7 @@ segments:
     - [0x996140, data]
     - [0x9961F0, rodata]
 
-  - name: overlay_14_subovl_8
+  - name: ovl_14_subovl_8
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1942,7 +1942,7 @@ segments:
     - [0x998CB0, data]
     - [0x998E40, rodata]
 
-  - name: overlay_14_subovl_9
+  - name: ovl_14_subovl_9
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
@@ -1957,7 +1957,7 @@ segments:
     - [0x99C120, data]
     - [0x99C1B0, rodata]
 
-  - name: overlay_14_subovl_10
+  - name: ovl_14_subovl_10
     exclusive_ram_id: overlay
     ld_use_symbolic_vram_addresses: false
     type: code
