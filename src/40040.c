@@ -36,7 +36,6 @@ s32 func_802817D0();                          /* extern */
 s32 func_80292B54();                          /* extern */
 s32 func_80294E54();                          /* extern */
 s32 func_80297D20();                          /* extern */
-s32 func_80297D30(s32, s32 *);                /* extern */
 u64 func_80297E38();                          /* extern */
 s32 func_80297F80(s32);                       /* extern */
 s32 func_80297FA0(s32);                       /* extern */
@@ -75,7 +74,7 @@ void func_80225840(s32 arg0)
     func_80297F80(4);
     func_80297F80(0x40);
     func_80297F80(0x10);
-    func_8023946C();
+    HuPrcInit();
     func_8023A318();
     func_8023A22C();
     func_80294E54();

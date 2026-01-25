@@ -1,11 +1,11 @@
 #include <ultra64.h>
 #include "process.h"
 
-__inline struct Process *func_802389D4(); // why did you manually use __inline
+__inline struct Process *HuPrcAlloc(); // why did you manually use __inline
 
 // FUNCTIONS
 
-void func_8023946C(void) {
+void HuPrcInit(void) {
     s32 i;
     struct Process *ptr;
 
@@ -16,30 +16,30 @@ void func_8023946C(void) {
     D_802AC344 = 0;
 
     D_802AB200.id = 0x51;
-    func_8023897C(&D_802AB200);
+    HuPrcClear(&D_802AB200);
     D_802ABAA0.id = 0x52;
-    func_8023897C(&D_802ABAA0);
+    HuPrcClear(&D_802ABAA0);
     ptr = &D_80063370[0];
 
     for(i = 0; i < 0x50; i++, ptr++) {
         ptr->id = i;
         ptr->unk18 = (i >> 0x1F);
         ptr->unk1C = i;
-        func_8023897C(ptr);
+        HuPrcClear(ptr);
     }
 
-    func_802388E8(&D_802ABAA0, &D_80063370[0]);
+    HuPrcLink(&D_802ABAA0, &D_80063370[0]);
 
     ptr = &D_80063370[0];
     for(i = 0; i < 0x4F; i++) {
-        func_802388E8(ptr, ptr+1);
+        HuPrcLink(ptr, ptr+1);
         ptr++;
     }
 
-    func_802388C0();
+    HuPrcInitDebug();
 }
 
-void func_80239430(void) {
+void HuPrcEnd(void) {
     HuPrcTerminate(D_802AC344->id);
     longjmp(&D_802AC368, 1);
 }
@@ -50,12 +50,12 @@ void HuPrcCall(void) {
     D_802AC35C = 1;
 
     for (process = D_802AB200.next; process != NULL; process = process->next) {
-        if (process->unk4 == 2) {
-            if (D_802AC35C < process->unk8) {
-                process->unk8 -= D_802AC35C;
+        if (process->exec_mode == 2) {
+            if (D_802AC35C < process->sleep_time) {
+                process->sleep_time -= D_802AC35C;
             } else {
-                process->unk8 = 0;
-                process->unk4 = 1;
+                process->sleep_time = 0;
+                process->exec_mode = 1;
             }
         }
     }
@@ -64,7 +64,7 @@ void HuPrcCall(void) {
 
     switch(setjmp(&D_802AC368)) {
         case 2: {
-            s32 ret = func_80239208(D_802AC344);
+            s32 ret = HuPrcStackCheck(D_802AC344);
             if (ret == 0) {
                 ret = -1;
             }
@@ -81,14 +81,14 @@ void HuPrcCall(void) {
     if (D_802AC344 == NULL) {
         return;
     }
-    if (D_802AC344->unk4 == 1) {
+    if (D_802AC344->exec_mode == 1) {
         longjmp(&D_802AC344->jmpBuf, 1);
     } else {
         longjmp(&D_802AC368, 1);
     }
 }
 
-s32 func_80239208(struct Process *process) {
+s32 HuPrcStackCheck(struct Process *process) {
     u32 sp = process->jmpBuf.regs[2] & 0x7FFFFFFF;
     u8 *sptop = ((u32)process->sptop & 0x7FFFFFFF);
     u32 spbtm = &sptop[process->stackSize];
@@ -111,11 +111,11 @@ s32 func_80239208(struct Process *process) {
         return sp - (u32)sptop;
 }
 
-s32 func_802391F0(void) {
-    return D_802AC344->unk10;
+s32 HuPrcUserDataGet(void) {
+    return D_802AC344->user_data;
 }
 
-s32 func_802391A4(void) {
+s32 HuPrcYieldSave(void) {
     s32 temp_v0 = setjmp(&D_802AC344->jmpBuf);
 
     if (temp_v0 == 0) {
@@ -124,7 +124,7 @@ s32 func_802391A4(void) {
     return temp_v0;
 }
 
-s32 func_802390F0(s32 arg0, s32 arg1, s32 arg2) {
+s32 HuPrcWaitCond(s32 arg0, s32 arg1, s32 arg2) {
     s32 var_v1;
 
     if (arg2 != 1) {
@@ -139,18 +139,18 @@ s32 func_802390F0(s32 arg0, s32 arg1, s32 arg2) {
     return var_v1;
 }
 
-void func_802390B4(void) {
+void HuPrcVSleep(void) {
     if (setjmp(&D_802AC344->jmpBuf) == 0) {
         longjmp(&D_802AC368, 1);
     }
 }
 
-void func_80239094(void) {
-    func_8023903C(1);
+void HuPrcSleep1(void) {
+    HuPrcSleep(1);
 }
 
-s32 func_8023903C(s32 arg0) {
-    s32 sp1C = func_80238D98(D_802AC344->id, arg0);
+s32 HuPrcSleep(s32 arg0) {
+    s32 sp1C = HuPrcSleepById(D_802AC344->id, arg0);
 
     if (setjmp(&D_802AC344->jmpBuf) == 0) {
         longjmp(&D_802AC368, 1);
@@ -158,7 +158,7 @@ s32 func_8023903C(s32 arg0) {
     return sp1C;
 }
 
-s32 func_80238FF4(s32 arg0) {
+s32 HuPrcGetPriById(s32 arg0) {
     struct Process *ptr = D_802ABA9C;
 
     while (ptr != NULL) {
@@ -170,11 +170,11 @@ s32 func_80238FF4(s32 arg0) {
     return -1;
 }
 
-u16 func_80238FDC(void) {
+u16 HuPrcPriGet(void) {
     return D_802AC344->pri;
 }
 
-s32 func_80238F40(s32 arg0, s32 arg1) {
+s32 HuPrcKillRange(s32 arg0, s32 arg1) {
     struct Process *ptr = D_802ABA9C;
     s32 idx = 0;
 
@@ -191,7 +191,7 @@ s32 func_80238F40(s32 arg0, s32 arg1) {
 }
 
 s32 HuPrcTerminate(s32 id) {
-    struct Process *process = func_80238C08(id);
+    struct Process *process = HuPrcFindById(id);
 
     // We tried to destroy a null process!
     if (process == NULL) {
@@ -201,9 +201,9 @@ s32 HuPrcTerminate(s32 id) {
         // continue with process deletion.
         struct Process *prev = process->prev;
 
-        process->unk4 = 0;
-        func_80238994(process);
-        func_802388E8(&D_802ABAA0, process);
+        process->exec_mode = 0;
+        HuPrcUnlink(process);
+        HuPrcLink(&D_802ABAA0, process);
         gProcessCount--; // process has been deleted. reduce proc count by 1.
         if (process == D_802AC344) {
             D_802AC344 = prev;
@@ -213,14 +213,14 @@ s32 HuPrcTerminate(s32 id) {
     }
 }
 
-s32 func_80238DFC(s32 arg0, s32 arg1, u32 arg2) {
+s32 HuPrcSleepRange(s32 arg0, s32 arg1, u32 arg2) {
     struct Process *ptr = D_802ABA9C;
     s32 idx = 0;
 
     while (ptr != NULL) {
         if ((ptr->pri >= arg0) && (arg1 >= ptr->pri)) {
             ptr = ptr->prev;
-            func_80238D98(ptr->next->id, arg2);
+            HuPrcSleepById(ptr->next->id, arg2);
             ptr = ptr->next;
             idx += 1;
         }
@@ -229,29 +229,29 @@ s32 func_80238DFC(s32 arg0, s32 arg1, u32 arg2) {
     return idx;
 }
 
-s32 func_80238D98(u16 arg0, s32 arg1) {
-    struct Process *ptr = func_80238C08(arg0);
+s32 HuPrcSleepById(u16 arg0, s32 arg1) {
+    struct Process *ptr = HuPrcFindById(arg0);
 
     if (ptr == NULL) {
         return -1;
     }
     if (arg1 != 0) {
-        ptr->unk4 = 2;
-        ptr->unk8 = arg1;
+        ptr->exec_mode = 2;
+        ptr->sleep_time = arg1;
     } else {
-        ptr->unk4 = 3;
+        ptr->exec_mode = 3;
     }
     return ptr->id;
 }
 
-s32 func_80238CF8(s32 arg0, s32 arg1) {
+s32 HuPrcWakeupRange(s32 arg0, s32 arg1) {
     struct Process *ptr = D_802ABA9C;
     s32 idx = 0;
 
     while (ptr != NULL) {
         if ((ptr->pri >= arg0) && (arg1 >= ptr->pri)) {
             ptr = ptr->prev;
-            func_80238C68(ptr->next->id);
+            HuPrcWakeup(ptr->next->id);
             ptr = ptr->next;
             idx += 1;
         }
@@ -260,22 +260,22 @@ s32 func_80238CF8(s32 arg0, s32 arg1) {
     return idx;
 }
 
-s32 func_80238C68(u16 arg0) {
+s32 HuPrcWakeup(u16 arg0) {
     s32 pad;
     s32 sp18 = -1;
-    struct Process *temp_v0 = func_80238C08(arg0);
+    struct Process *temp_v0 = HuPrcFindById(arg0);
 
     if (temp_v0 != NULL) {
-        switch (temp_v0->unk4) {
+        switch (temp_v0->exec_mode) {
             case 2:
-                temp_v0->unk8 = 0;
-                temp_v0->unk4 = 1;
+                temp_v0->sleep_time = 0;
+                temp_v0->exec_mode = 1;
                 break;
             case 3:
-                if (temp_v0->unk8 != 0) {
-                    temp_v0->unk4 = 2;
+                if (temp_v0->sleep_time != 0) {
+                    temp_v0->exec_mode = 2;
                 } else {
-                    temp_v0->unk4 = 1;
+                    temp_v0->exec_mode = 1;
                 }
                 break;
         }
@@ -284,7 +284,7 @@ s32 func_80238C68(u16 arg0) {
     return sp18;
 }
 
-struct Process *func_80238C08(u16 arg0) {
+struct Process *HuPrcFindById(u16 arg0) {
     struct Process *ptr = D_802AB200.next;
 
     D_802AC340 = &D_802AB200;
@@ -298,14 +298,14 @@ struct Process *func_80238C08(u16 arg0) {
     return NULL;
 }
 
-s32 func_80238BDC(void) {
+s32 HuPrcCurrentIdGet(void) {
     if (D_802AC344 == NULL) {
         return -1;
     }
     return D_802AC344->id;
 }
 
-void func_80238B9C(void *func, s32 arg1, void* arg2, s32 arg3, u16 pri) {
+void HuPrcCreateChecked(void *func, s32 arg1, void* arg2, s32 arg3, u16 pri) {
     if ((pri < 0x110) || (pri >= 0x3D0)) {
         while(1)
             ;
@@ -324,7 +324,7 @@ s32 HuPrcCreate(void *func, s32 arg1, void* stack, s32 stackSize, u16 pri) {
         return -1;
     }
 
-    process = func_802389D4();
+    process = HuPrcAlloc();
 
     // no available pointers to create a process. stop.
     if (process == NULL) {
@@ -336,11 +336,11 @@ s32 HuPrcCreate(void *func, s32 arg1, void* stack, s32 stackSize, u16 pri) {
         return -1;
     }
 
-    func_8023897C(process);
+    HuPrcClear(process);
     process->pri = pri;
     process->func = func;
-    process->unk10 = arg1;
-    process->unk4 = 1;
+    process->user_data = arg1;
+    process->exec_mode = 1;
 
     // set stack ptr and size if they are set.
     if (stack != NULL) {
@@ -351,16 +351,16 @@ s32 HuPrcCreate(void *func, s32 arg1, void* stack, s32 stackSize, u16 pri) {
         process->stackSize = 0x800;
     }
 
-    temp_v0 = func_80238918(process->pri);
+    temp_v0 = HuPrcFindInsertPos(process->pri);
     if (temp_v0 == NULL) {
         var_a0 = D_802AC340;
     } else {
         var_a0 = temp_v0->prev;
     }
 
-    func_802388E8(var_a0, process);
+    HuPrcLink(var_a0, process);
 
-    // initialize and clear the jmp_buf area.
+    // initialize and clear the jmpBuf area.
     for(i = 0; i < 28; i++) {
         process->jmpBuf.regs[i] = 0;
     }
@@ -371,18 +371,18 @@ s32 HuPrcCreate(void *func, s32 arg1, void* stack, s32 stackSize, u16 pri) {
     return process->id;
 }
 
-struct Process *func_802389D4() {
+struct Process *HuPrcAlloc() {
     struct Process *sp1C = D_802AC33C;
 
     if (sp1C == NULL) {
         return NULL;
     } else {
-        func_80238994(sp1C);
+        HuPrcUnlink(sp1C);
         return sp1C;
     }
 }
 
-void func_80238994(struct Process* arg0) {
+void HuPrcUnlink(struct Process* arg0) {
     struct Process* next = arg0->next;
 
     if (next != NULL) {
@@ -393,15 +393,15 @@ void func_80238994(struct Process* arg0) {
     arg0->prev->next = NULL;
 }
 
-void func_8023897C(struct Process* arg0) {
+void HuPrcClear(struct Process* arg0) {
     arg0->pri = 0;
-    arg0->unk4 = 0;
-    arg0->unk8 = 0;
+    arg0->exec_mode = 0;
+    arg0->sleep_time = 0;
     arg0->prev = NULL;
     arg0->next = NULL;
 }
 
-struct Process *func_80238918(u16 arg0) {
+struct Process *HuPrcFindInsertPos(u16 arg0) {
     struct Process *var_v1 = D_802AB200.next;
 
     D_802AC340 = &D_802AB200;
@@ -415,7 +415,7 @@ struct Process *func_80238918(u16 arg0) {
     return NULL;
 }
 
-void func_802388E8(struct Process* arg0, struct Process* arg1) {
+void HuPrcLink(struct Process* arg0, struct Process* arg1) {
     struct Process* temp_v0;
 
     arg1->prev = arg0;
@@ -427,6 +427,6 @@ void func_802388E8(struct Process* arg0, struct Process* arg1) {
     }
 }
 
-void func_802388C0(void) {
+void HuPrcInitDebug(void) {
     func_80297D30(0x19, &D_802A0100);
 }
