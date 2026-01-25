@@ -1,4 +1,5 @@
 #include <ultra64.h>
+#include "process.h"
 
 u8* Libc_Memset(u8* arg0, u8* arg1, s32 arg2);
 void func_80225CA8();                         /* extern */
@@ -20,9 +21,6 @@ s32 func_80237890();                          /* extern */
 s32 func_80238100();                          /* extern */
 s32 func_802381F8();                          /* extern */
 s32 func_8023876C(s32, s32, s32);             /* extern */
-s32 func_80238A10(s32 *, s32, s32, s32, s32); /* extern */
-s32 func_802392F8();                          /* extern */
-s32 func_8023946C();                          /* extern */
 s32 func_8023A104();                          /* extern */
 s32 func_8023A208();                          /* extern */
 s32 func_8023A22C();                          /* extern */
@@ -97,8 +95,8 @@ void func_80225840(s32 arg0)
     func_8025E6A4(func_80297E38());
     temp_s0 = func_802998EC(0x1000);
     func_80237890();
-    func_80238A10(&func_80236F54, 0, temp_s0, 0x1000, 0x401);
-    func_80238A10(&func_802334CC, 0, 0, 0, 0x402);
+    HuPrcCreate(&func_80236F54, 0, temp_s0, 0x1000, 0x401);
+    HuPrcCreate(&func_802334CC, 0, 0, 0, 0x402);
     func_8023A208();
     func_8023A3E0();
     func_80265C04();
@@ -114,7 +112,7 @@ void func_80225840(s32 arg0)
 
         func_802381F8();
 
-        func_802392F8();
+        HuPrcCall();
 
         func_8022787C(&sp40);
 

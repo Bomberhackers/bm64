@@ -246,6 +246,8 @@ $(foreach dir,$(SRC_DIRS) $(ASM_DIRS) $(DATA_DIRS) $(COMPRESSED_DIRS) $(MAP_DIRS
 build/src/10D0.c.o: OPTFLAGS := -O3
 build/src/13F0.c.o: OPTFLAGS := -O3
 
+build/src/process.c.o: OPTFLAGS := -O3
+
 build/src/40000.c.o: OPTFLAGS := -g
 
 # Get a list of files which only have GLOBAL_ASM in them... via this piece of work.

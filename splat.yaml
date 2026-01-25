@@ -332,7 +332,7 @@ segments:
     - [0x4DE50, asm]
     - [0x4ED50, asm]
     - [0x52270, asm]
-    - [0x530C0, asm]
+    - [0x530C0, c, process] # process, based on other hudson games
     - [0x53D70, asm]
     - [0x54BE0, asm]
     - [0x54E40, asm]
