@@ -1,9 +1,40 @@
 #ifndef __BM64_PROCESS_H__
 #define __BM64_PROCESS_H__
 
+#define JMPBUF_COUNT 28
+
+#define JMPBUF_VALUE_UNK0  0  // offset: 0x0
+#define JMPBUF_VALUE_UNK4  1  // offset: 0x4
+#define JMPBUF_VALUE_SP    2  // offset: 0x8
+#define JMPBUF_VALUE_RA    3  // offset: 0xC
+#define JMPBUF_VALUE_UNK10 4  // offset: 0x10
+#define JMPBUF_VALUE_S0    5  // offset: 0x14
+#define JMPBUF_VALUE_S1    6  // offset: 0x18
+#define JMPBUF_VALUE_S2    7  // offset: 0x1C
+#define JMPBUF_VALUE_S3    8  // offset: 0x20
+#define JMPBUF_VALUE_S4    9  // offset: 0x24
+#define JMPBUF_VALUE_S5    10 // offset: 0x28
+#define JMPBUF_VALUE_S6    11 // offset: 0x2C
+#define JMPBUF_VALUE_S7    12 // offset: 0x30
+#define JMPBUF_VALUE_FP    13 // offset: 0x34
+#define JMPBUF_VALUE_F21   14 // offset: 0x38
+#define JMPBUF_VALUE_F20   15 // offset: 0x3C
+#define JMPBUF_VALUE_F23   16 // offset: 0x40
+#define JMPBUF_VALUE_F22   17 // offset: 0x44
+#define JMPBUF_VALUE_F25   18 // offset: 0x48
+#define JMPBUF_VALUE_F24   19 // offset: 0x4C
+#define JMPBUF_VALUE_F27   20 // offset: 0x50
+#define JMPBUF_VALUE_F26   21 // offset: 0x54
+#define JMPBUF_VALUE_F29   22 // offset: 0x58
+#define JMPBUF_VALUE_F28   23 // offset: 0x5C
+#define JMPBUF_VALUE_F31   24 // offset: 0x60
+#define JMPBUF_VALUE_F30   25 // offset: 0x64
+#define JMPBUF_VALUE_V0    26 // offset: 0x68
+#define JMPBUF_VALUE_UNK6C 27 // offset: 0x6C
+
 typedef struct jump_buf
 {
-    u32 regs[28];
+    u32 regs[JMPBUF_COUNT];
 } jmp_buf; // size: 0x70
 
 // Process structure

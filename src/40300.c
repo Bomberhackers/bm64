@@ -88,16 +88,14 @@ void *Libc_Memcpy(u8 *dest, u8 *source, s32 c)
     return dest;
 }
 
-u8 *Libc_Memset(u8 *arg0, u8 *arg1, s32 arg2)
-{
-    u8 *var_v0 = arg0;
+u8 *Libc_Memset(u8 *dst, u32 c, s32 size) {
+    u8 *new_dst = dst;
 
-    while (arg2--)
-    {
-        *(var_v0++) = arg1;
+    while (size--) {
+        *(new_dst++) = c;
     }
 
-    return arg0;
+    return dst;
 }
 
 void func_80225CA8(void)

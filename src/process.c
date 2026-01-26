@@ -89,7 +89,7 @@ void HuPrcCall(void) {
 }
 
 s32 HuPrcStackCheck(struct Process *process) {
-    u32 sp = process->jmpBuf.regs[2] & 0x7FFFFFFF;
+    u32 sp = process->jmpBuf.regs[JMPBUF_VALUE_SP] & 0x7FFFFFFF;
     u8 *sptop = ((u32)process->sptop & 0x7FFFFFFF);
     u32 spbtm = &sptop[process->stackSize];
 
@@ -149,13 +149,13 @@ void HuPrcSleep1(void) {
     HuPrcSleep(1);
 }
 
-s32 HuPrcSleep(s32 arg0) {
-    s32 sp1C = HuPrcSleepById(D_802AC344->id, arg0);
+s32 HuPrcSleep(s32 time) {
+    s32 id = HuPrcSleepById(D_802AC344->id, time);
 
     if (setjmp(&D_802AC344->jmpBuf) == 0) {
         longjmp(&D_802AC368, 1);
     }
-    return sp1C;
+    return id;
 }
 
 s32 HuPrcGetPriById(s32 arg0) {
@@ -174,12 +174,12 @@ u16 HuPrcPriGet(void) {
     return D_802AC344->pri;
 }
 
-s32 HuPrcKillRange(s32 arg0, s32 arg1) {
+s32 HuPrcKillRange(s32 minPri, s32 maxPri) {
     struct Process *ptr = D_802ABA9C;
     s32 idx = 0;
 
     while (ptr != NULL) {
-        if ((ptr->pri >= arg0) && (arg1 >= ptr->pri)) {
+        if ((ptr->pri >= minPri) && (maxPri >= ptr->pri)) {
             ptr = ptr->prev;
             HuPrcTerminate(ptr->next->id);
             idx += 1;
@@ -229,15 +229,15 @@ s32 HuPrcSleepRange(s32 arg0, s32 arg1, u32 arg2) {
     return idx;
 }
 
-s32 HuPrcSleepById(u16 arg0, s32 arg1) {
-    struct Process *ptr = HuPrcFindById(arg0);
+s32 HuPrcSleepById(u16 id, s32 time) {
+    struct Process *ptr = HuPrcFindById(id);
 
     if (ptr == NULL) {
         return -1;
     }
-    if (arg1 != 0) {
+    if (time != 0) {
         ptr->exec_mode = 2;
-        ptr->sleep_time = arg1;
+        ptr->sleep_time = time;
     } else {
         ptr->exec_mode = 3;
     }
@@ -284,12 +284,12 @@ s32 HuPrcWakeup(u16 arg0) {
     return sp18;
 }
 
-struct Process *HuPrcFindById(u16 arg0) {
+struct Process *HuPrcFindById(u16 id) {
     struct Process *ptr = D_802AB200.next;
 
     D_802AC340 = &D_802AB200;
     while (ptr != NULL) {
-        if (ptr->id == arg0) {
+        if (ptr->id == id) {
             return ptr;
         }
         D_802AC340 = ptr;
@@ -365,8 +365,8 @@ s32 HuPrcCreate(void *func, s32 arg1, void* stack, s32 stackSize, u16 pri) {
         process->jmpBuf.regs[i] = 0;
     }
 
-    process->jmpBuf.regs[3] = process->func;
-    process->jmpBuf.regs[2] = (process->sptop + process->stackSize);
+    process->jmpBuf.regs[JMPBUF_VALUE_RA] = process->func;
+    process->jmpBuf.regs[JMPBUF_VALUE_SP] = (process->sptop + process->stackSize);
     gProcessCount++;
     return process->id;
 }
