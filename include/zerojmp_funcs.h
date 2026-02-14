@@ -2,9 +2,7 @@
 #define _ZEROJMP_FUNCS_MAIN_H_
 
 #include "zerojmp.h"
-
-// TODO: Define these
-#define ZEROJMP_LOADED_AREA_MAIN 0x0000
+#include "zerojmp_table_ids.h"
 
 // if its not defined before including, assume we are calling zerojmp from the main area and NOT the overlay's ZeroJmp tables.
 // Overlays using ZeroJmp will define ZEROJMP_AREA before including ultra64.h.
