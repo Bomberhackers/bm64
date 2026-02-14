@@ -1,6 +1,5 @@
 #include <ultra64.h>
 #include "process.h"
-#include "zerojmp_funcs.h"
 
 __inline struct Process *HuPrcAlloc(); // why did you manually use __inline
 

@@ -16,6 +16,14 @@
 #include "zerojmp_tables/zerojmp_table_0_zerojmp.h"
 #include "zerojmp_tables/zerojmp_table_1_os.h"
 #include "zerojmp_tables/zerojmp_table_2_dma.h"
+#include "zerojmp_tables/zerojmp_table_3_ovl.h"
+#include "zerojmp_tables/zerojmp_table_4_unk4.h"
+#include "zerojmp_tables/zerojmp_table_5_unk5.h"
+#include "zerojmp_tables/zerojmp_table_6_vi.h"
+#include "zerojmp_tables/zerojmp_table_7_ai.h"
+#include "zerojmp_tables/zerojmp_table_8_dp.h"
+#include "zerojmp_tables/zerojmp_table_9_pi.h"
+#include "zerojmp_tables/zerojmp_table_10_cont.h"
 // ...
 
 #endif

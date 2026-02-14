@@ -1,5 +1,4 @@
 #include <ultra64.h>
-#include "zerojmp_funcs.h"
 
 // framebuffer.c ?
 
@@ -69,7 +68,6 @@ extern s32 D_8029F7EC;
 extern s32 D_8029F7F0;
 extern s32 D_8029F7F4;
 extern Lights2 D_8029F7F8;
-extern s32 D_8029F820;
 
 extern s32 D_802A5368;
 extern u32 D_802A5388;

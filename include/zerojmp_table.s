@@ -75,349 +75,55 @@ zerojmp_func load_from_rom_to_addr, ZEROJMP_AREA, 0x202
 zerojmp_func func_8000064C, ZEROJMP_AREA, 0x203
 zerojmp_func func_8000059C, ZEROJMP_AREA, 0x204
 zerojmp_func func_80000524, ZEROJMP_AREA, 0x205
-
-nonmatching func_80297EE0, 0x8
-
-glabel func_80297EE0
-    /* B26E0 80297EE0 00000008 */  jr         $zero
-    /* B26E4 80297EE4 24080300 */   addiu     $t0, $zero, 0x300
-endlabel func_80297EE0
-
-nonmatching func_80297EE8, 0x8
-
-glabel func_80297EE8
-    /* B26E8 80297EE8 00000008 */  jr         $zero
-    /* B26EC 80297EEC 24080301 */   addiu     $t0, $zero, 0x301
-endlabel func_80297EE8
-
-nonmatching func_80297EF0, 0x8
-
-glabel func_80297EF0
-    /* B26F0 80297EF0 00000008 */  jr         $zero
-    /* B26F4 80297EF4 24080400 */   addiu     $t0, $zero, 0x400
-endlabel func_80297EF0
-
-nonmatching func_80297EF8, 0x8
-
-glabel func_80297EF8
-    /* B26F8 80297EF8 00000008 */  jr         $zero
-    /* B26FC 80297EFC 24080401 */   addiu     $t0, $zero, 0x401
-endlabel func_80297EF8
-
-nonmatching func_80297F00, 0x8
-
-glabel func_80297F00
-    /* B2700 80297F00 00000008 */  jr         $zero
-    /* B2704 80297F04 24080402 */   addiu     $t0, $zero, 0x402
-endlabel func_80297F00
-
-nonmatching func_80297F08, 0x8
-
-glabel func_80297F08
-    /* B2708 80297F08 00000008 */  jr         $zero
-    /* B270C 80297F0C 24080403 */   addiu     $t0, $zero, 0x403
-endlabel func_80297F08
-
-nonmatching func_80297F10, 0x8
-
-glabel func_80297F10
-    /* B2710 80297F10 00000008 */  jr         $zero
-    /* B2714 80297F14 24080404 */   addiu     $t0, $zero, 0x404
-endlabel func_80297F10
-
-nonmatching func_80297F18, 0x8
-
-glabel func_80297F18
-    /* B2718 80297F18 00000008 */  jr         $zero
-    /* B271C 80297F1C 24080405 */   addiu     $t0, $zero, 0x405
-endlabel func_80297F18
-
-nonmatching func_80297F20, 0x8
-
-glabel func_80297F20
-    /* B2720 80297F20 00000008 */  jr         $zero
-    /* B2724 80297F24 24080406 */   addiu     $t0, $zero, 0x406
-endlabel func_80297F20
-
-nonmatching func_80297F28, 0x8
-
-glabel func_80297F28
-    /* B2728 80297F28 00000008 */  jr         $zero
-    /* B272C 80297F2C 24080407 */   addiu     $t0, $zero, 0x407
-endlabel func_80297F28
-
-nonmatching func_80297F30, 0x8
-
-glabel func_80297F30
-    /* B2730 80297F30 00000008 */  jr         $zero
-    /* B2734 80297F34 24080500 */   addiu     $t0, $zero, 0x500
-endlabel func_80297F30
-
-nonmatching func_80297F38, 0x8
-
-glabel func_80297F38
-    /* B2738 80297F38 00000008 */  jr         $zero
-    /* B273C 80297F3C 24080501 */   addiu     $t0, $zero, 0x501
-endlabel func_80297F38
-
-nonmatching func_80297F40, 0x8
-
-glabel func_80297F40
-    /* B2740 80297F40 00000008 */  jr         $zero
-    /* B2744 80297F44 24080600 */   addiu     $t0, $zero, 0x600
-endlabel func_80297F40
-
-nonmatching func_80297F48, 0x8
-
-glabel func_80297F48
-    /* B2748 80297F48 00000008 */  jr         $zero
-    /* B274C 80297F4C 24080601 */   addiu     $t0, $zero, 0x601
-endlabel func_80297F48
-
-nonmatching func_80297F50, 0x8
-
-glabel func_80297F50
-    /* B2750 80297F50 00000008 */  jr         $zero
-    /* B2754 80297F54 24080602 */   addiu     $t0, $zero, 0x602
-endlabel func_80297F50
-
-nonmatching func_80297F58, 0x8
-
-glabel func_80297F58
-    /* B2758 80297F58 00000008 */  jr         $zero
-    /* B275C 80297F5C 24080603 */   addiu     $t0, $zero, 0x603
-endlabel func_80297F58
-
-nonmatching func_80297F60, 0x8
-
-glabel func_80297F60
-    /* B2760 80297F60 00000008 */  jr         $zero
-    /* B2764 80297F64 24080604 */   addiu     $t0, $zero, 0x604
-endlabel func_80297F60
-
-nonmatching func_80297F68, 0x8
-
-glabel func_80297F68
-    /* B2768 80297F68 00000008 */  jr         $zero
-    /* B276C 80297F6C 24080605 */   addiu     $t0, $zero, 0x605
-endlabel func_80297F68
-
-nonmatching func_80297F70, 0x8
-
-glabel func_80297F70
-    /* B2770 80297F70 00000008 */  jr         $zero
-    /* B2774 80297F74 24080606 */   addiu     $t0, $zero, 0x606
-endlabel func_80297F70
-
-nonmatching func_80297F78, 0x8
-
-glabel func_80297F78
-    /* B2778 80297F78 00000008 */  jr         $zero
-    /* B277C 80297F7C 24080607 */   addiu     $t0, $zero, 0x607
-endlabel func_80297F78
-
-nonmatching func_80297F80, 0x8
-
-glabel func_80297F80
-    /* B2780 80297F80 00000008 */  jr         $zero
-    /* B2784 80297F84 24080608 */   addiu     $t0, $zero, 0x608
-endlabel func_80297F80
-
-nonmatching func_80297F88, 0x8
-
-glabel func_80297F88
-    /* B2788 80297F88 00000008 */  jr         $zero
-    /* B278C 80297F8C 24080609 */   addiu     $t0, $zero, 0x609
-endlabel func_80297F88
-
-nonmatching func_80297F90, 0x8
-
-glabel func_80297F90
-    /* B2790 80297F90 00000008 */  jr         $zero
-    /* B2794 80297F94 2408060A */   addiu     $t0, $zero, 0x60A
-endlabel func_80297F90
-
-nonmatching func_80297F98, 0x8
-
-glabel func_80297F98
-    /* B2798 80297F98 00000008 */  jr         $zero
-    /* B279C 80297F9C 2408060B */   addiu     $t0, $zero, 0x60B
-endlabel func_80297F98
-
-nonmatching func_80297FA0, 0x8
-
-glabel func_80297FA0
-    /* B27A0 80297FA0 00000008 */  jr         $zero
-    /* B27A4 80297FA4 2408060C */   addiu     $t0, $zero, 0x60C
-endlabel func_80297FA0
-
-nonmatching func_80297FA8, 0x8
-
-glabel func_80297FA8
-    /* B27A8 80297FA8 00000008 */  jr         $zero
-    /* B27AC 80297FAC 2408060D */   addiu     $t0, $zero, 0x60D
-endlabel func_80297FA8
-
-nonmatching func_80297FB0, 0x8
-
-glabel func_80297FB0
-    /* B27B0 80297FB0 00000008 */  jr         $zero
-    /* B27B4 80297FB4 24080700 */   addiu     $t0, $zero, 0x700
-endlabel func_80297FB0
-
-nonmatching func_80297FB8, 0x8
-
-glabel func_80297FB8
-    /* B27B8 80297FB8 00000008 */  jr         $zero
-    /* B27BC 80297FBC 24080701 */   addiu     $t0, $zero, 0x701
-endlabel func_80297FB8
-
-nonmatching func_80297FC0, 0x8
-
-glabel func_80297FC0
-    /* B27C0 80297FC0 00000008 */  jr         $zero
-    /* B27C4 80297FC4 24080702 */   addiu     $t0, $zero, 0x702
-endlabel func_80297FC0
-
-nonmatching func_80297FC8, 0x8
-
-glabel func_80297FC8
-    /* B27C8 80297FC8 00000008 */  jr         $zero
-    /* B27CC 80297FCC 24080703 */   addiu     $t0, $zero, 0x703
-endlabel func_80297FC8
-
-nonmatching func_80297FD0, 0x8
-
-glabel func_80297FD0
-    /* B27D0 80297FD0 00000008 */  jr         $zero
-    /* B27D4 80297FD4 24080800 */   addiu     $t0, $zero, 0x800
-endlabel func_80297FD0
-
-nonmatching func_80297FD8, 0x8
-
-glabel func_80297FD8
-    /* B27D8 80297FD8 00000008 */  jr         $zero
-    /* B27DC 80297FDC 24080801 */   addiu     $t0, $zero, 0x801
-endlabel func_80297FD8
-
-nonmatching func_80297FE0, 0x8
-
-glabel func_80297FE0
-    /* B27E0 80297FE0 00000008 */  jr         $zero
-    /* B27E4 80297FE4 24080802 */   addiu     $t0, $zero, 0x802
-endlabel func_80297FE0
-
-nonmatching func_80297FE8, 0x8
-
-glabel func_80297FE8
-    /* B27E8 80297FE8 00000008 */  jr         $zero
-    /* B27EC 80297FEC 24080803 */   addiu     $t0, $zero, 0x803
-endlabel func_80297FE8
-
-nonmatching func_80297FF0, 0x8
-
-glabel func_80297FF0
-    /* B27F0 80297FF0 00000008 */  jr         $zero
-    /* B27F4 80297FF4 24080900 */   addiu     $t0, $zero, 0x900
-endlabel func_80297FF0
-
-nonmatching func_80297FF8, 0x8
-
-glabel func_80297FF8
-    /* B27F8 80297FF8 00000008 */  jr         $zero
-    /* B27FC 80297FFC 24080901 */   addiu     $t0, $zero, 0x901
-endlabel func_80297FF8
-
-nonmatching func_80298000, 0x8
-
-glabel func_80298000
-    /* B2800 80298000 00000008 */  jr         $zero
-    /* B2804 80298004 24080902 */   addiu     $t0, $zero, 0x902
-endlabel func_80298000
-
-nonmatching func_80298008, 0x8
-
-glabel func_80298008
-    /* B2808 80298008 00000008 */  jr         $zero
-    /* B280C 8029800C 24080903 */   addiu     $t0, $zero, 0x903
-endlabel func_80298008
-
-nonmatching func_80298010, 0x8
-
-glabel func_80298010
-    /* B2810 80298010 00000008 */  jr         $zero
-    /* B2814 80298014 24080904 */   addiu     $t0, $zero, 0x904
-endlabel func_80298010
-
-nonmatching func_80298018, 0x8
-
-glabel func_80298018
-    /* B2818 80298018 00000008 */  jr         $zero
-    /* B281C 8029801C 24080905 */   addiu     $t0, $zero, 0x905
-endlabel func_80298018
-
-nonmatching func_80298020, 0x8
-
-glabel func_80298020
-    /* B2820 80298020 00000008 */  jr         $zero
-    /* B2824 80298024 24080906 */   addiu     $t0, $zero, 0x906
-endlabel func_80298020
-
-nonmatching func_80298028, 0x8
-
-glabel func_80298028
-    /* B2828 80298028 00000008 */  jr         $zero
-    /* B282C 8029802C 24080907 */   addiu     $t0, $zero, 0x907
-endlabel func_80298028
-
-nonmatching func_80298030, 0x8
-
-glabel func_80298030
-    /* B2830 80298030 00000008 */  jr         $zero
-    /* B2834 80298034 24080A00 */   addiu     $t0, $zero, 0xA00
-endlabel func_80298030
-
-nonmatching func_80298038, 0x8
-
-glabel func_80298038
-    /* B2838 80298038 00000008 */  jr         $zero
-    /* B283C 8029803C 24080A01 */   addiu     $t0, $zero, 0xA01
-endlabel func_80298038
-
-nonmatching func_80298040, 0x8
-
-glabel func_80298040
-    /* B2840 80298040 00000008 */  jr         $zero
-    /* B2844 80298044 24080A02 */   addiu     $t0, $zero, 0xA02
-endlabel func_80298040
-
-nonmatching func_80298048, 0x8
-
-glabel func_80298048
-    /* B2848 80298048 00000008 */  jr         $zero
-    /* B284C 8029804C 24080A03 */   addiu     $t0, $zero, 0xA03
-endlabel func_80298048
-
-nonmatching func_80298050, 0x8
-
-glabel func_80298050
-    /* B2850 80298050 00000008 */  jr         $zero
-    /* B2854 80298054 24080A04 */   addiu     $t0, $zero, 0xA04
-endlabel func_80298050
-
-nonmatching func_80298058, 0x8
-
-glabel func_80298058
-    /* B2858 80298058 00000008 */  jr         $zero
-    /* B285C 8029805C 24080A05 */   addiu     $t0, $zero, 0xA05
-endlabel func_80298058
-
-nonmatching func_80298060, 0x8
-
-glabel func_80298060
-    /* B2860 80298060 00000008 */  jr         $zero
-    /* B2864 80298064 24080A06 */   addiu     $t0, $zero, 0xA06
-endlabel func_80298060
+zerojmp_func func_800007F0, ZEROJMP_AREA, 0x300
+zerojmp_func func_8000083C, ZEROJMP_AREA, 0x301
+zerojmp_func func_802266E8, ZEROJMP_AREA, 0x400
+zerojmp_func func_80226604, ZEROJMP_AREA, 0x401
+zerojmp_func func_80226368, ZEROJMP_AREA, 0x402
+zerojmp_func func_8022616C, ZEROJMP_AREA, 0x403
+zerojmp_func func_80225FB8, ZEROJMP_AREA, 0x404
+zerojmp_func func_80225CCC, ZEROJMP_AREA, 0x405
+zerojmp_func func_80225CC0, ZEROJMP_AREA, 0x406
+zerojmp_func func_802266DC, ZEROJMP_AREA, 0x407
+zerojmp_func func_802998EC, ZEROJMP_AREA, 0x500
+zerojmp_func func_8029ADCC, ZEROJMP_AREA, 0x501
+zerojmp_func __osGetActiveQueue, ZEROJMP_AREA, 0x600
+zerojmp_func osViGetCurrentMode, ZEROJMP_AREA, 0x601
+zerojmp_func osViGetCurrentLine, ZEROJMP_AREA, 0x602
+zerojmp_func osViGetCurrentField, ZEROJMP_AREA, 0x603
+zerojmp_func osViGetCurrentFramebuffer, ZEROJMP_AREA, 0x604
+zerojmp_func osViGetNextFramebuffer, ZEROJMP_AREA, 0x605
+zerojmp_func osViSetXScale, ZEROJMP_AREA, 0x606
+zerojmp_func osViSetYScale, ZEROJMP_AREA, 0x607
+zerojmp_func osViSetSpecialFeatures, ZEROJMP_AREA, 0x608
+zerojmp_func osViSetMode, ZEROJMP_AREA, 0x609
+zerojmp_func osViSetEvent, ZEROJMP_AREA, 0x60A
+zerojmp_func osViSwapBuffer, ZEROJMP_AREA, 0x60B
+zerojmp_func osViBlack, ZEROJMP_AREA, 0x60C
+zerojmp_func osViFade, ZEROJMP_AREA, 0x60D
+zerojmp_func osAiGetStatus, ZEROJMP_AREA, 0x700
+zerojmp_func osAiGetLength, ZEROJMP_AREA, 0x701
+zerojmp_func osAiSetFrequency, ZEROJMP_AREA, 0x702
+zerojmp_func osAiSetNextBuffer, ZEROJMP_AREA, 0x703
+zerojmp_func osDpGetStatus, ZEROJMP_AREA, 0x800
+zerojmp_func osDpSetStatus, ZEROJMP_AREA, 0x801
+zerojmp_func osDpGetCounters, ZEROJMP_AREA, 0x802
+zerojmp_func osDpSetNextBuffer, ZEROJMP_AREA, 0x803
+zerojmp_func osPiGetStatus, ZEROJMP_AREA, 0x900
+zerojmp_func osPiGetDeviceType, ZEROJMP_AREA, 0x901
+zerojmp_func osPiRawWriteIo, ZEROJMP_AREA, 0x902
+zerojmp_func osPiRawReadIo, ZEROJMP_AREA, 0x903
+zerojmp_func osPiRawStartDma, ZEROJMP_AREA, 0x904
+zerojmp_func osPiWriteIo, ZEROJMP_AREA, 0x905
+zerojmp_func osPiReadIo, ZEROJMP_AREA, 0x906
+zerojmp_func osPiStartDma, ZEROJMP_AREA, 0x907
+zerojmp_func osContInit, ZEROJMP_AREA, 0xA00
+zerojmp_func osContStartReadData, ZEROJMP_AREA, 0xA01
+zerojmp_func osContGetReadData, ZEROJMP_AREA, 0xA02
+zerojmp_func osContReset, ZEROJMP_AREA, 0xA03
+zerojmp_func osContStartQuery, ZEROJMP_AREA, 0xA04
+zerojmp_func osContSetCh, ZEROJMP_AREA, 0xA05
+zerojmp_func osContGetQuery, ZEROJMP_AREA, 0xA06
 
 nonmatching func_80298068, 0x8
 

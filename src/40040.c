@@ -1,6 +1,5 @@
 #include <ultra64.h>
 #include "process.h"
-#include "zerojmp_funcs.h"
 
 u8* Libc_Memset(u8* arg0, u8* arg1, s32 arg2);
 void func_80225CA8();                         /* extern */
@@ -37,13 +36,9 @@ s32 func_802817D0();                          /* extern */
 s32 func_80292B54();                          /* extern */
 s32 func_80294E54();                          /* extern */
 s32 func_80297D20();                          /* extern */
-s32 func_80297F80(s32);                       /* extern */
-s32 func_80297FA0(s32);                       /* extern */
 s32 func_802998EC(s32);                       /* extern */
 extern u8 D_80063000[];
 extern u8 D_800BEA60[];
-extern s32 D_8029F570;
-extern s32 D_8029F590;
 extern s32 D_802A1230;
 extern s32 D_802A1234;
 extern s32 D_802A123C;
@@ -70,10 +65,10 @@ void func_80225840(s32 arg0)
     set_secure_call_arr(5, &D_8029F590);
     func_802341C8();
     func_8023876C(arg0, 0xA, 0xA);
-    func_80297F80(2);
-    func_80297F80(4);
-    func_80297F80(0x40);
-    func_80297F80(0x10);
+    osViSetSpecialFeatures(2);
+    osViSetSpecialFeatures(4);
+    osViSetSpecialFeatures(0x40);
+    osViSetSpecialFeatures(0x10);
     HuPrcInit();
     func_8023A318();
     func_8023A22C();
@@ -92,7 +87,8 @@ void func_80225840(s32 arg0)
     sp3C = func_8022773C();
     func_8026C77C();
     g_initRandom(osGetTime());
-    temp_s0 = func_802998EC(0x1000);
+#undef func_802998EC
+    temp_s0 = func_802998EC(0x1000); // mistake. This is secure mapped via the earlier set_secure_call_arr(5) call. Hudson called the unsecure function.
     func_80237890();
     HuPrcCreate(&func_80236F54, 0, temp_s0, 0x1000, 0x401);
     HuPrcCreate(&func_802334CC, 0, 0, 0, 0x402);
@@ -127,6 +123,6 @@ void func_80225840(s32 arg0)
 
         func_80227D50(D_802AC5C0, 8, 6, 304, 228);
         func_80227708(8, 6, 304, 228);
-        func_80297FA0(0);
+        osViBlack(0);
     }
 }

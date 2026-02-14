@@ -77,7 +77,6 @@ extern struct Process D_80063370[];         // process_pool[0x50]
 // Global state
 extern s32 gProcessCount;                   // processcnt
 extern s32 D_802AC360;
-extern u8 D_802A0100[];
 
 extern struct Process D_802AB200;           // process_active_head
 extern struct Process D_802ABAA0;           // process_free_head

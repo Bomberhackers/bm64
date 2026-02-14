@@ -392,6 +392,7 @@ segments:
     vram: 0x8029E750
     subsegments:
     - [0xB8F50, data]
+    - [0xB9D70, data]
 
   - name: rsp_area_data
     exclusive_ram_id: code
