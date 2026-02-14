@@ -1,3 +1,4 @@
+#define NO_ZEROJMP_MAPPING
 #include <ultra64.h>
 
 extern u32 D_80042000[];

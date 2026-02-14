@@ -20,96 +20,61 @@ glabel \func\()__\area_suffix\()__secure_call
 endlabel \func\()__\area_suffix\()__secure_call
 .endm
 
-zerojmp_func_first set_secure_call_arr, AREA, $zero
-zerojmp_func func_800018F8, AREA, 0x100
-zerojmp_func sprintf, AREA, 0x101
-zerojmp_func osVirtualToPhysical, AREA, 0x102
-zerojmp_func osInvalDCache, AREA, 0x103
-zerojmp_func osInvalICache, AREA, 0x104
-zerojmp_func osWritebackDCache, AREA, 0x105
-zerojmp_func osWritebackDCacheAll, AREA, 0x106
-zerojmp_func osSpTaskLoad, AREA, 0x107
-zerojmp_func osSpTaskStartGo, AREA, 0x108
-zerojmp_func osCreateMesgQueue, AREA, 0x109
-zerojmp_func osSetEventMesg, AREA, 0x10A
-zerojmp_func osRecvMesg, AREA, 0x10B
-zerojmp_func osSendMesg, AREA, 0x10C
-zerojmp_func osJamMesg, AREA, 0x10D
-zerojmp_func osCreateThread, AREA, 0x10E
-zerojmp_func osStartThread, AREA, 0x10F
-zerojmp_func osStopThread, AREA, 0x110
-zerojmp_func osYieldThread, AREA, 0x111
-zerojmp_func osDestroyThread, AREA, 0x112
-zerojmp_func osGetThreadPri, AREA, 0x113
-zerojmp_func osSetThreadPri, AREA, 0x114
-zerojmp_func osGetThreadId, AREA, 0x115
-zerojmp_func osCreateScheduler, AREA, 0x116
-zerojmp_func osScAddClient, AREA, 0x117
-zerojmp_func osScRemoveClient, AREA, 0x118
-zerojmp_func osScGetCmdQ, AREA, 0x119
-zerojmp_func osCreatePiManager, AREA, 0x11A
-zerojmp_func func_800018E8, AREA, 0x11B
-zerojmp_func func_800018CC, AREA, 0x11C
-zerojmp_func func_800018C4, AREA, 0x11D
-zerojmp_func func_800018B8, AREA, 0x11E
-zerojmp_func func_80001698, AREA, 0x11F
-zerojmp_func osGetTime, AREA, 0x120
-zerojmp_func osSetTime, AREA, 0x121
-zerojmp_func osSetTimer, AREA, 0x122
-zerojmp_func osStopTimer, AREA, 0x123
-zerojmp_func osGetCount, AREA, 0x124
-zerojmp_func osEepromProbe, AREA, 0x125
-zerojmp_func osEepromRead, AREA, 0x126
-zerojmp_func osEepromWrite, AREA, 0x127
-zerojmp_func osEepromLongRead, AREA, 0x128
-zerojmp_func osEepromLongWrite, AREA, 0x129
-zerojmp_func osMotorInit, AREA, 0x12A
-zerojmp_func osMotorStop, AREA, 0x12B
-zerojmp_func osMotorStart, AREA, 0x12C
-zerojmp_func osGetIntMask, AREA, 0x12D
-zerojmp_func osSetIntMask, AREA, 0x12E
-
-nonmatching func_80297EB0, 0x8
-
-glabel func_80297EB0
-    /* B26B0 80297EB0 00000008 */  jr         $zero
-    /* B26B4 80297EB4 24080200 */   addiu     $t0, $zero, 0x200
-endlabel func_80297EB0
-
-nonmatching func_80297EB8, 0x8
-
-glabel func_80297EB8
-    /* B26B8 80297EB8 00000008 */  jr         $zero
-    /* B26BC 80297EBC 24080201 */   addiu     $t0, $zero, 0x201
-endlabel func_80297EB8
-
-nonmatching func_80297EC0, 0x8
-
-glabel func_80297EC0
-    /* B26C0 80297EC0 00000008 */  jr         $zero
-    /* B26C4 80297EC4 24080202 */   addiu     $t0, $zero, 0x202
-endlabel func_80297EC0
-
-nonmatching func_80297EC8, 0x8
-
-glabel func_80297EC8
-    /* B26C8 80297EC8 00000008 */  jr         $zero
-    /* B26CC 80297ECC 24080203 */   addiu     $t0, $zero, 0x203
-endlabel func_80297EC8
-
-nonmatching func_80297ED0, 0x8
-
-glabel func_80297ED0
-    /* B26D0 80297ED0 00000008 */  jr         $zero
-    /* B26D4 80297ED4 24080204 */   addiu     $t0, $zero, 0x204
-endlabel func_80297ED0
-
-nonmatching func_80297ED8, 0x8
-
-glabel func_80297ED8
-    /* B26D8 80297ED8 00000008 */  jr         $zero
-    /* B26DC 80297EDC 24080205 */   addiu     $t0, $zero, 0x205
-endlabel func_80297ED8
+// TODO: Include a zerojmp ID file and use those
+zerojmp_func_first set_secure_call_arr, ZEROJMP_AREA, $zero
+zerojmp_func func_800018F8, ZEROJMP_AREA, 0x100
+zerojmp_func sprintf, ZEROJMP_AREA, 0x101
+zerojmp_func osVirtualToPhysical, ZEROJMP_AREA, 0x102
+zerojmp_func osInvalDCache, ZEROJMP_AREA, 0x103
+zerojmp_func osInvalICache, ZEROJMP_AREA, 0x104
+zerojmp_func osWritebackDCache, ZEROJMP_AREA, 0x105
+zerojmp_func osWritebackDCacheAll, ZEROJMP_AREA, 0x106
+zerojmp_func osSpTaskLoad, ZEROJMP_AREA, 0x107
+zerojmp_func osSpTaskStartGo, ZEROJMP_AREA, 0x108
+zerojmp_func osCreateMesgQueue, ZEROJMP_AREA, 0x109
+zerojmp_func osSetEventMesg, ZEROJMP_AREA, 0x10A
+zerojmp_func osRecvMesg, ZEROJMP_AREA, 0x10B
+zerojmp_func osSendMesg, ZEROJMP_AREA, 0x10C
+zerojmp_func osJamMesg, ZEROJMP_AREA, 0x10D
+zerojmp_func osCreateThread, ZEROJMP_AREA, 0x10E
+zerojmp_func osStartThread, ZEROJMP_AREA, 0x10F
+zerojmp_func osStopThread, ZEROJMP_AREA, 0x110
+zerojmp_func osYieldThread, ZEROJMP_AREA, 0x111
+zerojmp_func osDestroyThread, ZEROJMP_AREA, 0x112
+zerojmp_func osGetThreadPri, ZEROJMP_AREA, 0x113
+zerojmp_func osSetThreadPri, ZEROJMP_AREA, 0x114
+zerojmp_func osGetThreadId, ZEROJMP_AREA, 0x115
+zerojmp_func osCreateScheduler, ZEROJMP_AREA, 0x116
+zerojmp_func osScAddClient, ZEROJMP_AREA, 0x117
+zerojmp_func osScRemoveClient, ZEROJMP_AREA, 0x118
+zerojmp_func osScGetCmdQ, ZEROJMP_AREA, 0x119
+zerojmp_func osCreatePiManager, ZEROJMP_AREA, 0x11A
+zerojmp_func func_800018E8, ZEROJMP_AREA, 0x11B
+zerojmp_func func_800018CC, ZEROJMP_AREA, 0x11C
+zerojmp_func func_800018C4, ZEROJMP_AREA, 0x11D
+zerojmp_func func_800018B8, ZEROJMP_AREA, 0x11E
+zerojmp_func func_80001698, ZEROJMP_AREA, 0x11F
+zerojmp_func osGetTime, ZEROJMP_AREA, 0x120
+zerojmp_func osSetTime, ZEROJMP_AREA, 0x121
+zerojmp_func osSetTimer, ZEROJMP_AREA, 0x122
+zerojmp_func osStopTimer, ZEROJMP_AREA, 0x123
+zerojmp_func osGetCount, ZEROJMP_AREA, 0x124
+zerojmp_func osEepromProbe, ZEROJMP_AREA, 0x125
+zerojmp_func osEepromRead, ZEROJMP_AREA, 0x126
+zerojmp_func osEepromWrite, ZEROJMP_AREA, 0x127
+zerojmp_func osEepromLongRead, ZEROJMP_AREA, 0x128
+zerojmp_func osEepromLongWrite, ZEROJMP_AREA, 0x129
+zerojmp_func osMotorInit, ZEROJMP_AREA, 0x12A
+zerojmp_func osMotorStop, ZEROJMP_AREA, 0x12B
+zerojmp_func osMotorStart, ZEROJMP_AREA, 0x12C
+zerojmp_func osGetIntMask, ZEROJMP_AREA, 0x12D
+zerojmp_func osSetIntMask, ZEROJMP_AREA, 0x12E
+zerojmp_func func_80000768, ZEROJMP_AREA, 0x200
+zerojmp_func func_800004D0, ZEROJMP_AREA, 0x201
+zerojmp_func load_from_rom_to_addr, ZEROJMP_AREA, 0x202
+zerojmp_func func_8000064C, ZEROJMP_AREA, 0x203
+zerojmp_func func_8000059C, ZEROJMP_AREA, 0x204
+zerojmp_func func_80000524, ZEROJMP_AREA, 0x205
 
 nonmatching func_80297EE0, 0x8
 

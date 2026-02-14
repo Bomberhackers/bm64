@@ -1,5 +1,5 @@
+#define NO_ZEROJMP_MAPPING
 #include <ultra64.h>
-#include "zerojmp_funcs.h"
 
 // TODO: Symbols
 
@@ -25,7 +25,6 @@ void func_80001750(void *unused) {
 
     // setup ZeroJmp address and set secure call array tables.
     set_zero_vaddr_tlb();
-#undef set_secure_call_arr // hack. set_secure_call_arr is not mapped yet, so we cannot use the secure call.
     set_secure_call_arr(ZEROJMP_OS_TABLE_ID,   &gOSFuncs);
     set_secure_call_arr(ZEROJMP_DMA_TABLE_ID,  &gDMAFuncs);
     set_secure_call_arr(ZEROJMP_VI_TABLE_ID,   &gVIFuncs);
@@ -71,7 +70,6 @@ void func_800018E8(s32 arg0, s32 arg1, s32 arg2) {
 
 }
 
-#undef func_800018F8
 void func_800018F8(s32 arg0, s32 arg1, ...) {
 
 }

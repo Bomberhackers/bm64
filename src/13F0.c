@@ -1,5 +1,5 @@
+#define NO_ZEROJMP_MAPPING
 #include <ultra64.h>
-#include "zerojmp_funcs.h"
 
 extern void load_from_rom_to_addr(void* vAddr, s32 size, u32 devAddr);
 
@@ -8,7 +8,6 @@ extern u8 gSectionSizes[];
 void func_800007F0(s32 arg0, void* arg1);
 
 void func_80000870(void) {
-#undef set_secure_call_arr // hack. set_secure_call_arr is not mapped yet, so we cannot use the secure call.
     set_secure_call_arr(ZEROJMP_OVL_TABLE_ID, &gOVLFuncs);
     load_from_rom_to_addr(&gSectionSizes, 0x100, 0x30000);
 }

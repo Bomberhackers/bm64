@@ -1,7 +1,5 @@
+#define NO_ZEROJMP_MAPPING
 #include <ultra64.h>
-
-#undef osRecvMesg
-#undef osWritebackDCache
 
 // compiled with -O3. huh?
 
