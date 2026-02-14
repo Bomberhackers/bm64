@@ -1,19 +1,9 @@
 #include <ultra64.h>
+#include "zerojmp_funcs.h"
 
 // TODO: Symbols
 
 extern int D_80024818;
-
-extern u8 D_80019FC0[];
-extern u8 D_8001A07C[];
-extern u8 D_8001A094[];
-extern u8 D_8001A10C[];
-extern u8 D_8001A128[];
-extern u8 D_8001A0CC[];
-extern u8 D_8001A0DC[];
-extern u8 D_8001A0EC[];
-extern u8 D_8001A14C[];
-extern u8 D_8001A314[];
 
 extern u8 D_80020668[];
 
@@ -32,17 +22,21 @@ void func_80001750(void *unused) {
     u32 addr;
 
     D_80024818 = 2;
+
+    // setup ZeroJmp address and set secure call array tables.
     set_zero_vaddr_tlb();
-    func_80001A30(1, &D_80019FC0);
-    func_80001A30(2, &D_8001A07C);
-    func_80001A30(6, &D_8001A094);
-    func_80001A30(0xA, &D_8001A10C);
-    func_80001A30(0x12, &D_8001A128);
-    func_80001A30(7, &D_8001A0CC);
-    func_80001A30(8, &D_8001A0DC);
-    func_80001A30(9, &D_8001A0EC);
-    func_80001A30(0x13, &D_8001A14C);
-    func_80001A30(0x16, &D_8001A314);
+#undef set_secure_call_arr // hack. set_secure_call_arr is not mapped yet, so we cannot use the secure call.
+    set_secure_call_arr(ZEROJMP_OS_TABLE_ID,   &gOSFuncs);
+    set_secure_call_arr(ZEROJMP_DMA_TABLE_ID,  &gDMAFuncs);
+    set_secure_call_arr(ZEROJMP_VI_TABLE_ID,   &gVIFuncs);
+    set_secure_call_arr(ZEROJMP_CONT_TABLE_ID, &gContFuncs);
+    set_secure_call_arr(ZEROJMP_SYS_TABLE_ID,  &gSysFuncs);
+    set_secure_call_arr(ZEROJMP_AI_TABLE_ID,   &gAIFuncs);
+    set_secure_call_arr(ZEROJMP_DP_TABLE_ID,   &gDPFuncs);
+    set_secure_call_arr(ZEROJMP_PI_TABLE_ID,   &gPIFuncs);
+    set_secure_call_arr(ZEROJMP_AL_TABLE_ID,   &gAlFuncs);
+    set_secure_call_arr(ZEROJMP_PFS_TABLE_ID,  &gPfsFuncs);
+
     func_80000870();
     offset = gSectionSizes[2] << 0xB;
     if (offset == 0) {
@@ -77,6 +71,7 @@ void func_800018E8(s32 arg0, s32 arg1, s32 arg2) {
 
 }
 
+#undef func_800018F8
 void func_800018F8(s32 arg0, s32 arg1, ...) {
 
 }

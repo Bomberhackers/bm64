@@ -243,10 +243,13 @@ LDFLAGS = -T undefined_syms_auto.txt -T undefined_funcs_auto.txt -T $(BUILD_DIR)
 $(foreach dir,$(SRC_DIRS) $(ASM_DIRS) $(DATA_DIRS) $(COMPRESSED_DIRS) $(MAP_DIRS) $(BGM_DIRS),$(shell mkdir -p build/$(dir)))
 
 # this uses -O3 for some reason
+
+# TODO: A majority of the gamecode, if not all, use O3. Dont use Makefile overrides and instead set O3 globally.
 build/src/10D0.c.o: OPTFLAGS := -O3
 build/src/13F0.c.o: OPTFLAGS := -O3
 
 build/src/process.c.o: OPTFLAGS := -O3
+build/src/41FD0.c.o: OPTFLAGS := -O3
 
 build/src/40000.c.o: OPTFLAGS := -g
 
@@ -326,7 +329,7 @@ $(BUILD_DIR)/src/libultra/libc/llcvt.c.o: src/libultra/libc/llcvt.c
 	@$(OBJDUMP) $(OBJDUMP_FLAGS) $@ > $(@:.o=.s)
 
 $(BUILD_DIR)/%.s.o: %.s
-	iconv --from UTF-8 --to EUC-JP $^ | $(AS) $(ASFLAGS) -o $@
+	iconv --from UTF-8 --to EUC-JP $^ | $(CPP) -E -P -Iinclude | $(AS) $(ASFLAGS) -o $@
 
 $(BUILD_DIR)/%.bin.o: %.bin
 	$(LD) -r -b binary -o $@ $<

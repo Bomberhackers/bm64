@@ -1,5 +1,6 @@
 #include <ultra64.h>
 #include "process.h"
+#include "zerojmp_funcs.h"
 
 __inline struct Process *HuPrcAlloc(); // why did you manually use __inline
 
@@ -94,12 +95,12 @@ s32 HuPrcStackCheck(struct Process *process) {
     u32 spbtm = &sptop[process->stackSize];
 
     // sprintf calls
-    func_80297D38(D_802A2E80, process->id);   // "id    : %d"
-    func_80297D38(D_802A2E8C, process->pri);  // "pri   : %d"
-    func_80297D38(D_802A2E98, process->func); // "func  : %08lx"
-    func_80297D38(D_802A2EA8, sp);            // "sp    : %08lx"
-    func_80297D38(D_802A2EB8, sptop);         // "sptop : %08lx"
-    func_80297D38(D_802A2EC8, spbtm);         // "spbtm : %08lx"
+    func_800018F8(D_802A2E80, process->id);   // "id    : %d"
+    func_800018F8(D_802A2E8C, process->pri);  // "pri   : %d"
+    func_800018F8(D_802A2E98, process->func); // "func  : %08lx"
+    func_800018F8(D_802A2EA8, sp);            // "sp    : %08lx"
+    func_800018F8(D_802A2EB8, sptop);         // "sptop : %08lx"
+    func_800018F8(D_802A2EC8, spbtm);         // "spbtm : %08lx"
 
     D_802AC34C = sptop;
     D_802AC350 = spbtm;
@@ -128,10 +129,10 @@ s32 HuPrcWaitCond(s32 arg0, s32 arg1, s32 arg2) {
     s32 var_v1;
 
     if (arg2 != 1) {
-        return func_80297D90(arg0, arg1, 0);
+        return osRecvMesg(arg0, arg1, 0);
     }
 
-    for (var_v1 = func_80297D90(arg0, arg1, 0); var_v1 != 0; var_v1 = func_80297D90(arg0, arg1, 0)) {
+    for (var_v1 = osRecvMesg(arg0, arg1, 0); var_v1 != 0; var_v1 = osRecvMesg(arg0, arg1, 0)) {
         if (setjmp(&D_802AC344->jmpBuf) == 0) {
             longjmp(&D_802AC368, 1);
         }
@@ -428,5 +429,5 @@ void HuPrcLink(struct Process* arg0, struct Process* arg1) {
 }
 
 void HuPrcInitDebug(void) {
-    func_80297D30(0x19, &D_802A0100);
+    set_secure_call_arr(0x19, &D_802A0100);
 }

@@ -9,6 +9,7 @@ options:
   base_path: .
   ld_script_path: bm64.ld
   platform: n64
+  hasm_in_src_path: True
   ld_legacy_generation: false
   detect_redundant_function_end: true
   ld_sections_allowlist:
@@ -232,7 +233,7 @@ segments:
     - [0x12840, asm]
     - [0x12C40, asm]
     - [0x12D80, asm]
-    - [0x12D90, asm]
+    - [0x12D90, asm, libultra/io/viswapcontext]
     - [0x130F0, asm]
     - [0x13100, asm]
     - [0x13410, asm]
@@ -281,7 +282,7 @@ segments:
     start: 0x1CBC0
     vram: 0x80042000
     subsegments:
-    - [0x1CBC0, asm]
+    - [0x1CBC0, asm, zerojmp_func]
     - [0x1CC60, rodata]
     
   # not sure what this is yet
@@ -326,7 +327,7 @@ segments:
     - [0x404C0, asm]
     - [0x40FB0, asm]
     - [0x412F0, asm]
-    - [0x41FD0, asm]
+    - [0x41FD0, c]
     - [0x426E0, asm]
     - [0x47A80, asm]
     - [0x4DE50, asm]
@@ -367,7 +368,7 @@ segments:
     - [0xB11F0, asm]
     - [0xB2410, asm]
     - [0xB2500, asm]
-    - [0xB2530, asm, zerojmp]
+    - [0xB2530, hasm, zerojmp]
     - [0xB3B70, asm]
     - [0xB63F0, asm]
     - [0xB6680, asm]

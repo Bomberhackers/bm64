@@ -1,5 +1,6 @@
 #include <ultra64.h>
 #include "process.h"
+#include "zerojmp_funcs.h"
 
 u8* Libc_Memset(u8* arg0, u8* arg1, s32 arg2);
 void func_80225CA8();                         /* extern */
@@ -36,7 +37,6 @@ s32 func_802817D0();                          /* extern */
 s32 func_80292B54();                          /* extern */
 s32 func_80294E54();                          /* extern */
 s32 func_80297D20();                          /* extern */
-u64 func_80297E38();                          /* extern */
 s32 func_80297F80(s32);                       /* extern */
 s32 func_80297FA0(s32);                       /* extern */
 s32 func_802998EC(s32);                       /* extern */
@@ -66,8 +66,8 @@ void func_80225840(s32 arg0)
     Libc_Memset(&D_802A5300, 0, D_802B36D0 - D_802A5300);
     Libc_Memset(&D_80063000, 0, D_800BEA60 - D_80063000);
     func_80225CA8();
-    func_80297D30(4, &D_8029F570);
-    func_80297D30(5, &D_8029F590);
+    set_secure_call_arr(4, &D_8029F570);
+    set_secure_call_arr(5, &D_8029F590);
     func_802341C8();
     func_8023876C(arg0, 0xA, 0xA);
     func_80297F80(2);
@@ -91,7 +91,7 @@ void func_80225840(s32 arg0)
     func_8025E16C();
     sp3C = func_8022773C();
     func_8026C77C();
-    g_initRandom(func_80297E38());
+    g_initRandom(osGetTime());
     temp_s0 = func_802998EC(0x1000);
     func_80237890();
     HuPrcCreate(&func_80236F54, 0, temp_s0, 0x1000, 0x401);

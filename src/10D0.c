@@ -1,5 +1,8 @@
 #include <ultra64.h>
 
+#undef osRecvMesg
+#undef osWritebackDCache
+
 // compiled with -O3. huh?
 
 extern void* D_8001C3C0;
