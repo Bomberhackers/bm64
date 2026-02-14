@@ -24,6 +24,13 @@
 #include "zerojmp_tables/zerojmp_table_8_dp.h"
 #include "zerojmp_tables/zerojmp_table_9_pi.h"
 #include "zerojmp_tables/zerojmp_table_10_cont.h"
+#include "zerojmp_tables/zerojmp_table_11_unk11.h"
+#include "zerojmp_tables/zerojmp_table_12_unk12.h"
+#include "zerojmp_tables/zerojmp_table_13_unk13.h"
+#include "zerojmp_tables/zerojmp_table_14_unk14.h"
+#include "zerojmp_tables/zerojmp_table_15_unk15.h"
+#include "zerojmp_tables/zerojmp_table_16_unk16.h"
+// 17 does not appear to be used
 // ...
 
 #endif
