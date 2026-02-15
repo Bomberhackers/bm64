@@ -72,6 +72,7 @@ void func_80225840(s32 arg0)
     HuPrcInit();
     func_8023A318();
     func_8023A22C();
+#undef func_80294E54
     func_80294E54();
     D_802A1230 = 0;
     D_802A1234 = 0;

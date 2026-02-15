@@ -1,5 +1,12 @@
 #include <ultra64.h>
 
+// TODO: There may be macros to disable specific zerojmp tables instead of having to undef these per file.
+#undef func_80227C50
+#undef func_80227BAC
+#undef func_80227BE8
+#undef func_80227870
+#undef func_80227834
+
 // framebuffer.c ?
 
 typedef unsigned int uintptr_t;
