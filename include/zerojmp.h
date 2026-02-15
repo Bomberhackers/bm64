@@ -72,7 +72,7 @@ extern unsigned long D_802A1450[]; // (ID: 13) Unknown
 extern unsigned long D_802A1610[]; // (ID: 14) Unknown
 extern unsigned long D_802A0CF4[]; // (ID: 15) Unknown
 extern unsigned long D_802A0E58[]; // (ID: 16) Unknown
-// ID 17 Unknown (possibly unused/unmapped)
+// ID 17 Unknown (unused/unmapped)
 extern unsigned long gSysFuncs[]; // (ID: 18) SYS (sort of treated like a misc)
 extern unsigned long gAlFuncs[]; // (ID: 19) AL
 extern unsigned long D_802A13D0[]; // (ID: 20) Unknown
@@ -86,7 +86,7 @@ extern unsigned long D_802A015C[]; // (ID: 27) Unknown
 extern unsigned long D_802A1534[]; // (ID: 28) Unknown
 extern unsigned long D_8029FE40[]; // (ID: 29) Unknown
 extern unsigned long D_802A1C00[]; // (ID: 30) Unknown
-// ID 31 Unknown (possibly unused/unmapped)
+// ID 31 Unknown (unused/unmapped)
 extern unsigned long D_802A1A88[]; // (ID: 32) Unknown
 extern unsigned long D_8029F820[]; // (ID: 33) Unknown
 extern unsigned long D_8029F7C8[]; // (ID: 34) Unknown
