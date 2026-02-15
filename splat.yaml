@@ -448,7 +448,7 @@ segments:
     symbol_name_format: ovl1_1_$VRAM
     subsegments:
     - [0x800010, asm]
-    - [0x800330, asm, zerojmp]
+    - [0x800330, hasm, zerojmp]
     - [0x801970, data]
     - [0x8019A0, rodata]
 
@@ -463,7 +463,7 @@ segments:
     symbol_name_format: ovl1_2_$VRAM
     subsegments:
     - [0x8019F0, asm]
-    - [0x801DD0, asm, zerojmp]
+    - [0x801DD0, hasm, zerojmp]
     - [0x803410, data]
     - [0x803470, rodata]
 
@@ -478,7 +478,7 @@ segments:
     symbol_name_format: ovl1_3_$VRAM
     subsegments:
     - [0x8034C0, asm]
-    - [0x8037F0, asm, zerojmp]
+    - [0x8037F0, hasm, zerojmp]
     - [0x804E30, data]
     - [0x804EC0, rodata]
 
@@ -493,7 +493,7 @@ segments:
     symbol_name_format: ovl1_4_$VRAM
     subsegments:
     - [0x804F10, asm]
-    - [0x805230, asm, zerojmp]
+    - [0x805230, hasm, zerojmp]
     - [0x806870, data]
     - [0x8068A0, rodata]
 
@@ -517,7 +517,7 @@ segments:
     symbol_name_format: ovl2_1_$VRAM
     subsegments:
     - [0x806970, asm]
-    - [0x80AA60, asm, zerojmp]
+    - [0x80AA60, hasm, zerojmp]
     - [0x80C0A0, data]
     - [0x80C470, rodata]
 
@@ -532,7 +532,7 @@ segments:
     symbol_name_format: ovl2_2_$VRAM
     subsegments:
     - [0x80C650, asm]
-    - [0x810300, asm, zerojmp]
+    - [0x810300, hasm, zerojmp]
     - [0x811940, data]
     - [0x811A50, rodata]
 
@@ -547,7 +547,7 @@ segments:
     symbol_name_format: ovl2_3_$VRAM
     subsegments:
     - [0x811B50, asm]
-    - [0x815BB0, asm, zerojmp]
+    - [0x815C00, hasm, zerojmp]
     - [0x817240, data]
     - [0x817250, rodata]
 
@@ -562,7 +562,7 @@ segments:
     symbol_name_format: ovl2_4_$VRAM
     subsegments:
     - [0x817350, asm]
-    - [0x819310, asm, zerojmp]
+    - [0x819310, hasm, zerojmp]
     - [0x81A950, rodata]
 
   - name: ovl_2_subovl_5
@@ -576,7 +576,7 @@ segments:
     symbol_name_format: ovl2_5_$VRAM
     subsegments:
     - [0x81AA10, asm]
-    - [0x81F940, asm, zerojmp]
+    - [0x81F940, hasm, zerojmp]
     - [0x820F80, data]
     - [0x821130, rodata]
 
@@ -591,7 +591,7 @@ segments:
     symbol_name_format: ovl2_6_$VRAM
     subsegments:
     - [0x8212E0, asm]
-    - [0x8239A0, asm, zerojmp]
+    - [0x8239A0, hasm, zerojmp]
     - [0x824FE0, data]
     - [0x8256E0, rodata]
 
@@ -615,7 +615,7 @@ segments:
     symbol_name_format: ovl3_1_$VRAM
     subsegments:
     - [0x8257F0, asm]
-    - [0x826FB0, asm, zerojmp]
+    - [0x826FB0, hasm, zerojmp]
     - [0x8285F0, data]
     - [0x828700, rodata]
 
@@ -630,7 +630,7 @@ segments:
     symbol_name_format: ovl3_2_$VRAM
     subsegments:
     - [0x828770, asm]
-    - [0x82DA50, asm, zerojmp]
+    - [0x82DA50, hasm, zerojmp]
     - [0x82F090, data]
     - [0x82F980, rodata]
 
@@ -645,7 +645,7 @@ segments:
     symbol_name_format: ovl3_3_$VRAM
     subsegments:
     - [0x82FAF0, asm]
-    - [0x833F60, asm, zerojmp]
+    - [0x833F60, hasm, zerojmp]
     - [0x8355A0, data]
     - [0x835D10, rodata]
 
@@ -660,7 +660,7 @@ segments:
     symbol_name_format: ovl3_4_$VRAM
     subsegments:
     - [0x835DD0, asm]
-    - [0x83A180, asm, zerojmp]
+    - [0x83A180, hasm, zerojmp]
     - [0x83B7C0, data]
     - [0x83CFC0, rodata]
 
@@ -675,7 +675,7 @@ segments:
     symbol_name_format: ovl3_5_$VRAM
     subsegments:
     - [0x83D060, asm]
-    - [0x83EFC0, asm, zerojmp]
+    - [0x83EFC0, hasm, zerojmp]
     - [0x840600, data]
     - [0x840740, rodata]
 
@@ -690,7 +690,7 @@ segments:
     symbol_name_format: ovl3_6_$VRAM
     subsegments:
     - [0x840820, asm]
-    - [0x845630, asm, zerojmp]
+    - [0x845630, hasm, zerojmp]
     - [0x846C70, data]
     - [0x847CB0, rodata]
 
@@ -705,7 +705,7 @@ segments:
     symbol_name_format: ovl3_7_$VRAM
     subsegments:
     - [0x847DB0, asm]
-    - [0x84A2C0, asm, zerojmp]
+    - [0x84A2C0, hasm, zerojmp]
     - [0x84B900, data]
     - [0x84BAE0, rodata]
 
@@ -729,7 +729,7 @@ segments:
     symbol_name_format: ovl4_1_$VRAM
     subsegments:
     - [0x84BBC0, asm]
-    - [0x851630, asm, zerojmp]
+    - [0x851630, hasm, zerojmp]
     - [0x852C70, data]
     - [0x853190, rodata]
 
@@ -744,7 +744,7 @@ segments:
     symbol_name_format: ovl4_2_$VRAM
     subsegments:
     - [0x853540, asm]
-    - [0x8588C0, asm, zerojmp]
+    - [0x8588C0, hasm, zerojmp]
     - [0x859F00, data]
     - [0x85A540, rodata]
 
@@ -759,7 +759,7 @@ segments:
     symbol_name_format: ovl4_3_$VRAM
     subsegments:
     - [0x85A610, asm]
-    - [0x85B590, asm, zerojmp]
+    - [0x85B590, hasm, zerojmp]
     - [0x85CBD0, data]
     - [0x85CC10, rodata]
 
@@ -774,7 +774,7 @@ segments:
     symbol_name_format: ovl4_4_$VRAM
     subsegments:
     - [0x85CC80, asm]
-    - [0x85E250, asm, zerojmp]
+    - [0x85E250, hasm, zerojmp]
     - [0x85F890, data]
     - [0x85F9F0, rodata]
 
@@ -789,7 +789,7 @@ segments:
     symbol_name_format: ovl4_5_$VRAM
     subsegments:
     - [0x85FA50, asm]
-    - [0x860D60, asm, zerojmp]
+    - [0x860D60, hasm, zerojmp]
     - [0x8623A0, data]
     - [0x862450, rodata]
 
@@ -804,7 +804,7 @@ segments:
     symbol_name_format: ovl4_6_$VRAM
     subsegments:
     - [0x8624B0, asm]
-    - [0x866D20, asm, zerojmp]
+    - [0x866D20, hasm, zerojmp]
     - [0x868360, data]
     - [0x868770, rodata]
 
@@ -820,7 +820,7 @@ segments:
     symbol_name_format: ovl4_7_$VRAM
     subsegments:
     - [0x868820, asm]
-    - [0x86B710, asm, zerojmp]
+    - [0x86B710, hasm, zerojmp]
     - [0x86CD50, data]
     - [0x86CFD0, rodata]
 
@@ -835,7 +835,7 @@ segments:
     symbol_name_format: ovl4_8_$VRAM
     subsegments:
     - [0x86D170, asm]
-    - [0x86DFF0, asm, zerojmp]
+    - [0x86DFF0, hasm, zerojmp]
     - [0x86F630, data]
     - [0x86F6B0, rodata]
 
@@ -850,7 +850,7 @@ segments:
     symbol_name_format: ovl4_9_$VRAM
     subsegments:
     - [0x86F710, asm]
-    - [0x8728A0, asm, zerojmp]
+    - [0x8728A0, hasm, zerojmp]
     - [0x873EE0, data]
     - [0x874150, rodata]
 
@@ -865,7 +865,7 @@ segments:
     symbol_name_format: ovl4_10_$VRAM
     subsegments:
     - [0x8741F0, asm]
-    - [0x876110, asm, zerojmp]
+    - [0x876110, hasm, zerojmp]
     - [0x877750, data]
     - [0x877790, rodata]
 
@@ -889,7 +889,7 @@ segments:
     symbol_name_format: ovl5_1_$VRAM
     subsegments:
     - [0x877880, asm]
-    - [0x87A7A0, asm, zerojmp]
+    - [0x87A7A0, hasm, zerojmp]
     - [0x87BDE0, data]
     - [0x87C1C0, rodata]
 
@@ -904,7 +904,7 @@ segments:
     symbol_name_format: ovl5_2_$VRAM
     subsegments:
     - [0x87C350, asm]
-    - [0x87F300, asm, zerojmp]
+    - [0x87F300, hasm, zerojmp]
     - [0x880940, data]
     - [0x880BC0, rodata]
 
@@ -919,7 +919,7 @@ segments:
     symbol_name_format: ovl5_3_$VRAM
     subsegments:
     - [0x880D50, asm]
-    - [0x8843F0, asm, zerojmp]
+    - [0x8843F0, hasm, zerojmp]
     - [0x885A30, data]
     - [0x885DB0, rodata]
 
@@ -934,7 +934,7 @@ segments:
     symbol_name_format: ovl5_4_$VRAM
     subsegments:
     - [0x885E90, asm]
-    - [0x888450, asm, zerojmp]
+    - [0x888450, hasm, zerojmp]
     - [0x889A90, data]
     - [0x889C40, rodata]
 
@@ -949,7 +949,7 @@ segments:
     symbol_name_format: ovl5_5_$VRAM
     subsegments:
     - [0x889EB0, asm]
-    - [0x88B760, asm, zerojmp]
+    - [0x88B760, hasm, zerojmp]
     - [0x88CDA0, data]
     - [0x88CF80, rodata]
 
@@ -964,7 +964,7 @@ segments:
     symbol_name_format: ovl5_6_$VRAM
     subsegments:
     - [0x88CFE0, asm]
-    - [0x88FA20, asm, zerojmp]
+    - [0x88FA20, hasm, zerojmp]
     - [0x891060, data]
     - [0x8914A0, rodata]
 
@@ -979,7 +979,7 @@ segments:
     symbol_name_format: ovl5_7_$VRAM
     subsegments:
     - [0x891590, asm]
-    - [0x8934F0, asm, zerojmp]
+    - [0x8934F0, hasm, zerojmp]
     - [0x894B30, data]
     - [0x894B70, rodata]
 
@@ -1003,7 +1003,7 @@ segments:
     symbol_name_format: ovl6_1_$VRAM
     subsegments:
     - [0x894CA0, asm]
-    - [0x897010, asm, zerojmp]
+    - [0x897010, hasm, zerojmp]
     - [0x898650, data]
     - [0x8987A0, rodata]
 
@@ -1019,7 +1019,7 @@ segments:
     symbol_name_format: ovl6_2_$VRAM
     subsegments:
     - [0x898980, asm]
-    - [0x89A6E0, asm, zerojmp]
+    - [0x89A6E0, hasm, zerojmp]
     - [0x89BD20, data]
     - [0x89C080, rodata]
 
@@ -1034,7 +1034,7 @@ segments:
     symbol_name_format: ovl6_3_$VRAM
     subsegments:
     - [0x89C0E0, asm]
-    - [0x89E1B0, asm, zerojmp]
+    - [0x89E1B0, hasm, zerojmp]
     - [0x89F7F0, data]
     - [0x89F9F0, rodata]
 
@@ -1049,7 +1049,7 @@ segments:
     symbol_name_format: ovl6_4_$VRAM
     subsegments:
     - [0x89FCF0, asm]
-    - [0x8A20F0, asm, zerojmp]
+    - [0x8A20F0, hasm, zerojmp]
     - [0x8A3730, data]
     - [0x8A3A60, rodata]
 
@@ -1064,7 +1064,7 @@ segments:
     symbol_name_format: ovl6_5_$VRAM
     subsegments:
     - [0x8A3BF0, asm]
-    - [0x8A5500, asm, zerojmp]
+    - [0x8A5500, hasm, zerojmp]
     - [0x8A6B40, data]
     - [0x8A6D90, rodata]
 
@@ -1079,7 +1079,7 @@ segments:
     symbol_name_format: ovl6_6_$VRAM
     subsegments:
     - [0x8A6E00, asm]
-    - [0x8A7A90, asm, zerojmp]
+    - [0x8A7A90, hasm, zerojmp]
     - [0x8A90D0, data]
     - [0x8A9110, rodata]
 
@@ -1094,7 +1094,7 @@ segments:
     symbol_name_format: ovl6_7_$VRAM
     subsegments:
     - [0x8A9160, asm]
-    - [0x8A9DF0, asm, zerojmp]
+    - [0x8A9DF0, hasm, zerojmp]
     - [0x8AB430, data]
     - [0x8AB470, rodata]
 
@@ -1109,7 +1109,7 @@ segments:
     symbol_name_format: ovl6_8_$VRAM
     subsegments:
     - [0x8AB4C0, asm]
-    - [0x8AC150, asm, zerojmp]
+    - [0x8AC150, hasm, zerojmp]
     - [0x8AD790, data]
     - [0x8AD7D0, rodata]
 
@@ -1124,7 +1124,7 @@ segments:
     symbol_name_format: ovl6_9_$VRAM
     subsegments:
     - [0x8AD820, asm]
-    - [0x8AEF60, asm, zerojmp]
+    - [0x8AEF60, hasm, zerojmp]
     - [0x8B05A0, data]
     - [0x8B0720, rodata]
 
@@ -1139,7 +1139,7 @@ segments:
     symbol_name_format: ovl6_10_$VRAM
     subsegments:
     - [0x8B07B0, asm]
-    - [0x8B1600, asm, zerojmp]
+    - [0x8B1600, hasm, zerojmp]
     - [0x8B2C40, data]
     - [0x8B2CB0, rodata]
 
@@ -1154,7 +1154,7 @@ segments:
     symbol_name_format: ovl6_11_$VRAM
     subsegments:
     - [0x8B2D10, asm]
-    - [0x8B48F0, asm, zerojmp]
+    - [0x8B48F0, hasm, zerojmp]
     - [0x8B5F30, data]
     - [0x8B6160, rodata]
 
@@ -1170,7 +1170,7 @@ segments:
     symbol_name_format: ovl6_12_$VRAM
     subsegments:
     - [0x8B61D0, asm]
-    - [0x8B7AD0, asm, zerojmp]
+    - [0x8B7AD0, hasm, zerojmp]
     - [0x8B9110, data]
     - [0x8B9290, rodata]
 
@@ -1185,7 +1185,7 @@ segments:
     symbol_name_format: ovl6_13_$VRAM
     subsegments:
     - [0x8B9480, asm]
-    - [0x8BB5E0, asm, zerojmp]
+    - [0x8BB5E0, hasm, zerojmp]
     - [0x8BCC20, data]
     - [0x8BD150, rodata]
 
@@ -1200,7 +1200,7 @@ segments:
     symbol_name_format: ovl6_14_$VRAM
     subsegments:
     - [0x8BD1D0, asm]
-    - [0x8BDE60, asm, zerojmp]
+    - [0x8BDE60, hasm, zerojmp]
     - [0x8BF4A0, data]
     - [0x8BF4E0, rodata]
 
@@ -1215,7 +1215,7 @@ segments:
     symbol_name_format: ovl6_15_$VRAM
     subsegments:
     - [0x8BF530, asm]
-    - [0x8C16F0, asm, zerojmp]
+    - [0x8C16F0, hasm, zerojmp]
     - [0x8C2D30, rodata]
 
   - name: ovl_7_header
@@ -1238,7 +1238,7 @@ segments:
     symbol_name_format: ovl7_1_$VRAM
     subsegments:
     - [0x8C2E50, asm]
-    - [0x8C6940, asm, zerojmp]
+    - [0x8C6940, hasm, zerojmp]
     - [0x8C7F80, data]
     - [0x8C83D0, rodata]
 
@@ -1253,7 +1253,7 @@ segments:
     symbol_name_format: ovl7_2_$VRAM
     subsegments:
     - [0x8C8570, asm]
-    - [0x8CC510, asm, zerojmp]
+    - [0x8CC510, hasm, zerojmp]
     - [0x8CDB50, data]
     - [0x8CE080, rodata]
 
@@ -1268,7 +1268,7 @@ segments:
     symbol_name_format: ovl7_3_$VRAM
     subsegments:
     - [0x8CE270, asm]
-    - [0x8D0A20, asm, zerojmp]
+    - [0x8D0A20, hasm, zerojmp]
     - [0x8D2060, data]
     - [0x8D2270, rodata]
 
@@ -1283,7 +1283,7 @@ segments:
     symbol_name_format: ovl7_4_$VRAM
     subsegments:
     - [0x8D2300, asm]
-    - [0x8D6130, asm, zerojmp]
+    - [0x8D6130, hasm, zerojmp]
     - [0x8D7770, data]
     - [0x8D7C50, rodata]
 
@@ -1298,7 +1298,7 @@ segments:
     symbol_name_format: ovl7_5_$VRAM
     subsegments:
     - [0x8D7D70, asm]
-    - [0x8D9880, asm, zerojmp]
+    - [0x8D9880, hasm, zerojmp]
     - [0x8DAEC0, data]
     - [0x8DB170, rodata]
 
@@ -1313,7 +1313,7 @@ segments:
     symbol_name_format: ovl7_6_$VRAM
     subsegments:
     - [0x8DB250, asm]
-    - [0x8DB4A0, asm, zerojmp]
+    - [0x8DB4A0, hasm, zerojmp]
     - [0x8DCAE0, data]
     - [0x8DCB30, rodata]
 
@@ -1328,7 +1328,7 @@ segments:
     symbol_name_format: ovl7_7_$VRAM
     subsegments:
     - [0x8DCB90, asm]
-    - [0x8DE060, asm, zerojmp]
+    - [0x8DE060, hasm, zerojmp]
     - [0x8DF6A0, data]
     - [0x8DF920, rodata]
 
@@ -1343,7 +1343,7 @@ segments:
     symbol_name_format: ovl7_8_$VRAM
     subsegments:
     - [0x8DF9C0, asm]
-    - [0x8E0EA0, asm, zerojmp]
+    - [0x8E0EA0, hasm, zerojmp]
     - [0x8E24E0, data]
     - [0x8E26D0, rodata]
 
@@ -1358,7 +1358,7 @@ segments:
     symbol_name_format: ovl7_9_$VRAM
     subsegments:
     - [0x8E2760, asm]
-    - [0x8E4070, asm, zerojmp]
+    - [0x8E4070, hasm, zerojmp]
     - [0x8E56B0, data]
     - [0x8E58D0, rodata]
 
@@ -1373,7 +1373,7 @@ segments:
     symbol_name_format: ovl7_10_$VRAM
     subsegments:
     - [0x8E5960, asm]
-    - [0x8E79D0, asm, zerojmp]
+    - [0x8E79D0, hasm, zerojmp]
     - [0x8E9010, data]
     - [0x8E9220, rodata]
 
@@ -1397,7 +1397,7 @@ segments:
     symbol_name_format: ovl8_1_$VRAM
     subsegments:
     - [0x8E9470, asm]
-    - [0x8EBE40, asm, zerojmp]
+    - [0x8EBE40, hasm, zerojmp]
     - [0x8ED480, data]
     - [0x8ED620, rodata]
 
@@ -1412,7 +1412,7 @@ segments:
     symbol_name_format: ovl8_2_$VRAM
     subsegments:
     - [0x8ED760, asm]
-    - [0x8EED00, asm, zerojmp]
+    - [0x8EED00, hasm, zerojmp]
     - [0x8F0340, data]
     - [0x8F0400, rodata]
 
@@ -1427,7 +1427,7 @@ segments:
     symbol_name_format: ovl8_3_$VRAM
     subsegments:
     - [0x8F0490, asm]
-    - [0x8F2C10, asm, zerojmp]
+    - [0x8F2C10, hasm, zerojmp]
     - [0x8F4250, data]
     - [0x8F4370, rodata]
 
@@ -1442,7 +1442,7 @@ segments:
     symbol_name_format: ovl8_4_$VRAM
     subsegments:
     - [0x8F4440, asm]
-    - [0x8F59C0, asm, zerojmp]
+    - [0x8F59C0, hasm, zerojmp]
     - [0x8F7000, data]
     - [0x8F70C0, rodata]
 
@@ -1457,7 +1457,7 @@ segments:
     symbol_name_format: ovl8_5_$VRAM
     subsegments:
     - [0x8F7150, asm]
-    - [0x8F9810, asm, zerojmp]
+    - [0x8F9810, hasm, zerojmp]
     - [0x8FAE50, data]
     - [0x8FAF70, rodata]
 
@@ -1472,7 +1472,7 @@ segments:
     symbol_name_format: ovl8_6_$VRAM
     subsegments:
     - [0x8FB030, asm]
-    - [0x901280, asm, zerojmp]
+    - [0x901280, hasm, zerojmp]
     - [0x9028C0, data]
     - [0x902A30, rodata]
 
@@ -1487,7 +1487,7 @@ segments:
     symbol_name_format: ovl8_7_$VRAM
     subsegments:
     - [0x902B90, asm]
-    - [0x907E70, asm, zerojmp]
+    - [0x907E70, hasm, zerojmp]
     - [0x9094B0, data]
     - [0x909640, rodata]
 
@@ -1502,7 +1502,7 @@ segments:
     symbol_name_format: ovl8_8_$VRAM
     subsegments:
     - [0x909710, asm]
-    - [0x90E2B0, asm, zerojmp]
+    - [0x90E2B0, hasm, zerojmp]
     - [0x90F8F0, data]
     - [0x90FC10, rodata]
 
@@ -1517,7 +1517,7 @@ segments:
     symbol_name_format: ovl8_9_$VRAM
     subsegments:
     - [0x90FDD0, asm]
-    - [0x914B90, asm, zerojmp]
+    - [0x914B90, hasm, zerojmp]
     - [0x9161D0, data]
     - [0x9166B0, rodata]
 
@@ -1532,7 +1532,7 @@ segments:
     symbol_name_format: ovl8_10_$VRAM
     subsegments:
     - [0x916780, asm]
-    - [0x9190B0, asm, zerojmp]
+    - [0x9190B0, hasm, zerojmp]
     - [0x91A6F0, data]
     - [0x91A770, rodata]
 
@@ -1547,7 +1547,7 @@ segments:
     symbol_name_format: ovl8_11_$VRAM
     subsegments:
     - [0x91A820, asm]
-    - [0x91C680, asm, zerojmp]
+    - [0x91C680, hasm, zerojmp]
     - [0x91DCC0, data]
     - [0x91DE10, rodata]
 
@@ -1562,7 +1562,7 @@ segments:
     symbol_name_format: ovl8_12_$VRAM
     subsegments:
     - [0x91DEC0, asm]
-    - [0x922100, asm, zerojmp]
+    - [0x922100, hasm, zerojmp]
     - [0x923740, data]
     - [0x9239D0, rodata]
 
@@ -1577,7 +1577,7 @@ segments:
     symbol_name_format: ovl8_13_$VRAM
     subsegments:
     - [0x923AF0, asm]
-    - [0x929D80, asm, zerojmp]
+    - [0x929D80, hasm, zerojmp]
     - [0x92B3C0, rodata]
 
   - name: ovl_9_header
@@ -1600,7 +1600,7 @@ segments:
     symbol_name_format: ovl9_1_$VRAM
     subsegments:
     - [0x92B660, asm]
-    - [0x92D250, asm, zerojmp]
+    - [0x92D250, hasm, zerojmp]
     - [0x92E890, data]
     - [0x92E9B0, rodata]
 
@@ -1615,7 +1615,7 @@ segments:
     symbol_name_format: ovl9_2_$VRAM
     subsegments:
     - [0x92EB20, asm]
-    - [0x92F590, asm, zerojmp]
+    - [0x92F590, hasm, zerojmp]
     - [0x930BD0, data]
     - [0x930C40, rodata]
 
@@ -1630,7 +1630,7 @@ segments:
     symbol_name_format: ovl9_3_$VRAM
     subsegments:
     - [0x930C90, asm]
-    - [0x932230, asm, zerojmp]
+    - [0x932230, hasm, zerojmp]
     - [0x933870, data]
     - [0x933AE0, rodata]
 
@@ -1645,7 +1645,7 @@ segments:
     symbol_name_format: ovl9_4_$VRAM
     subsegments:
     - [0x933B30, asm]
-    - [0x9344B0, asm, zerojmp]
+    - [0x9344B0, hasm, zerojmp]
     - [0x935AF0, data]
     - [0x935B50, rodata]
 
@@ -1660,7 +1660,7 @@ segments:
     symbol_name_format: ovl9_5_$VRAM
     subsegments:
     - [0x935BA0, asm]
-    - [0x93BF00, asm, zerojmp]
+    - [0x93BF00, hasm, zerojmp]
     - [0x93D540, data]
     - [0x93D550, rodata]
 
@@ -1675,7 +1675,7 @@ segments:
     symbol_name_format: ovl9_6_$VRAM
     subsegments:
     - [0x93D790, asm]
-    - [0x93EFE0, asm, zerojmp]
+    - [0x93EFE0, hasm, zerojmp]
     - [0x940620, data]
     - [0x940650, rodata]
 
@@ -1699,7 +1699,7 @@ segments:
     symbol_name_format: ovl10_1_$VRAM
     subsegments:
     - [0x940720, asm]
-    - [0x948010, asm, zerojmp]
+    - [0x948010, hasm, zerojmp]
     - [0x949650, data]
     - [0x949670, rodata]
 
@@ -1714,7 +1714,7 @@ segments:
     symbol_name_format: ovl10_2_$VRAM
     subsegments:
     - [0x949920, asm]
-    - [0x9527D0, asm, zerojmp]
+    - [0x9527D0, hasm, zerojmp]
     - [0x953E10, data]
     - [0x954270, rodata]
 
@@ -1738,7 +1738,7 @@ segments:
     symbol_name_format: ovl11_1_$VRAM
     subsegments:
     - [0x9545C0, asm]
-    - [0x95D110, asm, zerojmp]
+    - [0x95D110, hasm, zerojmp]
     - [0x95E750, rodata]
 
   - name: ovl_11_subovl_2
@@ -1752,7 +1752,7 @@ segments:
     symbol_name_format: ovl11_2_$VRAM
     subsegments:
     - [0x95EA60, asm]
-    - [0x96A320, asm, zerojmp]
+    - [0x96A320, hasm, zerojmp]
     - [0x96B960, rodata]
 
   - name: ovl_12_header
@@ -1775,7 +1775,7 @@ segments:
     symbol_name_format: ovl12_1_$VRAM
     subsegments:
     - [0x96BCE0, asm]
-    - [0x975370, asm, zerojmp]
+    - [0x975370, hasm, zerojmp]
     - [0x9769B0, rodata]
 
   - name: ovl_12_subovl_2
@@ -1789,7 +1789,7 @@ segments:
     symbol_name_format: ovl12_2_$VRAM
     subsegments:
     - [0x976C10, asm]
-    - [0x983480, asm, zerojmp]
+    - [0x983480, hasm, zerojmp]
     - [0x984AC0, rodata]
 
   - name: ovl_13_header
@@ -1812,7 +1812,7 @@ segments:
     symbol_name_format: ovl13_1_$VRAM
     subsegments:
     - [0x984F40, asm]
-    - [0x985C70, asm, zerojmp]
+    - [0x985C70, hasm, zerojmp]
     - [0x987110, rodata]
 
   - name: ovl_14_header
@@ -1835,7 +1835,7 @@ segments:
     symbol_name_format: ovl14_1_$VRAM
     subsegments:
     - [0x987200, asm]
-    - [0x9881F0, asm, zerojmp]
+    - [0x9881F0, hasm, zerojmp]
     - [0x989830, data]
     - [0x9899B0, rodata]
 
@@ -1850,7 +1850,7 @@ segments:
     symbol_name_format: ovl14_2_$VRAM
     subsegments:
     - [0x989A00, asm]
-    - [0x98A0F0, asm, zerojmp]
+    - [0x98A0F0, hasm, zerojmp]
     - [0x98B730, data]
     - [0x98B770, rodata]
 
@@ -1865,7 +1865,7 @@ segments:
     symbol_name_format: ovl14_3_$VRAM
     subsegments:
     - [0x98B7C0, asm]
-    - [0x98BF30, asm, zerojmp]
+    - [0x98BF30, hasm, zerojmp]
     - [0x98D570, data]
     - [0x98D5B0, rodata]
 
@@ -1880,7 +1880,7 @@ segments:
     symbol_name_format: ovl14_4_$VRAM
     subsegments:
     - [0x98D600, asm]
-    - [0x98DD20, asm, zerojmp]
+    - [0x98DD20, hasm, zerojmp]
     - [0x98F360, data]
     - [0x98F3E0, rodata]
 
@@ -1895,7 +1895,7 @@ segments:
     symbol_name_format: ovl14_5_$VRAM
     subsegments:
     - [0x98F430, asm]
-    - [0x98FB70, asm, zerojmp]
+    - [0x98FB70, hasm, zerojmp]
     - [0x9911B0, data]
     - [0x991230, rodata]
 
@@ -1910,7 +1910,7 @@ segments:
     symbol_name_format: ovl14_6_$VRAM
     subsegments:
     - [0x991280, asm]
-    - [0x9922B0, asm, zerojmp]
+    - [0x9922B0, hasm, zerojmp]
     - [0x9938F0, data]
     - [0x993A70, rodata]
 
@@ -1925,7 +1925,7 @@ segments:
     symbol_name_format: ovl14_7_$VRAM
     subsegments:
     - [0x993AC0, asm]
-    - [0x994B00, asm, zerojmp]
+    - [0x994B00, hasm, zerojmp]
     - [0x996140, data]
     - [0x9961F0, rodata]
 
@@ -1940,7 +1940,7 @@ segments:
     symbol_name_format: ovl14_8_$VRAM
     subsegments:
     - [0x996240, asm]
-    - [0x997670, asm, zerojmp]
+    - [0x997670, hasm, zerojmp]
     - [0x998CB0, data]
     - [0x998E40, rodata]
 
@@ -1955,7 +1955,7 @@ segments:
     symbol_name_format: ovl14_9_$VRAM
     subsegments:
     - [0x998EA0, asm]
-    - [0x99AAE0, asm, zerojmp]
+    - [0x99AAE0, hasm, zerojmp]
     - [0x99C120, data]
     - [0x99C1B0, rodata]
 
@@ -1970,7 +1970,7 @@ segments:
     symbol_name_format: ovl14_10_$VRAM
     subsegments:
     - [0x99C230, asm]
-    - [0x99E080, asm, zerojmp]
+    - [0x99E080, hasm, zerojmp]
     - [0x99F6C0, data]
     - [0x99F8A0, rodata]
 
