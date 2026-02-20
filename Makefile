@@ -250,6 +250,7 @@ build/src/13F0.c.o: OPTFLAGS := -O3
 
 build/src/process.c.o: OPTFLAGS := -O3
 build/src/41FD0.c.o: OPTFLAGS := -O3
+build/src/52270.c.o: OPTFLAGS := -O3
 
 build/src/40000.c.o: OPTFLAGS := -g
 

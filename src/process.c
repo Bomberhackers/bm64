@@ -371,7 +371,7 @@ s32 HuPrcCreate(void *func, s32 arg1, void* stack, s32 stackSize, u16 pri) {
     return process->id;
 }
 
-struct Process *HuPrcAlloc() {
+__inline struct Process *HuPrcAlloc() {
     struct Process *sp1C = D_802AC33C;
 
     if (sp1C == NULL) {

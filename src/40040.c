@@ -64,7 +64,7 @@ void func_80225840(s32 arg0)
     set_secure_call_arr(4, &D_8029F570);
     set_secure_call_arr(5, &D_8029F590);
     func_802341C8();
-    func_8023876C(arg0, 0xA, 0xA);
+    func_8023876C(arg0, 0xA, 0xA); // <--------- this will call osCreateScheduler
     osViSetSpecialFeatures(2);
     osViSetSpecialFeatures(4);
     osViSetSpecialFeatures(0x40);
@@ -98,21 +98,21 @@ void func_80225840(s32 arg0)
     func_80265C04();
 
     while (TRUE) {
-        func_8023A104();
-        mainGfx = func_80227464();
-        func_80238100();
-        func_802381F8();
-        HuPrcCall();
-        func_8022787C(&mainGfx);
-        func_802290CC();
+        func_8023A104();           // receive message from the cont mesg queue and run osContGetReadData
+        mainGfx = func_80227464(); // init gfx
+        func_80238100();           // get thread pri/start some kind of thread.
+        func_802381F8();           // yield to that thread.
+        HuPrcCall();               // run Hudson processes.
+        func_8022787C(&mainGfx);   // process frame buffers (4 in the array).
+        func_802290CC();           // something related to 3D model animations. stubbing this makes bomberman invisible and all objects "stop" animating.
 
-        temp_v0 = func_80227678(sp3C);
-        gSPDisplayList(mainGfx++, temp_v0);
+        temp_v0 = func_80227678(sp3C);      // get ptr to main DL buffer to push to display list
+        gSPDisplayList(mainGfx++, temp_v0); // put it on the list.
 
-        func_8025E1D4(&mainGfx);
-        func_8026C208();
-        func_8023A208();
-        func_80226E84(mainGfx);
+        func_8025E1D4(&mainGfx); // soft reset video effect
+        func_8026C208();         // does something with audio
+        func_8023A208();         // run osContStartReadData
+        func_80226E84(mainGfx);  // do wait/queue/mesg thing?
 
         if (var_s1 == 0) {
             continue;
@@ -122,6 +122,7 @@ void func_80225840(s32 arg0)
             continue;
         }
 
+        // on the 8th frame, run these once. Otherwise, the loop is the above.
         func_80227D50(D_802AC5C0, 8, 6, 304, 228);
         func_80227708(8, 6, 304, 228);
         osViBlack(0);
