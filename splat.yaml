@@ -33,7 +33,7 @@ segments:
     - [0x0B70, bin, bootcode_font]
   - name: boot_code
     type: code
-    bss_size: 0x0 # unknown
+    bss_size: 0xC4A0
     start: 0x1000
     vram: 0x80000400
     exclusive_ram_id: code
@@ -42,7 +42,7 @@ segments:
     - [0x1050, c, set_zero_tlb]
     - [0x10D0, c] # DMA memory area?
     - [0x13F0, c]
-    - [0x14B0, asm] # sched.c according to asserts
+    - [0x14B0, c, sched]
     - [0x2350, c] # main
     - [0x2630, asm]
     
@@ -274,6 +274,15 @@ segments:
     - [0x1A9D0, asm]
     - [0x1A9F0, asm]
     - [0x1AB80, data]
+    - [0x1ABA0, .data, sched]
+    - [0x1ABC0, data]
+    - [0x1C210, rodata]
+    - [0x1C240, .rodata, sched]
+    - [0x1C370, rodata]
+
+    - {vram: 0x8001BFC0, type:  bss, name: unk_boot_bss}
+    - {vram: 0x8001C440, type: .bss, name: sched}
+    - {vram: 0x8001C4B0, type:  bss, name: unk_boot_bss_2}
 
   - name: zerojump
     exclusive_ram_id: code

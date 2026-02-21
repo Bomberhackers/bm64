@@ -68737,3 +68737,5 @@ func_802266DC = 0x802266DC; // segment:main_code
 func_802998EC = 0x802998EC; // segment:main_code
 func_8029ADCC = 0x8029ADCC; // segment:main_code
 D_802AAC38 = 0x802AAC38; // segment:main_code
+__assert = 0x800018A8; // segment:boot_code
+osViModeTable = 0x8001A3B0; // segment:boot_code

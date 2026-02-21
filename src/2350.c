@@ -50,7 +50,7 @@ void func_80001750(void *unused) {
     }
 }
 
-void func_800018A8(s32 arg0, s32 arg1, s32 arg2) {
+void __assert(const char* exp, const char* filename, int line) {
 
 }
 
