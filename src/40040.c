@@ -1,5 +1,6 @@
 #include <ultra64.h>
 #include "process.h"
+#include "thread_proc.h"
 
 u8* Libc_Memset(u8* arg0, u8* arg1, s32 arg2);
 void func_80225CA8();                         /* extern */
@@ -18,9 +19,6 @@ void func_8022A858();                         /* extern */
 s32 func_80232E60();                          /* extern */
 s32 func_802341C8();                          /* extern */
 s32 func_80237890();                          /* extern */
-s32 func_80238100();                          /* extern */
-s32 func_802381F8();                          /* extern */
-s32 func_8023876C(s32, s32, s32);             /* extern */
 s32 func_8023A104();                          /* extern */
 s32 func_8023A208();                          /* extern */
 s32 func_8023A22C();                          /* extern */
@@ -53,10 +51,9 @@ void func_80225840(s32 arg0)
     s32 temp_s0; 
     Gfx *mainGfx;
     s32 sp3C;  
-    s32 var_s1; 
+    s32 frameTimer = 8;
     s32 temp_v0;
 
-    var_s1 = 8;
     func_80297D20();
     Libc_Memset(&D_802A5300, 0, D_802B36D0 - D_802A5300);
     Libc_Memset(&D_80063000, 0, D_800BEA60 - D_80063000);
@@ -64,7 +61,7 @@ void func_80225840(s32 arg0)
     set_secure_call_arr(4, &D_8029F570);
     set_secure_call_arr(5, &D_8029F590);
     func_802341C8();
-    func_8023876C(arg0, 0xA, 0xA); // <--------- this will call osCreateScheduler
+    ThreadProc_Init(arg0, 0xA, 0xA); // <--------- this will call osCreateScheduler
     osViSetSpecialFeatures(2);
     osViSetSpecialFeatures(4);
     osViSetSpecialFeatures(0x40);
@@ -100,7 +97,7 @@ void func_80225840(s32 arg0)
     while (TRUE) {
         func_8023A104();           // receive message from the cont mesg queue and run osContGetReadData
         mainGfx = func_80227464(); // init gfx
-        func_80238100();           // get thread pri/start some kind of thread.
+        ThreadProc_RunQueuedThreads();           // get thread pri/start some kind of thread.
         func_802381F8();           // yield to that thread.
         HuPrcCall();               // run Hudson processes.
         func_8022787C(&mainGfx);   // process frame buffers (4 in the array).
@@ -114,11 +111,13 @@ void func_80225840(s32 arg0)
         func_8023A208();         // run osContStartReadData
         func_80226E84(mainGfx);  // do wait/queue/mesg thing?
 
-        if (var_s1 == 0) {
+        // if frame timer is already at 0, ignore the bottom part.
+        if (frameTimer == 0) {
             continue;
         }
 
-        if (--var_s1 != 0) {
+        // decrement it. If the decrement resulted in a 0, run the below code, this will result in the below code running once.
+        if (--frameTimer != 0) {
             continue;
         }
 

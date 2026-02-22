@@ -22,10 +22,10 @@ glabel entry
     /* 1018 80000418 1520FFFC */  bnez       $t1, .L8000040C
     /* 101C 8000041C 21080008 */   addi      $t0, $t0, 0x8 /* handwritten instruction */
     /* 1020 80000420 3C0A8000 */  lui        $t2, %hi(n64main)
-    /* 1024 80000424 3C1D8002 */  lui        $sp, %hi(D_800244B0)
+    /* 1024 80000424 3C1D8002 */  lui        $sp, %hi(gGameThreadStack+0x3C98)
     /* 1028 80000428 254A19A0 */  addiu      $t2, $t2, %lo(n64main)
     /* 102C 8000042C 01400008 */  jr         $t2
-    /* 1030 80000430 27BD44B0 */   addiu     $sp, $sp, %lo(D_800244B0)
+    /* 1030 80000430 27BD44B0 */   addiu     $sp, $sp, %lo(gGameThreadStack+0x3C98)
 endlabel entry
     /* 1034 80000434 00000000 */  nop
     /* 1038 80000438 00000000 */  nop

@@ -246,11 +246,11 @@ $(foreach dir,$(SRC_DIRS) $(ASM_DIRS) $(DATA_DIRS) $(COMPRESSED_DIRS) $(MAP_DIRS
 
 # TODO: A majority of the gamecode, if not all, use O3. Dont use Makefile overrides and instead set O3 globally.
 build/src/10D0.c.o: OPTFLAGS := -O3
-build/src/13F0.c.o: OPTFLAGS := -O3
+build/src/ovl_setup.c.o: OPTFLAGS := -O3
 
 build/src/process.c.o: OPTFLAGS := -O3
 build/src/41FD0.c.o: OPTFLAGS := -O3
-build/src/52270.c.o: OPTFLAGS := -O3
+build/src/thread_proc.c.o: OPTFLAGS := -O3
 build/src/sched.c.o: OPTFLAGS := -O3
 
 build/src/40000.c.o: OPTFLAGS := -g

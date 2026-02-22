@@ -75,8 +75,8 @@ zerojmp_func load_from_rom_to_addr, ZEROJMP_AREA, 0x202
 zerojmp_func func_8000064C, ZEROJMP_AREA, 0x203
 zerojmp_func func_8000059C, ZEROJMP_AREA, 0x204
 zerojmp_func func_80000524, ZEROJMP_AREA, 0x205
-zerojmp_func func_800007F0, ZEROJMP_AREA, 0x300
-zerojmp_func func_8000083C, ZEROJMP_AREA, 0x301
+zerojmp_func OvlSetup_LoadArea, ZEROJMP_AREA, 0x300
+zerojmp_func OvlSetup_LoadExecAddress, ZEROJMP_AREA, 0x301
 zerojmp_func func_802266E8, ZEROJMP_AREA, 0x400
 zerojmp_func func_80226604, ZEROJMP_AREA, 0x401
 zerojmp_func func_80226368, ZEROJMP_AREA, 0x402
@@ -229,7 +229,7 @@ zerojmp_func __ull_to_d, ZEROJMP_AREA, 0x1204
 zerojmp_func func_800018A8, ZEROJMP_AREA, 0x1205
 zerojmp_func __osGetCurrFaultedThread, ZEROJMP_AREA, 0x1206
 zerojmp_func func_80001A04, ZEROJMP_AREA, 0x1207
-zerojmp_func func_80001A14, ZEROJMP_AREA, 0x1208
+zerojmp_func Main_GetTvType, ZEROJMP_AREA, 0x1208
 zerojmp_func alUnlink, ZEROJMP_AREA, 0x1300
 zerojmp_func alLink, ZEROJMP_AREA, 0x1301
 zerojmp_func alCopy, ZEROJMP_AREA, 0x1302

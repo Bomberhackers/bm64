@@ -34,8 +34,8 @@
 #define func_80001A04_x(area) func_80001A04_xx(area)
 #define func_80001A04 func_80001A04_x(ZEROJMP_AREA)
 
-#define func_80001A14_xx(area) func_80001A14__ ## area ## __secure_call
-#define func_80001A14_x(area) func_80001A14_xx(area)
-#define func_80001A14 func_80001A14_x(ZEROJMP_AREA)
+#define Main_GetTvType_xx(area) Main_GetTvType__ ## area ## __secure_call
+#define Main_GetTvType_x(area) Main_GetTvType_xx(area)
+#define Main_GetTvType Main_GetTvType_x(ZEROJMP_AREA)
 
 #endif // _ZEROJMP_TABLE_DEFINES_SYS_H_

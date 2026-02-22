@@ -1,8 +1,6 @@
 #define NO_ZEROJMP_MAPPING
 #include <ultra64.h>
 
-// compiled with -O3. huh?
-
 extern void* D_8001C3C0;
 extern OSMesgQueue D_8001C3E0;
 extern s32 D_8001C3F8;

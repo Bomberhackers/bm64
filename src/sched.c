@@ -1,4 +1,4 @@
-#define NO_ZEROJMP_MAPPING
+#define NO_ZEROJMP_MAPPING // this file does not appear to use any zerojmp mapping.
 #include <ultra64.h>
 #include "PR/sched.h"
 #include "assert.h"

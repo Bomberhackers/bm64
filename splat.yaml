@@ -41,9 +41,9 @@ segments:
     - [0x1000, hasm, entry] # bootloader
     - [0x1050, c, set_zero_tlb]
     - [0x10D0, c] # DMA memory area?
-    - [0x13F0, c]
+    - [0x13F0, c, ovl_setup]
     - [0x14B0, c, sched]
-    - [0x2350, c] # main
+    - [0x2350, c, main]
     - [0x2630, asm]
     
     # start of libultra. first file might be our "overridden synsetvol" they also used in Hero.
@@ -282,7 +282,8 @@ segments:
 
     - {vram: 0x8001BFC0, type:  bss, name: unk_boot_bss}
     - {vram: 0x8001C440, type: .bss, name: sched}
-    - {vram: 0x8001C4B0, type:  bss, name: unk_boot_bss_2}
+    - {vram: 0x8001C4B0, type: .bss, name: main}
+    - {vram: 0x80024820, type:  bss, name: unk_boot_bss_2} # this addr overlaps with section sizes.. how strange.
 
   - name: zerojump
     exclusive_ram_id: code
@@ -303,14 +304,6 @@ segments:
     vram: 0x80800000 # placeholder
     subsegments:
     - [0x1CCF0, data] # some weird zero'd out area except 1 or 2 things
-
-  - name: section_sizes
-    exclusive_ram_id: code
-    type: data
-    bss_size: 0x0 # unknown
-    start: 0x30000
-    vram: 0x80024820
-    subsegments:
     - [0x30000, data] # table of section sizes
 
   - name: ovl_sizes
@@ -341,7 +334,7 @@ segments:
     - [0x47A80, asm]
     - [0x4DE50, asm]
     - [0x4ED50, asm]
-    - [0x52270, c]
+    - [0x52270, c, thread_proc]
     - [0x530C0, c, process] # process, based on other hudson games
     - [0x53D70, asm]
     - [0x54BE0, asm]
@@ -389,8 +382,8 @@ segments:
     - [0xBF840, data]
 
     - {vram: 0x802A5300, type:  bss, name: unk_bss}
-    - {vram: 0x802AAC30, type: .bss, name: 52270}
-    - {vram: 0x802AAE00, type:  bss, name: unk_bss_2}
+    - {vram: 0x802A5A60, type: .bss, name: thread_proc}
+    - {vram: 0x802A8C40, type:  bss, name: unk_bss_2}
 
   - name: pad
     type: bin
