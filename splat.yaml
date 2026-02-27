@@ -379,7 +379,8 @@ segments:
     - [0xB7A50, data] # Rsp area
     - [0xB8F50, data]
     - [0xB9D70, data]
-    - [0xBF840, data]
+    - [0xBF800, data]
+    - [0xBFB00]
 
     - {vram: 0x802A5300, type:  bss, name: unk_bss}
     - {vram: 0x802A5A60, type: .bss, name: thread_proc}
