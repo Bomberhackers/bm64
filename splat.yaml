@@ -328,7 +328,7 @@ segments:
     - [0x40300, c]
     - [0x404C0, asm]
     - [0x40FB0, asm]
-    - [0x412F0, asm]
+    - [0x412F0, c]
     - [0x41FD0, c]
     - [0x426E0, asm]
     - [0x47A80, asm]
@@ -383,8 +383,10 @@ segments:
     - [0xBFB00]
 
     - {vram: 0x802A5300, type:  bss, name: unk_bss}
+    - {vram: 0x802A5370, type: .bss, name: 412F0}
+    - {vram: 0x802A5380, type:  bss, name: unk_bss_2}
     - {vram: 0x802A5A60, type: .bss, name: thread_proc}
-    - {vram: 0x802A8C40, type:  bss, name: unk_bss_2}
+    - {vram: 0x802A8C40, type:  bss, name: unk_bss_3}
 
   - name: pad
     type: bin

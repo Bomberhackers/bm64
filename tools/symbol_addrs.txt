@@ -68761,3 +68761,6 @@ gThreadProcManagerThread = 0x802AAC48; // segment:main_code
 gThreadProcManagerThreadStack = 0x802AADF8; // segment:main_code
 ThreadProc_SetThreadPri = 0x80237E18; // segment:main_code
 ThreadProc_KillThread = 0x802383A4; // segment:main_code
+D_802A5000 = 0x802A5000; // segment:main_code
+rspbootTextStart = 0x8029D250; // segment:main_code
+rspbootTextEnd = 0x8029D320; // segment:main_code
