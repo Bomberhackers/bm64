@@ -249,7 +249,7 @@ build/src/10D0.c.o: OPTFLAGS := -O3
 build/src/ovl_setup.c.o: OPTFLAGS := -O3
 
 build/src/process.c.o: OPTFLAGS := -O3
-build/src/412F0.c.o: OPTFLAGS := -O3
+build/src/gfx.c.o: OPTFLAGS := -O3
 build/src/41FD0.c.o: OPTFLAGS := -O3
 build/src/thread_proc.c.o: OPTFLAGS := -O3
 build/src/sched.c.o: OPTFLAGS := -O3

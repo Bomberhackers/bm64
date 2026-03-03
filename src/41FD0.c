@@ -1,4 +1,5 @@
 #include <ultra64.h>
+#include "gfx.h"
 
 // TODO: There may be macros to disable specific zerojmp tables instead of having to undef these per file.
 #undef func_80227C50
@@ -23,10 +24,6 @@ typedef struct FrameBuffer {
     /* 0x64 */ f32 lrx;
     /* 0x68 */ f32 lry;
 } FrameBuffer; // size:0x6C
-
-struct UnkStruct802A538C {
-    char pad[0x40];
-};
 
 // might be the same as FrameBuffer
 struct UnkFuncStruct80227E2C {
@@ -60,11 +57,9 @@ struct UnkFuncStruct80227C9C {
     u32 unk58;
 };
 
-extern s32 func_80227678(s32);                             /* extern */
 extern s32 func_8029B908(s32, f32, f32, f32, f32, f32, f32, f32, f32, f32); /* extern */
 extern s32 func_8029BB38(s32*, s32);                           /* extern */
 extern s32 func_8029BE20(s32*, s32*, f32, f32, f32, f32, f32);   /* extern */
-extern s32 func_802272B0();                      /* extern */
 
 extern struct FrameBuffer gFrameBuffers[4]; // 800BD5B0
 
@@ -77,8 +72,7 @@ extern s32 D_8029F7F4;
 extern Lights2 D_8029F7F8;
 
 extern s32 D_802A5368;
-extern u32 D_802A5388;
-extern Mtx* D_802A538C;
+extern Mtx* gGfxWorkPtr;
 extern Gfx* gMasterDisplayList; // D_802A5390
 extern u16 D_802A53D0;
 extern Mtx D_802A53D8;
@@ -141,7 +135,7 @@ void func_80227CD0(s32 arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4, f32 arg5, f
 
 void func_80227C9C(struct UnkFuncStruct80227C9C* arg0, s32 arg1) {
     arg0->unk14 = arg1;
-    arg0->unk58 = func_80227678(arg1);
+    arg0->unk58 = Gfx_GetSubDLPtr(arg1);
 }
 
 void func_80227C50(f32 arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4) {
@@ -184,15 +178,15 @@ void func_8022787C(Gfx** mainGfx) {
     for (i = 0; i < 4; i++) {
         buffer = &gFrameBuffers[i];
         if ((buffer->enabled) && (buffer->unk58 != 0)) {
-            Libc_Memcpy((uintptr_t)D_802A538C + (D_802A5368 * sizeof(Mtx)), &D_802A53D8, sizeof(Mtx));
-            gSPMatrix(gfx++, (uintptr_t)D_802A538C + (D_802A5368 * sizeof(Mtx)), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_PROJECTION);
+            Libc_Memcpy((uintptr_t)gGfxWorkPtr + (D_802A5368 * sizeof(Mtx)), &D_802A53D8, sizeof(Mtx));
+            gSPMatrix(gfx++, (uintptr_t)gGfxWorkPtr + (D_802A5368 * sizeof(Mtx)), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_PROJECTION);
             D_802A5368++;
             gSPViewport(gfx++, &buffer->unk_00);
-            Libc_Memcpy((uintptr_t)D_802A538C + (D_802A5368 * sizeof(Mtx)), &buffer->unk_18, sizeof(Mtx));
-            gSPMatrix(gfx++, (uintptr_t)D_802A538C + (D_802A5368 * sizeof(Mtx)), G_MTX_NOPUSH | G_MTX_MUL | G_MTX_PROJECTION);
+            Libc_Memcpy((uintptr_t)gGfxWorkPtr + (D_802A5368 * sizeof(Mtx)), &buffer->unk_18, sizeof(Mtx));
+            gSPMatrix(gfx++, (uintptr_t)gGfxWorkPtr + (D_802A5368 * sizeof(Mtx)), G_MTX_NOPUSH | G_MTX_MUL | G_MTX_PROJECTION);
             D_802A5368++;
             gDPSetScissor(gfx++, G_SC_NON_INTERLACE, buffer->ulx, buffer->uly, buffer->lrx, buffer->lry);
-            gSPDisplayList(gfx++, func_80227678(buffer->unk14));
+            gSPDisplayList(gfx++, Gfx_GetSubDLPtr(buffer->unk14));
         }
     }
     *mainGfx = gfx;

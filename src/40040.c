@@ -1,16 +1,12 @@
 #include <ultra64.h>
 #include "process.h"
 #include "thread_proc.h"
+#include "gfx.h"
 
 u8* Libc_Memset(u8* arg0, u8* arg1, s32 arg2);
 void func_80225CA8();                         /* extern */
 void func_80226860();                         /* extern */
-void func_80226D80();                         /* extern */
-void func_80226E84(void *);                   /* extern */
-void *func_80227464();                        /* extern */
-s32 func_80227678(s32);                       /* extern */
 void func_80227708(s32, s32, s32, s32);       /* extern */
-s32 func_8022773C();                          /* extern */
 void func_802277D0();                         /* extern */
 void func_8022787C(void **);                  /* extern */
 void func_80227D50(s32, s32, s32, s32, s32);  /* extern */
@@ -50,7 +46,7 @@ void func_80225840(s32 arg0)
 {
     s32 temp_s0; 
     Gfx *mainGfx;
-    s32 sp3C;  
+    s32 id;
     s32 frameTimer = 8;
     s32 temp_v0;
 
@@ -80,9 +76,9 @@ void func_80225840(s32 arg0)
     func_802817D0();
     func_80292B54();
     func_802277D0();
-    func_80226D80();
+    Gfx_CreateRenderThread();
     func_8025E16C();
-    sp3C = func_8022773C();
+    id = Gfx_GetAvailableBuffer();
     func_8026C77C();
     g_initRandom(osGetTime());
 #undef func_802998EC
@@ -96,20 +92,20 @@ void func_80225840(s32 arg0)
 
     while (TRUE) {
         func_8023A104();           // receive message from the cont mesg queue and run osContGetReadData
-        mainGfx = func_80227464(); // init gfx
+        mainGfx = Gfx_InitGfx();   // init gfx
         ThreadProc_RunQueuedThreads();           // get thread pri/start some kind of thread.
         func_802381F8();           // yield to that thread.
         HuPrcCall();               // run Hudson processes.
         func_8022787C(&mainGfx);   // process frame buffers (4 in the array).
         func_802290CC();           // something related to 3D model animations. stubbing this makes bomberman invisible and all objects "stop" animating.
 
-        temp_v0 = func_80227678(sp3C);      // get ptr to main DL buffer to push to display list
+        temp_v0 = Gfx_GetSubDLPtr(id);      // get ptr to main DL buffer to push to display list
         gSPDisplayList(mainGfx++, temp_v0); // put it on the list.
 
         func_8025E1D4(&mainGfx); // soft reset video effect
         func_8026C208();         // does something with audio
         func_8023A208();         // run osContStartReadData
-        func_80226E84(mainGfx);  // do wait/queue/mesg thing?
+        Gfx_EndRender(mainGfx);  // do wait/queue/mesg thing?
 
         // if frame timer is already at 0, ignore the bottom part.
         if (frameTimer == 0) {
@@ -123,7 +119,7 @@ void func_80225840(s32 arg0)
 
         // on the 8th frame, run these once. Otherwise, the loop is the above.
         func_80227D50(D_802AC5C0, 8, 6, 304, 228);
-        func_80227708(8, 6, 304, 228);
+        Gfx_SetScreenCoords(8, 6, 304, 228);
         osViBlack(0);
     }
 }
