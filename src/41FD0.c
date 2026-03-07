@@ -178,11 +178,11 @@ void func_8022787C(Gfx** mainGfx) {
     for (i = 0; i < 4; i++) {
         buffer = &gFrameBuffers[i];
         if ((buffer->enabled) && (buffer->unk58 != 0)) {
-            Libc_Memcpy((uintptr_t)gGfxWorkPtr + (D_802A5368 * sizeof(Mtx)), &D_802A53D8, sizeof(Mtx));
+            hmemcpy((uintptr_t)gGfxWorkPtr + (D_802A5368 * sizeof(Mtx)), &D_802A53D8, sizeof(Mtx));
             gSPMatrix(gfx++, (uintptr_t)gGfxWorkPtr + (D_802A5368 * sizeof(Mtx)), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_PROJECTION);
             D_802A5368++;
             gSPViewport(gfx++, &buffer->unk_00);
-            Libc_Memcpy((uintptr_t)gGfxWorkPtr + (D_802A5368 * sizeof(Mtx)), &buffer->unk_18, sizeof(Mtx));
+            hmemcpy((uintptr_t)gGfxWorkPtr + (D_802A5368 * sizeof(Mtx)), &buffer->unk_18, sizeof(Mtx));
             gSPMatrix(gfx++, (uintptr_t)gGfxWorkPtr + (D_802A5368 * sizeof(Mtx)), G_MTX_NOPUSH | G_MTX_MUL | G_MTX_PROJECTION);
             D_802A5368++;
             gDPSetScissor(gfx++, G_SC_NON_INTERLACE, buffer->ulx, buffer->uly, buffer->lrx, buffer->lry);

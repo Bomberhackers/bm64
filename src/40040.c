@@ -3,7 +3,7 @@
 #include "thread_proc.h"
 #include "gfx.h"
 
-u8* Libc_Memset(u8* arg0, u8* arg1, s32 arg2);
+u8* hmemset(u8* arg0, u8* arg1, s32 arg2);
 void func_80225CA8();                         /* extern */
 void func_80226860();                         /* extern */
 void func_80227708(s32, s32, s32, s32);       /* extern */
@@ -30,7 +30,7 @@ s32 func_802817D0();                          /* extern */
 s32 func_80292B54();                          /* extern */
 s32 func_80294E54();                          /* extern */
 s32 func_80297D20();                          /* extern */
-s32 func_802998EC(s32);                       /* extern */
+s32 malloc(s32);                       /* extern */
 extern u8 D_80063000[];
 extern u8 D_800BEA60[];
 extern s32 D_802A1230;
@@ -51,17 +51,17 @@ void func_80225840(s32 arg0)
     s32 temp_v0;
 
     func_80297D20();
-    Libc_Memset(&D_802A5300, 0, D_802B36D0 - D_802A5300);
-    Libc_Memset(&D_80063000, 0, D_800BEA60 - D_80063000);
+    hmemset(&D_802A5300, 0, D_802B36D0 - D_802A5300);
+    hmemset(&D_80063000, 0, D_800BEA60 - D_80063000);
     func_80225CA8();
     set_secure_call_arr(4, &D_8029F570);
     set_secure_call_arr(5, &D_8029F590);
     func_802341C8();
     ThreadProc_Init(arg0, 0xA, 0xA); // <--------- this will call osCreateScheduler
-    osViSetSpecialFeatures(2);
-    osViSetSpecialFeatures(4);
-    osViSetSpecialFeatures(0x40);
-    osViSetSpecialFeatures(0x10);
+    osViSetSpecialFeatures(OS_VI_GAMMA_OFF);
+    osViSetSpecialFeatures(OS_VI_GAMMA_DITHER_ON);
+    osViSetSpecialFeatures(OS_VI_DITHER_FILTER_ON);
+    osViSetSpecialFeatures(OS_VI_DIVOT_ON);
     HuPrcInit();
     func_8023A318();
     func_8023A22C();
@@ -81,8 +81,8 @@ void func_80225840(s32 arg0)
     id = Gfx_GetAvailableBuffer();
     func_8026C77C();
     g_initRandom(osGetTime());
-#undef func_802998EC
-    temp_s0 = func_802998EC(0x1000); // mistake. This is secure mapped via the earlier set_secure_call_arr(5) call. Hudson called the unsecure function.
+#undef malloc
+    temp_s0 = malloc(0x1000); // mistake. This is secure mapped via the earlier set_secure_call_arr(5) call. Hudson called the unsecure function.
     func_80237890();
     HuPrcCreate(&func_80236F54, 0, temp_s0, 0x1000, 0x401);
     HuPrcCreate(&func_802334CC, 0, 0, 0, 0x402);

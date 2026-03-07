@@ -28,7 +28,7 @@ ROM := $(TARGET).z64
 ELF := $(BUILD_DIR)/$(TARGET).elf
 LD_SCRIPT := $(TARGET).ld
 LD_MAP := $(BUILD_DIR)/$(TARGET).map
-ASM_DIRS := asm asm/data asm/libultra asm/libultra/os asm/libultra/io asm/libultra/gu asm/libultra/libc asm/libultra/al asm/libultra/audio asm/data/libultra asm/data/libultra/gu asm/data/libultra/os asm/overlays
+ASM_DIRS := asm asm/data asm/libultra asm/libultra/os asm/libultra/io asm/libultra/gu asm/libultra/libc asm/libultra/al asm/libultra/audio asm/data/libultra asm/data/libultra/gu asm/data/libultra/os asm/libmalloc asm/overlays
 DATA_DIRS := bin assets
 # not implemented
 SRC_DIRS := $(shell find src -type d)
@@ -209,7 +209,7 @@ OBJDUMP_FLAGS := -d -r -z -Mreg-names=32
 INC_DIRS := include include/PR include/audio include/ido . src/boot/malloc
 IINCS := $(foreach d,$(INC_DIRS),-I$d)
 # defines for SGI IDO
-CDEFS := -D_LANGUAGE_C
+CDEFS := -D_LANGUAGE_C -DSTDC_HEADERS
 
 ifneq ($(RUN_CC_CHECK),0)
   CHECK_WARNINGS := -Wall -Wextra
@@ -241,6 +241,9 @@ LDFLAGS = -T undefined_syms_auto.txt -T undefined_funcs_auto.txt -T $(BUILD_DIR)
 ######################## Targets #############################
 
 $(foreach dir,$(SRC_DIRS) $(ASM_DIRS) $(DATA_DIRS) $(COMPRESSED_DIRS) $(MAP_DIRS) $(BGM_DIRS),$(shell mkdir -p build/$(dir)))
+
+# libmalloc used -g
+build/src/libmalloc/gmalloc.c.o: OPTFLAGS := -g -DPAGESIZE=0x1000
 
 # this uses -O3 for some reason
 

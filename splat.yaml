@@ -371,7 +371,8 @@ segments:
     - [0xB2410, asm]
     - [0xB2500, asm]
     - [0xB2530, hasm, zerojmp]
-    - [0xB3B70, asm]
+    - [0xB3B70, c, libmalloc/gmalloc]
+    - [0xB5E50, asm]
     - [0xB63F0, asm]
     - [0xB6680, asm]
     - [0xB7710, asm]
@@ -379,6 +380,8 @@ segments:
     - [0xB7A50, data] # Rsp area
     - [0xB8F50, data]
     - [0xB9D70, data]
+    - [0xBD4F0, .data, libmalloc/gmalloc]
+    - [0xBD500, data]
     - [0xBF800, data]
     - [0xBFB00]
 
@@ -387,13 +390,14 @@ segments:
     - {vram: 0x802A5380, type:  bss, name: unk_bss_2}
     - {vram: 0x802A5A60, type: .bss, name: thread_proc}
     - {vram: 0x802A8C40, type:  bss, name: unk_bss_3}
+    - {vram: 0x802B3620, type: .bss, name: libmalloc/gmalloc}
 
   - name: pad
-    type: bin
+    type: data
     start: 0xBFB00
     vram: 0x80083000 # Unknown
     subsegments:
-      - [0xBFB00, pad]
+      - [0xBFB00, data]
 
   - name: ovl_tables_data
     exclusive_ram_id: code
