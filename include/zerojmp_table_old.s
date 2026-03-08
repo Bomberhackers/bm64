@@ -87,8 +87,8 @@ zerojmp_func func_80225FB8, ZEROJMP_AREA, 0x404
 zerojmp_func func_80225CCC, ZEROJMP_AREA, 0x405
 zerojmp_func func_80225CC0, ZEROJMP_AREA, 0x406
 zerojmp_func func_802266DC, ZEROJMP_AREA, 0x407
-zerojmp_func func_802998EC, ZEROJMP_AREA, 0x500
-zerojmp_func func_8029ADCC, ZEROJMP_AREA, 0x501
+zerojmp_func malloc, ZEROJMP_AREA, 0x500
+zerojmp_func free, ZEROJMP_AREA, 0x501
 zerojmp_func __osGetActiveQueue, ZEROJMP_AREA, 0x600
 zerojmp_func osViGetCurrentMode, ZEROJMP_AREA, 0x601
 zerojmp_func osViGetCurrentLine, ZEROJMP_AREA, 0x602

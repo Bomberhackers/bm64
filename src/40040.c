@@ -55,7 +55,7 @@ void func_80225840(s32 arg0)
     hmemset(&D_80063000, 0, D_800BEA60 - D_80063000);
     func_80225CA8();
     set_secure_call_arr(4, &D_8029F570);
-    set_secure_call_arr(5, &D_8029F590);
+    set_secure_call_arr(ZEROJMP_LIBMALLOC_TABLE_ID, &gLibmallocFuncs);
     func_802341C8();
     ThreadProc_Init(arg0, 0xA, 0xA); // <--------- this will call osCreateScheduler
     osViSetSpecialFeatures(OS_VI_GAMMA_OFF);
